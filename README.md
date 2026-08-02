@@ -14,13 +14,13 @@ configuration used by this workspace.
 
 | Module | Contracts | Pinned commit |
 |---|---|---|
-| [Core](https://github.com/ArchLiquid/archliquid-core) | Treasury, stock registry, constrained stock execution, exchange interfaces, and shared math | [`a9ec0d6`](https://github.com/ArchLiquid/archliquid-core/commit/a9ec0d689220a9acdeeae15c9350b8906f64d3eb) |
-| [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | ERC-20 liquidity locks and Uniswap V3 position locks | [`21d9a19`](https://github.com/ArchLiquid/archliquid-lockers/commit/21d9a19ed562c91727ca3364974848e2d49d0273) |
-| [Token](https://github.com/ArchLiquid/archliquid-token) | Fixed-supply distribution token and token factory | [`10b50cf`](https://github.com/ArchLiquid/archliquid-token/commit/10b50cfb356a66d54076c0ce241cc45b339b3f12) |
-| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | Fixed-price presales, bonding curves, and launch deployers | [`21f0fd7`](https://github.com/ArchLiquid/archliquid-launchpad/commit/21f0fd70f5e035c10143c0529676cc8c80ff020f) |
-| [Vesting](https://github.com/ArchLiquid/archliquid-vesting) | Immutable cliff and linear-release schedules | [`b1b6898`](https://github.com/ArchLiquid/archliquid-vesting/commit/b1b6898b5f49bae0fdb9878cf8b312b7472ae9c8) |
-| [Staking](https://github.com/ArchLiquid/archliquid-staking) | Factory-created staking pools with funded rewards | [`b72ea1c`](https://github.com/ArchLiquid/archliquid-staking/commit/b72ea1ca1022a7ae36e4f340a53ff8e8ce2022ea) |
-| [Lending](https://github.com/ArchLiquid/archliquid-lending) | Collateralized ERC-20 markets, Chainlink pricing, and flash loans | [`0a5fe0a`](https://github.com/ArchLiquid/archliquid-lending/commit/0a5fe0a19f4be5aac13a2429d1753c0f3bbbffb1) |
+| [Core](https://github.com/ArchLiquid/archliquid-core) | Treasury, stock registry, constrained stock execution, exchange interfaces, and shared math | [`b1f0bec`](https://github.com/ArchLiquid/archliquid-core/commit/b1f0bec05bdee32cdcb3dfa74310f2f5476760be) |
+| [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | ERC-20 liquidity locks and Uniswap V3 position locks | [`a91771c`](https://github.com/ArchLiquid/archliquid-lockers/commit/a91771ca0ff37598fe79e4a01d214459bfeddb20) |
+| [Token](https://github.com/ArchLiquid/archliquid-token) | Fixed-supply distribution token and token factory | [`b5cd812`](https://github.com/ArchLiquid/archliquid-token/commit/b5cd8124c39a2e46bee19f74ea8f735178a0276b) |
+| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | Fixed-price presales, bonding curves, and launch deployers | [`73d280a`](https://github.com/ArchLiquid/archliquid-launchpad/commit/73d280aeda488ee0f9d3e4bc78f4ba78c75d2085) |
+| [Vesting](https://github.com/ArchLiquid/archliquid-vesting) | Immutable cliff and linear-release schedules | [`88c3f26`](https://github.com/ArchLiquid/archliquid-vesting/commit/88c3f26a0a58faa40010e7b6c320322078658194) |
+| [Staking](https://github.com/ArchLiquid/archliquid-staking) | Factory-created staking pools with funded rewards | [`8933871`](https://github.com/ArchLiquid/archliquid-staking/commit/8933871b5c4b9b8bf6fa742e8d3494645b3842ab) |
+| [Lending](https://github.com/ArchLiquid/archliquid-lending) | Collateralized ERC-20 markets, Chainlink pricing, and flash loans | [`53cfa0a`](https://github.com/ArchLiquid/archliquid-lending/commit/53cfa0a1340984c6e4eee4cdd462dc140ba66410) |
 
 This repository contains deployment composition, cross-module tests, common
 test doubles, and network manifests. It does not maintain a second copy of the
