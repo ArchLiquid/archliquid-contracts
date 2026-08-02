@@ -14,43 +14,43 @@
       "name": "core",
       "repository": "https://github.com/ArchLiquid/archliquid-core.git",
       "path": "lib/core",
-      "commit": "a9ec0d689220a9acdeeae15c9350b8906f64d3eb"
+      "commit": "b1f0bec05bdee32cdcb3dfa74310f2f5476760be"
     },
     {
       "name": "lockers",
       "repository": "https://github.com/ArchLiquid/archliquid-lockers.git",
       "path": "lib/lockers",
-      "commit": "21d9a19ed562c91727ca3364974848e2d49d0273"
+      "commit": "a91771ca0ff37598fe79e4a01d214459bfeddb20"
     },
     {
       "name": "token",
       "repository": "https://github.com/ArchLiquid/archliquid-token.git",
       "path": "lib/token",
-      "commit": "10b50cfb356a66d54076c0ce241cc45b339b3f12"
+      "commit": "b5cd8124c39a2e46bee19f74ea8f735178a0276b"
     },
     {
       "name": "launchpad",
       "repository": "https://github.com/ArchLiquid/archliquid-launchpad.git",
       "path": "lib/launchpad",
-      "commit": "21f0fd70f5e035c10143c0529676cc8c80ff020f"
+      "commit": "73d280aeda488ee0f9d3e4bc78f4ba78c75d2085"
     },
     {
       "name": "vesting",
       "repository": "https://github.com/ArchLiquid/archliquid-vesting.git",
       "path": "lib/vesting",
-      "commit": "b1b6898b5f49bae0fdb9878cf8b312b7472ae9c8"
+      "commit": "88c3f26a0a58faa40010e7b6c320322078658194"
     },
     {
       "name": "staking",
       "repository": "https://github.com/ArchLiquid/archliquid-staking.git",
       "path": "lib/staking",
-      "commit": "b72ea1ca1022a7ae36e4f340a53ff8e8ce2022ea"
+      "commit": "8933871b5c4b9b8bf6fa742e8d3494645b3842ab"
     },
     {
       "name": "lending",
       "repository": "https://github.com/ArchLiquid/archliquid-lending.git",
       "path": "lib/lending",
-      "commit": "0a5fe0a19f4be5aac13a2429d1753c0f3bbbffb1"
+      "commit": "53cfa0a1340984c6e4eee4cdd462dc140ba66410"
     }
   ],
   "dependencies": [
