@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "release": {
+    "id": "robinhood-testnet-2026-08-01-r2",
+    "environment": "testnet",
+    "lastAuditedBlock": "96240130",
+    "releaseApprover": "0x6a51C3672B6C4d5d556f23A18918983390a832C8"
+  },
+  "network": {
+    "name": "Robinhood Chain Testnet",
+    "chainId": 46630,
+    "rpcUrl": "https://rpc.testnet.chain.robinhood.com",
+    "explorerUrl": "https://explorer.testnet.chain.robinhood.com"
+  },
+  "roles": {
+    "governance": {
+      "address": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
+      "accountType": "eoa",
+      "riskAcceptance": "Single-key governance is accepted only for this valueless mock testnet preview."
+    },
+    "keeper": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
+    "deployer": "0x6a51C3672B6C4d5d556f23A18918983390a832C8"
+  },
+  "contracts": {
+    "treasury": "0xfdb12B447f1cd45f249f40B18C0FEe65f36cD34D",
+    "locker": "0x29AfEE3C47DaeD068893819B14Fce4a9EBeD7Cab",
+    "vesting": "0x7fC183A29875353848CA70456200393232BB8F13",
+    "stockRegistry": "0x0784fF945ef4ce7f4e3e44E9Ea9a299368a9497f",
+    "stockExecutor": "0xf156A099D765F9453E249354664c272477AaAb96",
+    "tokenFactory": "0x9eEF65B9B4173249C908B4A6461a52e10bAB1D1c",
+    "presaleDeployer": "0xaD77f3eb704beF61d658074E67Ea669fdb886852",
+    "curveDeployer": "0x3893079cdCCd7A0191a774cc90F3bbf4214F1b9b",
+    "launchpad": "0x6D9bb846677A6EBb3f8A78cfe4D1313d5858e762",
+    "stakingFactory": "0x5af87c41b2B05786B69981df99CDfcC04D92B30F",
+    "comptroller": "0x4f9698F863854Ad943Dc6DC393765152E066FAA1",
+    "comptrollerImplementation": "0xb239DaDf1730264233C9cC28b0F5fbC22F46c200",
+    "priceOracle": "0x2f295166D13C017f62699F4de3F7B2277bF7bBaB",
+    "jumpRateModel": "0x90D288a1F78af3E85Dd3102139922c7579e494C5",
+    "arUSDG": "0xf0487666692F1f18F75f67898Ec1a2bE80b8Bf85",
+    "arNVDAx": "0x3818cCE96aFBFe21a5876A6EDF5cD158B2A2230C",
+    "weth": "0x29bCb33b264468EDba8f529058F8a5e5f0A46642",
+    "nfpm": "0xc1D80751123BA5059Dd2df237eACA51b017BD05A",
+    "swapRouter": "0x6763289AE244277CE5cE6C5050afb96D5d41a6Ae",
+    "stock": "0x5891BfA09C7A0df8375142B4Fb21269742964d6c",
+    "usdg": "0xabf3081252d7AadFF0062e217ab3DB2D25FB8D25",
+    "usdgFeed": "0xAD166BBab0e6BD175Bc1Dfee2005BB9c37e1689B",
+    "stockFeed": "0xa843870fFD4759234CAAe1c5d6Aa9Af178C28762"
+  },
+  "core": {
+    "feesWei": {
+      "locker": "200000000000000",
+      "vesting": "100000000000000",
+      "tokenFactory": "150000000000000",
+      "launchpad": "1000000000000000",
+      "stakingFactory": "500000000000000"
+    },
+    "stockPoolFee": "3000",
+    "stakingRewardFeeBps": "500",
+    "minimumLockerDurationSeconds": "2592000",
+    "minimumFactoryLockSeconds": "15552000",
+    "minimumFactoryLpPct": "10",
+    "allowlistedStocks": ["stock"],
+    "lockerFeeExempt": ["tokenFactory"],
+    "lockerFactories": ["launchpad"],
+    "testnetMockRouterNfpm": "nfpm"
+  },
+  "lending": {
+    "closeFactorMantissa": "500000000000000000",
+    "liquidationIncentiveMantissa": "1080000000000000000",
+    "pauseGuardian": "0x0000000000000000000000000000000000000000",
+    "borrowCapGuardian": "0x0000000000000000000000000000000000000000",
+    "interestRateModel": {
+      "blocksPerYear": "2102400",
+      "baseRatePerBlock": "9512937595",
+      "multiplierPerBlock": "59455859969",
+      "jumpMultiplierPerBlock": "475646879756",
+      "kink": "800000000000000000"
+    },
+    "markets": [
+      {
+        "key": "arUSDG",
+        "name": "ArchLiquid USDG",
+        "symbol": "arUSDG",
+        "underlying": "usdg",
+        "underlyingName": "Mock USDG",
+        "underlyingSymbol": "mUSDG",
+        "feed": "usdgFeed",
+        "listed": true,
+        "isComped": false,
+        "cTokenDecimals": "8",
+        "underlyingDecimals": "18",
+        "feedDecimals": "8",
+        "maxStalenessSeconds": "3600",
+        "collateralFactorMantissa": "0",
+        "reserveFactorMantissa": "200000000000000000",
+        "flashFeeBps": "5",
+        "supplyCap": "0",
+        "borrowCap": "0",
+        "allowUncapped": true,
+        "requireFreshFeed": false,
+        "riskAcceptance": "Uncapped permissionlessly mintable mock asset and permissionless mock feed; valueless testnet only."
+      },
+      {
+        "key": "arNVDAx",
+        "name": "ArchLiquid NVDA",
+        "symbol": "arNVDAx",
+        "underlying": "stock",
+        "underlyingName": "Mock NVDA",
+        "underlyingSymbol": "mNVDAx",
+        "feed": "stockFeed",
+        "listed": true,
+        "isComped": false,
+        "cTokenDecimals": "8",
+        "underlyingDecimals": "18",
+        "feedDecimals": "8",
+        "maxStalenessSeconds": "3600",
+        "collateralFactorMantissa": "750000000000000000",
+        "reserveFactorMantissa": "200000000000000000",
+        "flashFeeBps": "5",
+        "supplyCap": "0",
+        "borrowCap": "0",
+        "allowUncapped": true,
+        "requireFreshFeed": false,
+        "riskAcceptance": "Uncapped permissionlessly mintable mock asset and permissionless mock feed; valueless testnet only."
+      }
+    ]
+  }
+}

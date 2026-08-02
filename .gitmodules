@@ -1,0 +1,27 @@
+[submodule "lib/core"]
+	path = lib/core
+	url = https://github.com/ArchLiquid/archliquid-core.git
+[submodule "lib/lockers"]
+	path = lib/lockers
+	url = https://github.com/ArchLiquid/archliquid-lockers.git
+[submodule "lib/token"]
+	path = lib/token
+	url = https://github.com/ArchLiquid/archliquid-token.git
+[submodule "lib/launchpad"]
+	path = lib/launchpad
+	url = https://github.com/ArchLiquid/archliquid-launchpad.git
+[submodule "lib/vesting"]
+	path = lib/vesting
+	url = https://github.com/ArchLiquid/archliquid-vesting.git
+[submodule "lib/staking"]
+	path = lib/staking
+	url = https://github.com/ArchLiquid/archliquid-staking.git
+[submodule "lib/lending"]
+	path = lib/lending
+	url = https://github.com/ArchLiquid/archliquid-lending.git
+[submodule "lib/forge-std"]
+	path = lib/forge-std
+	url = https://github.com/foundry-rs/forge-std.git
+[submodule "lib/openzeppelin-contracts"]
+	path = lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts.git

@@ -1,27 +1,214 @@
 # ArchLiquid Contracts
 
-Smart contracts for the ArchLiquid protocol on Robinhood Chain and compatible
-EVM networks.
+Composed deployment and cross-module integration workspace for ArchLiquid.
 
-ArchLiquid provides non-custodial liquidity locking, vesting, staking,
-RWA-distribution, launch, and lending primitives.
+> **Status:** Testnet preview. The ArchLiquid contracts have not been audited
+> by an external security firm. Review the source, module pins, deployment
+> configuration, and test results before interacting with any deployment.
 
-## Components
+## Module releases
 
-- Solidity contracts and interfaces;
-- liquidity lockers and vesting;
-- staking pools;
-- token creation and launch infrastructure;
-- RWA distribution; and
-- lending markets.
+Production contracts are imported from seven public modules at exact commits.
+[`modules.lock.json`](modules.lock.json) records the complete commit and compiler
+configuration used by this workspace.
 
-Learn more at [archliquid.com](https://archliquid.com/).
+| Module | Contracts | Pinned commit |
+|---|---|---|
+| [Core](https://github.com/ArchLiquid/archliquid-core) | Treasury, stock registry, constrained stock execution, exchange interfaces, and shared math | [`a9ec0d6`](https://github.com/ArchLiquid/archliquid-core/commit/a9ec0d689220a9acdeeae15c9350b8906f64d3eb) |
+| [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | ERC-20 liquidity locks and Uniswap V3 position locks | [`21d9a19`](https://github.com/ArchLiquid/archliquid-lockers/commit/21d9a19ed562c91727ca3364974848e2d49d0273) |
+| [Token](https://github.com/ArchLiquid/archliquid-token) | Fixed-supply distribution token and token factory | [`10b50cf`](https://github.com/ArchLiquid/archliquid-token/commit/10b50cfb356a66d54076c0ce241cc45b339b3f12) |
+| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | Fixed-price presales, bonding curves, and launch deployers | [`21f0fd7`](https://github.com/ArchLiquid/archliquid-launchpad/commit/21f0fd70f5e035c10143c0529676cc8c80ff020f) |
+| [Vesting](https://github.com/ArchLiquid/archliquid-vesting) | Immutable cliff and linear-release schedules | [`b1b6898`](https://github.com/ArchLiquid/archliquid-vesting/commit/b1b6898b5f49bae0fdb9878cf8b312b7472ae9c8) |
+| [Staking](https://github.com/ArchLiquid/archliquid-staking) | Factory-created staking pools with funded rewards | [`b72ea1c`](https://github.com/ArchLiquid/archliquid-staking/commit/b72ea1ca1022a7ae36e4f340a53ff8e8ce2022ea) |
+| [Lending](https://github.com/ArchLiquid/archliquid-lending) | Collateralized ERC-20 markets, Chainlink pricing, and flash loans | [`0a5fe0a`](https://github.com/ArchLiquid/archliquid-lending/commit/0a5fe0a19f4be5aac13a2429d1753c0f3bbbffb1) |
+
+This repository contains deployment composition, cross-module tests, common
+test doubles, and network manifests. It does not maintain a second copy of the
+production contracts.
+
+## Dependency graph
+
+```text
+core ──> lockers ──> token ──> launchpad
+  └───────────────> token ────────┘
+  └───────────────────────────────┘
+
+vesting      staking      lending
+    \            |            /
+     \-----------+-----------/
+                 v
+       composed deployment and tests
+```
+
+The integration workspace imports every module through the explicit remappings
+in [`foundry.toml`](foundry.toml). No module imports this repository.
+
+## Install and build
+
+Clone recursively. The first-party modules and third-party libraries are Git
+submodules fixed to the commits in `modules.lock.json`.
+
+```bash
+git clone --recurse-submodules https://github.com/ArchLiquid/archliquid-contracts.git
+cd archliquid-contracts
+
+forge build
+forge test
+forge build --sizes
+```
+
+The default build uses Solidity 0.8.30, Paris EVM, optimizer enabled with 200
+runs, and IR compilation. Paris remains the default because Robinhood Chain
+testnet requires bytecode without Cancun-only opcodes.
+
+## Integration tests
+
+[`ArchIntegration.t.sol`](test/ArchIntegration.t.sol) composes the pinned
+modules and checks:
+
+- token creation, stock distribution, holder claims, and collateralized
+  borrowing in one ecosystem flow;
+- flat fees reaching the treasury;
+- lending-market listing and oracle pricing; and
+- a presale from creation through contribution, finalization, liquidity, and
+  contributor claim.
+
+[`ArchSafetyEdgeCases.t.sol`](test/ArchSafetyEdgeCases.t.sol) covers composed
+configuration and solvency boundaries that span module ownership.
+
+```bash
+forge test --match-contract ArchIntegrationTest -vv
+forge test --match-contract ArchSafetyEdgeCasesTest -vv
+```
+
+The local composed suite contains six executing tests. Five additional
+Robinhood mainnet-fork checks are opt-in and return early unless
+`RH_MAINNET_RPC_URL` is present.
+
+## Robinhood mainnet fork checks
+
+Robinhood production token bytecode uses Cancun opcodes, so the opt-in local
+fork runs with an explicit Cancun EVM target:
+
+```bash
+RH_MAINNET_RPC_URL=https://rpc.mainnet.chain.robinhood.com \
+forge test --match-contract RobinhoodMainnetForkTest \
+  --evm-version cancun -vv
+```
+
+The five checks validate the configured V3 periphery, the seven-field
+SwapRouter02 call, constrained WETH execution, a WETH/USDG/AAPL route, and V3
+pool creation plus position minting. Foundry executes them against a local fork;
+the command does not broadcast a mainnet transaction.
+
+## Deploy the protocol composition
+
+[`DeployProtocol.s.sol`](script/DeployProtocol.s.sol) deploys the treasury, V3
+locker, vesting service, stock registry and constrained executor, token factory,
+launchpad, and staking factory. It requires:
+
+- `PRIVATE_KEY`
+- `PROTOCOL_MULTISIG`
+- `KEEPER`
+- `V3_NFPM`
+- `V3_SWAP_ROUTER`
+- `WETH`
+- `STOCK_SWAP_AGGREGATOR`
+
+Run the script without `--broadcast` first, inspect the complete simulation,
+and independently verify every supplied address on the target chain.
+
+```bash
+forge script script/DeployProtocol.s.sol:DeployProtocol \
+  --rpc-url <rpc-url>
+
+forge script script/DeployProtocol.s.sol:DeployProtocol \
+  --rpc-url <rpc-url> \
+  --broadcast
+```
+
+The deployer temporarily wires the locker and stock registry, then starts their
+two-step transfers to `PROTOCOL_MULTISIG`. After deployment, the multisig must
+accept both ownership transfers and approve each supported stock token.
+
+Lending deployment is provided by
+[`archliquid-lending/script/DeployLending.s.sol`](https://github.com/ArchLiquid/archliquid-lending/blob/main/script/DeployLending.s.sol).
+
+Never commit a private key or API key. Use a secure signer and secret manager
+for any live deployment.
+
+## Self-contained testnet deployment
+
+[`DeployTestnet.s.sol`](script/DeployTestnet.s.sol) creates a complete stack with
+mock WETH, V3 infrastructure, stock/USDG tokens, price feeds, and two lending
+markets. It is intended for valueless testnet testing, not production use.
+
+```bash
+PRIVATE_KEY=<testnet-key> forge script \
+  script/DeployTestnet.s.sol:DeployTestnet \
+  --rpc-url robinhood_testnet
+```
+
+Creation fees can be overridden with `LOCKER_FEE`, `VESTING_FEE`,
+`FACTORY_FEE`, `LISTING_FEE`, and `STAKING_FEE`. The defaults are the immutable
+values declared by the deployment script.
+
+The follow-up scripts exercise deployed flows:
+
+```bash
+forge script script/TestnetFlywheelCreate.s.sol:TestnetFlywheelCreate \
+  --rpc-url robinhood_testnet
+
+PROBE_TOKEN=<created-token> forge script \
+  script/TestnetFlywheelFollowup.s.sol:TestnetFlywheelFollowup \
+  --rpc-url robinhood_testnet
+
+forge script script/TestnetProbe.s.sol:TestnetProbe \
+  --rpc-url robinhood_testnet
+
+forge script script/TestnetPresaleProbe.s.sol:TestnetPresaleProbe \
+  --rpc-url robinhood_testnet
+```
+
+Add `--broadcast` only after a successful simulation and explicit review of the
+target network, signer, fees, balances, and addresses.
+
+## Published testnet manifest
+
+[`deployments/robinhood-testnet.json`](deployments/robinhood-testnet.json)
+records the Robinhood Chain testnet release, roles, deployed addresses, fee and
+risk settings, markets, oracle feeds, and the block used for the recorded state
+checks. It describes a valueless mock testnet deployment and must not be treated
+as a mainnet address list.
+
+[`deployments/robinhood-testnet.approval.json`](deployments/robinhood-testnet.approval.json)
+contains the release identifier, canonical manifest digest, signer, and EIP-191
+signature for that exact manifest. Changing the manifest invalidates the
+approval and requires a new signature from the declared release approver.
+
+## Updating a module
+
+When a module changes, update all three references together:
+
+1. the module's Git submodule commit;
+2. its full commit in `modules.lock.json`; and
+3. the module table in this README.
+
+Then run the composed build, tests, and size report. If an API, invariant,
+deployment value, or security assumption changed, update the affected module
+guide and this integration guide in the same change.
 
 ## Security
 
-See [SECURITY.md](SECURITY.md) for private vulnerability-reporting instructions.
-Do not test against wallets, systems, contracts, or funds you do not own.
+Read [SECURITY.md](SECURITY.md) before reporting a vulnerability. Use GitHub's
+private vulnerability reporting flow; do not publish exploit details in an
+issue.
 
 ## License
 
-ArchLiquid material is proprietary. See [LICENSE](LICENSE).
+Copyright (c) 2026 ArchLiquid. This repository is public source, not open
+source. No permission to use, copy, modify, compile, deploy, or distribute the
+first-party materials is granted without prior written approval. See
+[LICENSE](LICENSE). Files marked `LicenseRef-ArchLiquid-Proprietary` are
+governed by that license. Compound-derived and third-party files retain their
+respective license identifiers and terms.
