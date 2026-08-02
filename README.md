@@ -45,17 +45,28 @@ in [`foundry.toml`](foundry.toml). No module imports this repository.
 
 ## Install and build
 
-Clone recursively. The first-party modules and third-party libraries are Git
-submodules fixed to the commits in `modules.lock.json`.
+Clone the repository, initialize the seven direct modules and shared Foundry
+dependencies, then initialize Compound inside the Lending module. Every path is
+fixed to the commit recorded in `modules.lock.json`.
 
 ```bash
-git clone --recurse-submodules https://github.com/ArchLiquid/archliquid-contracts.git
+git clone https://github.com/ArchLiquid/archliquid-contracts.git
 cd archliquid-contracts
+
+git submodule update --init \
+  lib/core lib/lockers lib/token lib/launchpad \
+  lib/vesting lib/staking lib/lending \
+  lib/forge-std lib/openzeppelin-contracts
+
+git -C lib/lending submodule update --init lib/compound-protocol
 
 forge build
 forge test
 forge build --sizes
 ```
+
+The composed workspace does not require each module's standalone development
+submodules, so a recursive checkout is unnecessary.
 
 The default build uses Solidity 0.8.30, Paris EVM, optimizer enabled with 200
 runs, and IR compilation. Paris remains the default because Robinhood Chain
