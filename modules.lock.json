@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "compiler": {
+    "solc": "0.8.30",
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "viaIR": true
+  },
+  "modules": [
+    {
+      "name": "core",
+      "repository": "https://github.com/ArchLiquid/archliquid-core.git",
+      "path": "lib/core",
+      "commit": "a9ec0d689220a9acdeeae15c9350b8906f64d3eb"
+    },
+    {
+      "name": "lockers",
+      "repository": "https://github.com/ArchLiquid/archliquid-lockers.git",
+      "path": "lib/lockers",
+      "commit": "21d9a19ed562c91727ca3364974848e2d49d0273"
+    },
+    {
+      "name": "token",
+      "repository": "https://github.com/ArchLiquid/archliquid-token.git",
+      "path": "lib/token",
+      "commit": "10b50cfb356a66d54076c0ce241cc45b339b3f12"
+    },
+    {
+      "name": "launchpad",
+      "repository": "https://github.com/ArchLiquid/archliquid-launchpad.git",
+      "path": "lib/launchpad",
+      "commit": "21f0fd70f5e035c10143c0529676cc8c80ff020f"
+    },
+    {
+      "name": "vesting",
+      "repository": "https://github.com/ArchLiquid/archliquid-vesting.git",
+      "path": "lib/vesting",
+      "commit": "b1b6898b5f49bae0fdb9878cf8b312b7472ae9c8"
+    },
+    {
+      "name": "staking",
+      "repository": "https://github.com/ArchLiquid/archliquid-staking.git",
+      "path": "lib/staking",
+      "commit": "b72ea1ca1022a7ae36e4f340a53ff8e8ce2022ea"
+    },
+    {
+      "name": "lending",
+      "repository": "https://github.com/ArchLiquid/archliquid-lending.git",
+      "path": "lib/lending",
+      "commit": "0a5fe0a19f4be5aac13a2429d1753c0f3bbbffb1"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "forge-std",
+      "repository": "https://github.com/foundry-rs/forge-std.git",
+      "path": "lib/forge-std",
+      "commit": "c179529c064588ede54a0661ec3cc98219460d07"
+    },
+    {
+      "name": "openzeppelin-contracts",
+      "repository": "https://github.com/OpenZeppelin/openzeppelin-contracts.git",
+      "path": "lib/openzeppelin-contracts",
+      "commit": "5fd1781b1454fd1ef8e722282f86f9293cacf256"
+    },
+    {
+      "name": "compound-protocol",
+      "repository": "https://github.com/compound-finance/compound-protocol.git",
+      "path": "lib/lending/lib/compound-protocol",
+      "commit": "a3214f67b73310d547e00fc578e8355911c9d376"
+    }
+  ]
+}

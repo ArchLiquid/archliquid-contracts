@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "robinhood-testnet-2026-08-01-r2",
+  "manifestSha256": "d1dbeb2e42f0c49d8d2ff865eecf28dd4298365802fcf63b84be14c43192babb",
+  "signer": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
+  "signature": "0x7a9b9a19595f0c51758280c32fc4afe9e7a460c7b55ae34f7c06f171941a7ddb602692ee69f4912e534ede60e39810b01dada32265a737bf9167c318409fed271b"
+}
