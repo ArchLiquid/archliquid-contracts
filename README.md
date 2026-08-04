@@ -15,7 +15,7 @@ configuration used by this workspace.
 | Module | Contracts | Pinned commit |
 |---|---|---|
 | [Core](https://github.com/ArchLiquid/archliquid-core) | Treasury, stock registry, constrained stock execution, exchange interfaces, and shared math | [`b1f0bec`](https://github.com/ArchLiquid/archliquid-core/commit/b1f0bec05bdee32cdcb3dfa74310f2f5476760be) |
-| [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | ERC-20 liquidity locks and Uniswap V3 position locks | [`a91771c`](https://github.com/ArchLiquid/archliquid-lockers/commit/a91771ca0ff37598fe79e4a01d214459bfeddb20) |
+| [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | Canonical Uniswap V2 LP locks and dedicated Uniswap V3/V4 position locks | [`8be0e7d`](https://github.com/ArchLiquid/archliquid-lockers/commit/8be0e7d0873070695ebf0975d970ef665448f8c8) |
 | [Token](https://github.com/ArchLiquid/archliquid-token) | Fixed-supply distribution token and token factory | [`b5cd812`](https://github.com/ArchLiquid/archliquid-token/commit/b5cd8124c39a2e46bee19f74ea8f735178a0276b) |
 | [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | Fixed-price presales, bonding curves, and launch deployers | [`73d280a`](https://github.com/ArchLiquid/archliquid-launchpad/commit/73d280aeda488ee0f9d3e4bc78f4ba78c75d2085) |
 | [Vesting](https://github.com/ArchLiquid/archliquid-vesting) | Immutable cliff and linear-release schedules | [`88c3f26`](https://github.com/ArchLiquid/archliquid-vesting/commit/88c3f26a0a58faa40010e7b6c320322078658194) |
@@ -92,9 +92,9 @@ forge test --match-contract ArchIntegrationTest -vv
 forge test --match-contract ArchSafetyEdgeCasesTest -vv
 ```
 
-The local composed suite contains six executing tests. Five additional
-Robinhood mainnet-fork checks are opt-in and return early unless
-`RH_MAINNET_RPC_URL` is present.
+The local composed suite contains six executing integration and safety tests.
+Eight Robinhood mainnet checks and three Robinhood testnet V4 checks are opt-in
+and return early unless their respective RPC environment variable is present.
 
 ## Robinhood mainnet fork checks
 
@@ -107,22 +107,40 @@ forge test --match-contract RobinhoodMainnetForkTest \
   --evm-version cancun -vv
 ```
 
-The five checks validate the configured V3 periphery, the seven-field
-SwapRouter02 call, constrained WETH execution, a WETH/USDG/AAPL route, and V3
-pool creation plus position minting. Foundry executes them against a local fork;
-the command does not broadcast a mainnet transaction.
+The eight checks validate the configured V3 periphery, the seven-field
+SwapRouter02 call, constrained WETH execution, a WETH/USDG/AAPL route, V3 pool
+creation plus position minting, the live V2 WETH/USDG pair, canonical V2 LP
+custody, and the V4 periphery with a currently live position. Foundry executes
+them against a local fork; the command does not broadcast a mainnet
+transaction.
+
+The V4 testnet suite records the expected manager code hashes, confirms that
+the official mainnet V2 addresses have no testnet code, and exercises the
+dedicated V4 locker against a compatible live position:
+
+```bash
+RH_TESTNET_RPC_URL=https://rpc.testnet.chain.robinhood.com \
+forge test --match-contract RobinhoodTestnetV4ForkTest \
+  --evm-version cancun -vv
+```
+
+The observed V4 testnet PositionManager is not listed in Uniswap's public
+deployment inventory and differs from mainnet bytecode. These checks support
+experimental integration work; they do not mark V4 as released.
 
 ## Deploy the protocol composition
 
-[`DeployProtocol.s.sol`](script/DeployProtocol.s.sol) deploys the treasury, V3
-locker, vesting service, stock registry and constrained executor, token factory,
-launchpad, and staking factory. It requires:
+[`DeployProtocol.s.sol`](script/DeployProtocol.s.sol) deploys the treasury,
+V2/V3/V4 lockers, vesting service, stock registry and constrained executor,
+token factory, launchpad, and staking factory. It requires:
 
 - `PRIVATE_KEY`
 - `PROTOCOL_MULTISIG`
 - `KEEPER`
+- `V2_FACTORY`
 - `V3_NFPM`
 - `V3_SWAP_ROUTER`
+- `V4_POSITION_MANAGER`
 - `WETH`
 - `STOCK_SWAP_AGGREGATOR`
 
@@ -138,9 +156,10 @@ forge script script/DeployProtocol.s.sol:DeployProtocol \
   --broadcast
 ```
 
-The deployer temporarily wires the locker and stock registry, then starts their
-two-step transfers to `PROTOCOL_MULTISIG`. After deployment, the multisig must
-accept both ownership transfers and approve each supported stock token.
+The deployer temporarily wires the V3 locker and stock registry, then starts
+two-step ownership transfers for all three lockers and the registry to
+`PROTOCOL_MULTISIG`. After deployment, the multisig must accept those
+transfers and approve each supported stock token.
 
 Lending deployment is provided by
 [`archliquid-lending/script/DeployLending.s.sol`](https://github.com/ArchLiquid/archliquid-lending/blob/main/script/DeployLending.s.sol).
@@ -150,9 +169,10 @@ for any live deployment.
 
 ## Self-contained testnet deployment
 
-[`DeployTestnet.s.sol`](script/DeployTestnet.s.sol) creates a complete stack with
-mock WETH, V3 infrastructure, stock/USDG tokens, price feeds, and two lending
-markets. It is intended for valueless testnet testing, not production use.
+[`DeployTestnet.s.sol`](script/DeployTestnet.s.sol) creates a complete stack
+with mock WETH, V2/V3/V4 infrastructure, discoverable liquidity positions,
+stock/USDG tokens, price feeds, and two lending markets. It is intended for
+valueless testnet testing, not production use.
 
 ```bash
 PRIVATE_KEY=<testnet-key> forge script \
@@ -191,6 +211,11 @@ records the Robinhood Chain testnet release, roles, deployed addresses, fee and
 risk settings, markets, oracle feeds, and the block used for the recorded state
 checks. It describes a valueless mock testnet deployment and must not be treated
 as a mainnet address list.
+
+The signed manifest currently records the existing V3-only locker release.
+Source readiness for V2/V4 does not modify that signed record. Their addresses
+remain unavailable to the application until a new deployment is verified and
+approved in a new manifest.
 
 [`deployments/robinhood-testnet.approval.json`](deployments/robinhood-testnet.approval.json)
 contains the release identifier, canonical manifest digest, signer, and EIP-191
