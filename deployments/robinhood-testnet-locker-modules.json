@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "scope": "testnet-amm-modules",
+  "chainId": 46630,
+  "release": {
+    "id": "robinhood-testnet-amm-2026-08-04-r1",
+    "environment": "testnet",
+    "releaseApprover": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
+    "transactionCount": 31,
+    "deploymentBlock": "97004324"
+  },
+  "dependencies": {
+    "governance": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
+    "treasury": "0x48B49CEf2f6071405D6A62228ADC168a7baB2654",
+    "weth": "0x61293a735E35d76E8980Bf17715b37A0C4196512",
+    "stock": "0x1c80aC86447c8EEa5D0D70DCa78c632b7A249bEE",
+    "stockRegistry": "0xADB4b0D5908C179C97ce5A5b2879Ba3E8497Bd64",
+    "tokenDeployLibrary": "0x9b4778f8ba7C2A8FF930645dD08F47621A8c9d12"
+  },
+  "configuration": {
+    "lockerFeeWei": "200000000000000",
+    "factoryFeeWei": "150000000000000",
+    "listingFeeWei": "1000000000000000",
+    "stockSeedAmount": "1000000000000000000000000",
+    "wethSeedAmount": "10000000000000000",
+    "stockPoolFee": 0
+  },
+  "modules": {
+    "v2": {
+      "status": "live",
+      "factory": "0x3d51588C41586Bc391A989156fBE6a7ceEd51446",
+      "router": "0x42F1CF708A3DB2D4f3fF59FE400a8e4530662880",
+      "stockWethPair": "0xCCf6cDC4a0288661039DBd41461898c6DA7FadA1",
+      "locker": "0xb92D2c218bBb51C0F21fc12a6141596EafD98Def",
+      "liquidityAdapter": "0x975f6C3cDb10C47456646E7e5e67F06316561D55",
+      "swapRouter": "0xb8525F9F98480d0A0f54A834f0A8d407D8CED3F2",
+      "tokenFactory": "0x692Ae18590AdEbd3Fd1A0daBa6F7dB44F772b8bd",
+      "presaleDeployer": "0xE38264fd5A039ba4D7Ef78063E097251Eb71ADf1",
+      "curveDeployer": "0x3d7d22a82B61cE8f889c7AE5512d022755b7088e",
+      "launchpad": "0x911106D9c52b854bFF327446180C95f552e72cCd",
+      "deploymentBlock": "97004324"
+    },
+    "v3": {
+      "status": "live",
+      "deploymentBlock": "96470063"
+    },
+    "v4": {
+      "status": "live",
+      "poolManager": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+      "positionManager": "0x58daec3116aae6D93017bAAea7749052E8a04fA7",
+      "stateView": "0xF3334192D15450CdD385c8B70e03f9A6bD9E673b",
+      "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+      "locker": "0x8A1bC51e25b8799a5da57ff55f0262A405Ed2b98",
+      "liquidityAdapter": "0x014e5142D5A6945930832506A5A99030F2B68A16",
+      "swapRouter": "0xa4C298f17d051634f59Dd37FEE05D4892a8153Ea",
+      "tokenFactory": "0xFf575Bc8DFE5Dd34c17814f71D091F1692e531AF",
+      "presaleDeployer": "0x1BCa560C6A822E648b8782F4783060bEb70B5619",
+      "curveDeployer": "0x804a43B0B49Dd5F1232Eaa60aAB8259fe09074f6",
+      "launchpad": "0x94eEec9B20cDE4C58E7F982A863e913977AD73Ed",
+      "deploymentBlock": "97004324",
+      "poolManagerCodeHash": "0xbd3881180b547f5fe817545743cfb4343e96b1bc6640dcd70c106b0066e95626",
+      "positionManagerCodeHash": "0xf3a0edb689229fa4bf135a728f2ec2eb4a2fbee2e41e3e74ffadb7b4c56e8a6d",
+      "sourceVerified": false
+    }
+  }
+}

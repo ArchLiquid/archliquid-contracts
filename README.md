@@ -2,29 +2,28 @@
 
 Composed deployment and cross-module integration workspace for ArchLiquid.
 
-> **Status:** Testnet preview. The ArchLiquid contracts have not been audited
-> by an external security firm. Review the source, module pins, deployment
-> configuration, and test results before interacting with any deployment.
+> **Status:** Live on Robinhood Chain testnet. Testnet assets have no monetary
+> value. Review the contract, network, and transaction details before signing.
 
 ## Module releases
 
-Production contracts are imported from seven public modules at exact commits.
+First-party contracts are imported from seven public modules at exact commits.
 [`modules.lock.json`](modules.lock.json) records the complete commit and compiler
 configuration used by this workspace.
 
 | Module | Contracts | Pinned commit |
 |---|---|---|
 | [Core](https://github.com/ArchLiquid/archliquid-core) | Treasury, stock registry, constrained stock execution, exchange interfaces, and shared math | [`b1f0bec`](https://github.com/ArchLiquid/archliquid-core/commit/b1f0bec05bdee32cdcb3dfa74310f2f5476760be) |
-| [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | Canonical Uniswap V2 LP locks and dedicated Uniswap V3/V4 position locks | [`8be0e7d`](https://github.com/ArchLiquid/archliquid-lockers/commit/8be0e7d0873070695ebf0975d970ef665448f8c8) |
+| [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | Canonical Uniswap V2 LP locks and dedicated Uniswap V3/V4 position locks | [`5873bb7`](https://github.com/ArchLiquid/archliquid-lockers/commit/5873bb7b455490714bd541008137b014e739a487) |
 | [Token](https://github.com/ArchLiquid/archliquid-token) | Fixed-supply distribution token and token factory | [`b5cd812`](https://github.com/ArchLiquid/archliquid-token/commit/b5cd8124c39a2e46bee19f74ea8f735178a0276b) |
-| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | Fixed-price presales, bonding curves, and launch deployers | [`73d280a`](https://github.com/ArchLiquid/archliquid-launchpad/commit/73d280aeda488ee0f9d3e4bc78f4ba78c75d2085) |
+| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | V2/V3/V4 fixed-price presales, bonding curves, AMM adapters, and launch deployers | [`1705f87`](https://github.com/ArchLiquid/archliquid-launchpad/commit/1705f87859ac382f5982083fadd93d4617f41e8b) |
 | [Vesting](https://github.com/ArchLiquid/archliquid-vesting) | Immutable cliff and linear-release schedules | [`88c3f26`](https://github.com/ArchLiquid/archliquid-vesting/commit/88c3f26a0a58faa40010e7b6c320322078658194) |
 | [Staking](https://github.com/ArchLiquid/archliquid-staking) | Factory-created staking pools with funded rewards | [`8933871`](https://github.com/ArchLiquid/archliquid-staking/commit/8933871b5c4b9b8bf6fa742e8d3494645b3842ab) |
 | [Lending](https://github.com/ArchLiquid/archliquid-lending) | Collateralized ERC-20 markets, Chainlink pricing, and flash loans | [`53cfa0a`](https://github.com/ArchLiquid/archliquid-lending/commit/53cfa0a1340984c6e4eee4cdd462dc140ba66410) |
 
 This repository contains deployment composition, cross-module tests, common
 test doubles, and network manifests. It does not maintain a second copy of the
-production contracts.
+first-party contracts.
 
 ## Dependency graph
 
@@ -68,9 +67,9 @@ forge build --sizes
 The composed workspace does not require each module's standalone development
 submodules, so a recursive checkout is unnecessary.
 
-The default build uses Solidity 0.8.30, Paris EVM, optimizer enabled with 200
-runs, and IR compilation. Paris remains the default because Robinhood Chain
-testnet requires bytecode without Cancun-only opcodes.
+The default build uses Solidity 0.8.30, Cancun EVM, optimizer enabled with 200
+runs, and IR compilation. The exact settings are recorded in
+[`modules.lock.json`](modules.lock.json).
 
 ## Integration tests
 
@@ -92,9 +91,9 @@ forge test --match-contract ArchIntegrationTest -vv
 forge test --match-contract ArchSafetyEdgeCasesTest -vv
 ```
 
-The local composed suite contains six executing integration and safety tests.
-Eight Robinhood mainnet checks and three Robinhood testnet V4 checks are opt-in
-and return early unless their respective RPC environment variable is present.
+The local composed suite also compiles the current V2 and V4 launch modules.
+Fork checks return early unless their respective RPC environment variable is
+present, so the explicit commands below are required for live-chain coverage.
 
 ## Robinhood mainnet fork checks
 
@@ -124,9 +123,29 @@ forge test --match-contract RobinhoodTestnetV4ForkTest \
   --evm-version cancun -vv
 ```
 
-The observed V4 testnet PositionManager is not listed in Uniswap's public
-deployment inventory and differs from mainnet bytecode. These checks support
-experimental integration work; they do not mark V4 as released.
+The V4 PositionManager used by the testnet release differs from Robinhood
+mainnet bytecode. Its exact address and runtime code hash are pinned in the
+signed module manifest.
+
+## Mined release lifecycle checks
+
+[`ArchMinedAmmReleaseFork.t.sol`](test/ArchMinedAmmReleaseFork.t.sol) calls the
+exact deployed factories, launchpads, lockers, and routers from the signed
+module manifest. On a read-only fork it proves four complete paths:
+
+- V2 factory creation, canonical LP locking, buy, sell, distribution, maturity,
+  and withdrawal;
+- V4 factory creation, position locking, buy, sell, distribution, fee
+  collection without principal removal, maturity, and withdrawal;
+- V2 curve creation and graduation into permanently held LP tokens; and
+- V4 curve creation and graduation into a permanently held position NFT.
+
+```bash
+forge test --match-contract ArchMinedAmmReleaseForkTest \
+  --fork-url https://rpc.testnet.chain.robinhood.com -vv
+```
+
+All state changes made by this test remain on the local fork.
 
 ## Deploy the protocol composition
 
@@ -212,15 +231,28 @@ risk settings, markets, oracle feeds, and the block used for the recorded state
 checks. It describes a valueless mock testnet deployment and must not be treated
 as a mainnet address list.
 
-The signed manifest currently records the existing V3-only locker release.
-Source readiness for V2/V4 does not modify that signed record. Their addresses
-remain unavailable to the application until a new deployment is verified and
-approved in a new manifest.
-
 [`deployments/robinhood-testnet.approval.json`](deployments/robinhood-testnet.approval.json)
 contains the release identifier, canonical manifest digest, signer, and EIP-191
 signature for that exact manifest. Changing the manifest invalidates the
 approval and requires a new signature from the declared release approver.
+
+[`deployments/robinhood-testnet-locker-modules.json`](deployments/robinhood-testnet-locker-modules.json)
+records active V2, V3, and V4 modules for release
+`robinhood-testnet-amm-2026-08-04-r1`. Its detached approval is stored in
+[`deployments/robinhood-testnet-locker-modules.approval.json`](deployments/robinhood-testnet-locker-modules.approval.json).
+
+| Component | V2 | V4 |
+|---|---|---|
+| Launchpad | `0x911106D9c52b854bFF327446180C95f552e72cCd` | `0x94eEec9B20cDE4C58E7F982A863e913977AD73Ed` |
+| Token factory | `0x692Ae18590AdEbd3Fd1A0daBa6F7dB44F772b8bd` | `0xFf575Bc8DFE5Dd34c17814f71D091F1692e531AF` |
+| Liquidity adapter | `0x975f6C3cDb10C47456646E7e5e67F06316561D55` | `0x014e5142D5A6945930832506A5A99030F2B68A16` |
+| Swap adapter | `0xb8525F9F98480d0A0f54A834f0A8d407D8CED3F2` | `0xa4C298f17d051634f59Dd37FEE05D4892a8153Ea` |
+| Locker | `0xb92D2c218bBb51C0F21fc12a6141596EafD98Def` | `0x8A1bC51e25b8799a5da57ff55f0262A405Ed2b98` |
+
+The release manifest also pins every upstream AMM dependency, protocol role,
+fee, code hash, transaction count, and deployment block. The detached approval
+binds its SHA-256 digest to signer
+`0x6a51C3672B6C4d5d556f23A18918983390a832C8`.
 
 ## Updating a module
 

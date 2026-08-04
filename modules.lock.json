@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "compiler": {
     "solc": "0.8.30",
-    "evmVersion": "paris",
+    "evmVersion": "cancun",
     "optimizer": {
       "enabled": true,
       "runs": 200
@@ -20,7 +20,7 @@
       "name": "lockers",
       "repository": "https://github.com/ArchLiquid/archliquid-lockers.git",
       "path": "lib/lockers",
-      "commit": "8be0e7d0873070695ebf0975d970ef665448f8c8"
+      "commit": "5873bb7b455490714bd541008137b014e739a487"
     },
     {
       "name": "token",
@@ -32,7 +32,7 @@
       "name": "launchpad",
       "repository": "https://github.com/ArchLiquid/archliquid-launchpad.git",
       "path": "lib/launchpad",
-      "commit": "73d280aeda488ee0f9d3e4bc78f4ba78c75d2085"
+      "commit": "1705f87859ac382f5982083fadd93d4617f41e8b"
     },
     {
       "name": "vesting",
