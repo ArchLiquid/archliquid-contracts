@@ -5,9 +5,8 @@ import {Test} from "forge-std/Test.sol";
 import {ArchV4PositionLocker} from "@archliquid/lockers/ArchV4PositionLocker.sol";
 import {IUniswapV4PositionManager, PoolKey} from "@archliquid/lockers/interfaces/IUniswapV4.sol";
 
-/// @dev Opt-in fork checks for the V4 stack currently present on Robinhood
-///      testnet. Passing them does not imply that Uniswap documents this
-///      deployment or that ArchLiquid has enabled V4 in production.
+/// @dev Opt-in fork checks for the V4 stack used by the current Robinhood
+///      testnet release.
 contract RobinhoodTestnetV4ForkTest is Test {
     address internal constant OFFICIAL_V2_FACTORY = 0x8bcEaA40B9AcdfAedF85AdF4FF01F5Ad6517937f;
     address internal constant OFFICIAL_V2_ROUTER = 0x89e5DB8B5aA49aA85AC63f691524311AEB649eba;
@@ -17,9 +16,7 @@ contract RobinhoodTestnetV4ForkTest is Test {
         0xbd3881180b547f5fe817545743cfb4343e96b1bc6640dcd70c106b0066e95626;
     bytes32 internal constant TESTNET_POSITION_MANAGER_CODEHASH =
         0xf3a0edb689229fa4bf135a728f2ec2eb4a2fbee2e41e3e74ffadb7b4c56e8a6d;
-    bytes32 internal constant MAINNET_POSITION_MANAGER_CODEHASH =
-        0xc873e135dc9aaec88489cfbad146b4cb49d6a32e0d80326377784b7ba17670b2;
-    uint256 internal constant EVIDENCE_TOKEN_ID = 793;
+    uint256 internal constant PINNED_TOKEN_ID = 793;
 
     bool internal forkEnabled;
 
@@ -38,21 +35,20 @@ contract RobinhoodTestnetV4ForkTest is Test {
         assertEq(OFFICIAL_V2_ROUTER.code.length, 0);
     }
 
-    function test_v4StackIsFunctionalButPositionManagerDiffersFromMainnet() public view {
+    function test_v4StackIsFunctionalAndPinned() public view {
         if (!forkEnabled) return;
 
         assertEq(V4_POOL_MANAGER.codehash, POOL_MANAGER_CODEHASH);
         assertEq(V4_POSITION_MANAGER.codehash, TESTNET_POSITION_MANAGER_CODEHASH);
-        assertNotEq(V4_POSITION_MANAGER.codehash, MAINNET_POSITION_MANAGER_CODEHASH);
 
         IUniswapV4PositionManager manager = IUniswapV4PositionManager(V4_POSITION_MANAGER);
         assertEq(manager.poolManager(), V4_POOL_MANAGER);
-        assertGt(manager.nextTokenId(), EVIDENCE_TOKEN_ID);
-        assertNotEq(manager.ownerOf(EVIDENCE_TOKEN_ID), address(0));
-        (PoolKey memory key,) = manager.getPoolAndPositionInfo(EVIDENCE_TOKEN_ID);
+        assertGt(manager.nextTokenId(), PINNED_TOKEN_ID);
+        assertNotEq(manager.ownerOf(PINNED_TOKEN_ID), address(0));
+        (PoolKey memory key,) = manager.getPoolAndPositionInfo(PINNED_TOKEN_ID);
         assertNotEq(key.currency0, key.currency1);
         assertNotEq(key.hooks, address(0));
-        assertGt(manager.getPositionLiquidity(EVIDENCE_TOKEN_ID), 0);
+        assertGt(manager.getPositionLiquidity(PINNED_TOKEN_ID), 0);
     }
 
     function test_dedicatedLockerLifecycleAgainstLiveTestnetManager() public {
