@@ -14,9 +14,9 @@ configuration used by this workspace.
 | Module | Contracts | Pinned commit |
 |---|---|---|
 | [Core](https://github.com/ArchLiquid/archliquid-core) | Treasury, stock registry, constrained stock execution, exchange interfaces, and shared math | [`b1f0bec`](https://github.com/ArchLiquid/archliquid-core/commit/b1f0bec05bdee32cdcb3dfa74310f2f5476760be) |
-| [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | Canonical Uniswap V2 LP locks and dedicated Uniswap V3/V4 position locks | [`5873bb7`](https://github.com/ArchLiquid/archliquid-lockers/commit/5873bb7b455490714bd541008137b014e739a487) |
+| [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | Canonical Uniswap V2 LP locks and dedicated Uniswap V3/V4 position locks | [`f47efd0`](https://github.com/ArchLiquid/archliquid-lockers/commit/f47efd092c263d1d185a777079413119b546b4ac) |
 | [Token](https://github.com/ArchLiquid/archliquid-token) | Fixed-supply distribution token and token factory | [`b5cd812`](https://github.com/ArchLiquid/archliquid-token/commit/b5cd8124c39a2e46bee19f74ea8f735178a0276b) |
-| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | V2/V3/V4 fixed-price presales, bonding curves, AMM adapters, and launch deployers | [`1705f87`](https://github.com/ArchLiquid/archliquid-launchpad/commit/1705f87859ac382f5982083fadd93d4617f41e8b) |
+| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | V2/V3/V4 fixed-price presales, bonding curves, AMM adapters, and launch deployers | [`013c41b`](https://github.com/ArchLiquid/archliquid-launchpad/commit/013c41b2bd726225fe995430ebd427e950f6f553) |
 | [Vesting](https://github.com/ArchLiquid/archliquid-vesting) | Immutable cliff and linear-release schedules | [`88c3f26`](https://github.com/ArchLiquid/archliquid-vesting/commit/88c3f26a0a58faa40010e7b6c320322078658194) |
 | [Staking](https://github.com/ArchLiquid/archliquid-staking) | Factory-created staking pools with funded rewards | [`8933871`](https://github.com/ArchLiquid/archliquid-staking/commit/8933871b5c4b9b8bf6fa742e8d3494645b3842ab) |
 | [Lending](https://github.com/ArchLiquid/archliquid-lending) | Collateralized ERC-20 markets, Chainlink pricing, and flash loans | [`53cfa0a`](https://github.com/ArchLiquid/archliquid-lending/commit/53cfa0a1340984c6e4eee4cdd462dc140ba66410) |
