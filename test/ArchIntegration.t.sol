@@ -206,6 +206,8 @@ contract ArchIntegrationTest is Test {
     ///      holding, then borrows against that stock.
     function test_ecosystemLoop_earnStockThenBorrow() public {
         (ArchToken token, address pool) = _mkToken(alice, 300); // 3% tax
+        assertEq(token.TAX_BPS(), 300, "immutable trade tax");
+        assertEq(address(token.STOCK()), address(stock), "approved stock payout asset");
         assertEq(address(treasury).balance, FACTORY_FEE, "factory fee to treasury");
         assertEq(token.balanceOf(alice), 800_000e18, "creator holds 80%");
         assertTrue(token.isMarketPair(pool), "pool is a taxed pair");

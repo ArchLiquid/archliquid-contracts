@@ -152,6 +152,8 @@ contract ArchMinedAmmReleaseForkTest is Test {
         vm.prank(creator);
         token = ArchToken(payable(factory.createToken{value: FACTORY_FEE + 2 ether}(tokenParams, liquidity)));
         assertTrue(token.wired());
+        assertEq(token.TAX_BPS(), 300);
+        assertEq(address(token.STOCK()), STOCK);
         assertEq(token.balanceOf(creator), SUPPLY / 2);
     }
 
@@ -209,6 +211,11 @@ contract ArchMinedAmmReleaseForkTest is Test {
         vm.prank(GOVERNANCE);
         token.processDistribution(1, 1);
         assertGt(token.totalDistributed(), 0);
-        assertGt(token.withdrawableDividendOf(creator), 0);
+        uint256 creatorClaimable = token.withdrawableDividendOf(creator);
+        assertGt(creatorClaimable, 0);
+        uint256 creatorStockBefore = IERC20(STOCK).balanceOf(creator);
+        vm.prank(creator);
+        token.claim();
+        assertEq(IERC20(STOCK).balanceOf(creator) - creatorStockBefore, creatorClaimable);
     }
 }
