@@ -20,7 +20,7 @@
       "name": "lockers",
       "repository": "https://github.com/ArchLiquid/archliquid-lockers.git",
       "path": "lib/lockers",
-      "commit": "a91771ca0ff37598fe79e4a01d214459bfeddb20"
+      "commit": "8be0e7d0873070695ebf0975d970ef665448f8c8"
     },
     {
       "name": "token",
