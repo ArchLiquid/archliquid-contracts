@@ -20,7 +20,7 @@
       "name": "lockers",
       "repository": "https://github.com/ArchLiquid/archliquid-lockers.git",
       "path": "lib/lockers",
-      "commit": "5873bb7b455490714bd541008137b014e739a487"
+      "commit": "f47efd092c263d1d185a777079413119b546b4ac"
     },
     {
       "name": "token",
@@ -32,7 +32,7 @@
       "name": "launchpad",
       "repository": "https://github.com/ArchLiquid/archliquid-launchpad.git",
       "path": "lib/launchpad",
-      "commit": "1705f87859ac382f5982083fadd93d4617f41e8b"
+      "commit": "013c41b2bd726225fe995430ebd427e950f6f553"
     },
     {
       "name": "vesting",
