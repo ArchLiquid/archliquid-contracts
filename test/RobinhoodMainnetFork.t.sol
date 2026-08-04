@@ -55,6 +55,10 @@ contract RobinhoodMainnetForkTest is Test {
     bool internal forkEnabled;
 
     function setUp() public {
+        if (block.chainid == 4663) {
+            forkEnabled = true;
+            return;
+        }
         string memory rpc = vm.envOr("RH_MAINNET_RPC_URL", string(""));
         if (bytes(rpc).length == 0) return;
         vm.createSelectFork(rpc);

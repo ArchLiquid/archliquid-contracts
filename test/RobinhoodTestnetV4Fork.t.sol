@@ -23,6 +23,10 @@ contract RobinhoodTestnetV4ForkTest is Test {
     receive() external payable {}
 
     function setUp() public {
+        if (block.chainid == 46630) {
+            forkEnabled = true;
+            return;
+        }
         string memory rpc = vm.envOr("RH_TESTNET_RPC_URL", string(""));
         if (bytes(rpc).length == 0) return;
         vm.createSelectFork(rpc);
