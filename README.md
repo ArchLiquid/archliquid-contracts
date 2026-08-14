@@ -15,8 +15,8 @@ configuration used by this workspace.
 |---|---|---|
 | [Core](https://github.com/ArchLiquid/archliquid-core) | Treasury, stock registry, constrained stock execution, exchange interfaces, and shared math | [`b1f0bec`](https://github.com/ArchLiquid/archliquid-core/commit/b1f0bec05bdee32cdcb3dfa74310f2f5476760be) |
 | [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | Canonical Uniswap V2 LP locks and dedicated Uniswap V3/V4 position locks | [`f47efd0`](https://github.com/ArchLiquid/archliquid-lockers/commit/f47efd092c263d1d185a777079413119b546b4ac) |
-| [Token](https://github.com/ArchLiquid/archliquid-token) | Fixed-supply distribution token and token factory | [`b5cd812`](https://github.com/ArchLiquid/archliquid-token/commit/b5cd8124c39a2e46bee19f74ea8f735178a0276b) |
-| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | V2/V3/V4 fixed-price presales, bonding curves, AMM adapters, and launch deployers | [`013c41b`](https://github.com/ArchLiquid/archliquid-launchpad/commit/013c41b2bd726225fe995430ebd427e950f6f553) |
+| [Token](https://github.com/ArchLiquid/archliquid-token) | Fixed-supply distribution token, one-time deferred market wiring, and token factory | [`e2413e9`](https://github.com/ArchLiquid/archliquid-token/commit/e2413e9e1fdc86d93cf4544b2e7fa6adcd9976f1) |
+| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | V2/V3/V4 launches, AMM adapters, and immutable user-liquidity provisioning | [`29eb862`](https://github.com/ArchLiquid/archliquid-launchpad/commit/29eb86233916b83a329f8ac019da741e68bbfcd7) |
 | [Vesting](https://github.com/ArchLiquid/archliquid-vesting) | Immutable cliff and linear-release schedules | [`88c3f26`](https://github.com/ArchLiquid/archliquid-vesting/commit/88c3f26a0a58faa40010e7b6c320322078658194) |
 | [Staking](https://github.com/ArchLiquid/archliquid-staking) | Factory-created staking pools with funded rewards | [`8933871`](https://github.com/ArchLiquid/archliquid-staking/commit/8933871b5c4b9b8bf6fa742e8d3494645b3842ab) |
 | [Lending](https://github.com/ArchLiquid/archliquid-lending) | Timestamp-native collateralized ERC-20 markets, burn-before-list activation, bounded Chainlink liquidation pricing, and flash loans | [`5e3272d`](https://github.com/ArchLiquid/archliquid-lending/commit/5e3272d0bdf0299199cf288a24dcb5d39fa9f9ab) |
@@ -86,9 +86,17 @@ modules and checks:
 [`ArchSafetyEdgeCases.t.sol`](test/ArchSafetyEdgeCases.t.sol) covers composed
 configuration and solvency boundaries that span module ownership.
 
+[`ArchMinedUserLiquidityFork.t.sol`](test/ArchMinedUserLiquidityFork.t.sol)
+exercises the exact V2 user-liquidity contracts published in the signed
+release manifest. It proves that a user-created token can defer its first
+market, establish that pair through the immutable provisioner, add liquidity
+again, and reject unauthorized or mismatched provisioning attempts.
+
 ```bash
 forge test --match-contract ArchIntegrationTest -vv
 forge test --match-contract ArchSafetyEdgeCasesTest -vv
+forge test --match-contract ArchMinedUserLiquidityForkTest \
+  --fork-url https://rpc.testnet.chain.robinhood.com -vv
 ```
 
 The local composed suite also compiles the current V2 and V4 launch modules.
@@ -137,8 +145,10 @@ module manifest. On a read-only fork it proves four complete paths:
   and withdrawal;
 - V4 factory creation, position locking, buy, sell, distribution, fee
   collection without principal removal, maturity, and withdrawal;
-- V2 curve creation and graduation into permanently held LP tokens; and
-- V4 curve creation and graduation into a permanently held position NFT.
+- V2 curve creation and graduation into permanently held LP tokens;
+- V4 curve creation and graduation into a permanently held position NFT; and
+- V2 no-pool token creation, deferred first-pair provisioning, and a second
+  permissionless liquidity addition through the dedicated provisioner.
 
 ```bash
 forge test --match-contract ArchMinedAmmReleaseForkTest \
@@ -274,6 +284,24 @@ The release manifest also pins every upstream AMM dependency, protocol role,
 fee, code hash, transaction count, and deployment block. The detached approval
 binds its SHA-256 digest to signer
 `0x6a51C3672B6C4d5d556f23A18918983390a832C8`.
+
+[`deployments/robinhood-testnet-user-liquidity.json`](deployments/robinhood-testnet-user-liquidity.json)
+records release `robinhood-testnet-user-liquidity-2026-08-14-r1`, the seven
+contracts that enable user-created V2 pairs and their runtime code hashes. The
+canonical token and launchpad source commits are pinned in the module table and
+[`modules.lock.json`](modules.lock.json). The manifest's detached authorization is
+stored in
+[`deployments/robinhood-testnet-user-liquidity.approval.json`](deployments/robinhood-testnet-user-liquidity.approval.json).
+
+| User-liquidity component | Address |
+|---|---|
+| V2 liquidity adapter | `0x050F2cF78d3D33e73777Db3BF0A6B476DB668A66` |
+| User-liquidity provisioner | `0xad16a8806EdF001c053A856bD625cbd720335CeA` |
+| Token factory | `0xCB5756CAC20427a3d6536A7A55CC72B44dA9C1A7` |
+| Presale deployer | `0xA349D0a3B8b033189d3965712AB84B12580c1Df6` |
+| Bonding-curve deployer | `0x4f3379B3dc9Ff5157eA610C864c7B3946f9B8B0b` |
+| Launchpad | `0x3FD6651939A2138A5ecD4E17ba741e3ee0D6dfa6` |
+| Token deployment library | `0xfFB8696913Cdc47aA16D630E91dE208485508Cb1` |
 
 ## Updating a module
 

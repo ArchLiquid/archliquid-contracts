@@ -10,9 +10,9 @@ import {ArchAdapterTokenFactory} from "@archliquid/launchpad/ArchAdapterTokenFac
 import {ArchLiquidityLocker} from "@archliquid/lockers/ArchLiquidityLocker.sol";
 import {ArchToken} from "@archliquid/token/ArchToken.sol";
 import {ArchV4PositionLocker} from "@archliquid/lockers/ArchV4PositionLocker.sol";
-import {IUniswapV2Factory} from "@archliquid/lockers/interfaces/IUniswapV2.sol";
+import {IUniswapV2Factory} from "@archliquid/launchpad/interfaces/IUniswapV2.sol";
 import {ISwapRouter, IWETH9} from "@archliquid/core/interfaces/IUniswapV3.sol";
-import {IUniswapV4PositionManager} from "@archliquid/lockers/interfaces/IUniswapV4.sol";
+import {IUniswapV4PositionManager} from "@archliquid/launchpad/interfaces/IUniswapV4.sol";
 
 /// @notice Post-deployment lifecycle checks against the exact contracts in the
 ///         signed Robinhood testnet AMM module manifest. Run with --fork-url.
@@ -51,15 +51,13 @@ contract ArchMinedAmmReleaseForkTest is Test {
 
     function setUp() public {
         liveFork = address(V2_TOKEN_FACTORY).code.length > 0 && address(V4_TOKEN_FACTORY).code.length > 0;
-        if (!liveFork) return;
+        vm.skip(!liveFork, "requires Robinhood testnet fork");
 
         vm.deal(creator, 20 ether);
         vm.deal(trader, 20 ether);
     }
 
     function test_minedV2FactoryCreatesTradesDistributesAndWithdraws() public {
-        if (!liveFork) return;
-
         uint256 lockId = V2_LOCKER.lockCount();
         ArchToken token = _createFactoryToken(V2_TOKEN_FACTORY, 0, "Mined V2 Factory", "MV2F");
         address pair = V2_FACTORY.getPair(address(token), WETH);
@@ -83,8 +81,6 @@ contract ArchMinedAmmReleaseForkTest is Test {
     }
 
     function test_minedV4FactoryCreatesTradesCollectsAndWithdraws() public {
-        if (!liveFork) return;
-
         uint256 lockId = V4_LOCKER.lockCount();
         ArchToken token = _createFactoryToken(V4_TOKEN_FACTORY, V4_FEE, "Mined V4 Factory", "MV4F");
         ArchV4PositionLocker.Lock memory created = V4_LOCKER.getLock(lockId);
@@ -108,8 +104,6 @@ contract ArchMinedAmmReleaseForkTest is Test {
     }
 
     function test_minedV2LaunchpadCreatesAndGraduatesCurve() public {
-        if (!liveFork) return;
-
         ArchAdapterBondingCurve curve = _createCurve(V2_LAUNCHPAD, 0, "Mined V2 Curve", "MV2C");
         vm.prank(trader);
         curve.buy{value: curve.graduationBuyAmount()}(0);
@@ -122,8 +116,6 @@ contract ArchMinedAmmReleaseForkTest is Test {
     }
 
     function test_minedV4LaunchpadCreatesAndGraduatesCurve() public {
-        if (!liveFork) return;
-
         uint256 positionId = V4_POSITION_MANAGER.nextTokenId();
         ArchAdapterBondingCurve curve = _createCurve(V4_LAUNCHPAD, V4_FEE, "Mined V4 Curve", "MV4C");
         vm.prank(trader);

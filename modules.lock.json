@@ -26,13 +26,13 @@
       "name": "token",
       "repository": "https://github.com/ArchLiquid/archliquid-token.git",
       "path": "lib/token",
-      "commit": "b5cd8124c39a2e46bee19f74ea8f735178a0276b"
+      "commit": "e2413e9e1fdc86d93cf4544b2e7fa6adcd9976f1"
     },
     {
       "name": "launchpad",
       "repository": "https://github.com/ArchLiquid/archliquid-launchpad.git",
       "path": "lib/launchpad",
-      "commit": "de5f1281cc02ae505a8142b957927fef6b69b6ba"
+      "commit": "29eb86233916b83a329f8ac019da741e68bbfcd7"
     },
     {
       "name": "vesting",
