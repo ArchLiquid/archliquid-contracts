@@ -32,6 +32,22 @@ interface IRobinhoodV4StateView {
         returns (uint160 sqrtPriceX96, int24 tick, uint24 protocolFee, uint24 lpFee);
 }
 
+interface IRobinhoodNFPMIncrease {
+    struct IncreaseLiquidityParams {
+        uint256 tokenId;
+        uint256 amount0Desired;
+        uint256 amount1Desired;
+        uint256 amount0Min;
+        uint256 amount1Min;
+        uint256 deadline;
+    }
+
+    function increaseLiquidity(IncreaseLiquidityParams calldata params)
+        external
+        payable
+        returns (uint128 liquidity, uint256 amount0, uint256 amount1);
+}
+
 /// @dev Opt-in fork checks for the production Robinhood V3 deployment. Run with:
 ///      RH_MAINNET_RPC_URL=<rpc> forge test --match-contract RobinhoodMainnetForkTest
 ///      --evm-version cancun -vv
@@ -289,8 +305,8 @@ contract RobinhoodMainnetForkTest is Test {
             })
         );
 
-        (uint128 addedLiquidity, uint256 amount0, uint256 amount1) = manager.increaseLiquidity(
-            INonfungiblePositionManager.IncreaseLiquidityParams({
+        (uint128 addedLiquidity, uint256 amount0, uint256 amount1) = IRobinhoodNFPMIncrease(NFPM).increaseLiquidity(
+            IRobinhoodNFPMIncrease.IncreaseLiquidityParams({
                 tokenId: tokenId,
                 amount0Desired: 0.01 ether,
                 amount1Desired: 0.01 ether,
@@ -337,8 +353,8 @@ contract RobinhoodMainnetForkTest is Test {
         );
 
         vm.expectRevert();
-        manager.increaseLiquidity(
-            INonfungiblePositionManager.IncreaseLiquidityParams({
+        IRobinhoodNFPMIncrease(NFPM).increaseLiquidity(
+            IRobinhoodNFPMIncrease.IncreaseLiquidityParams({
                 tokenId: tokenId,
                 amount0Desired: 0.001 ether,
                 amount1Desired: 0.001 ether,
