@@ -23,6 +23,9 @@ jobs:
             lib/forge-std lib/openzeppelin-contracts
           git -C lib/lending submodule update --init lib/compound-protocol
 
+      - name: Verify user-liquidity release provenance
+        run: node scripts/verify-user-liquidity-release.mjs
+
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:

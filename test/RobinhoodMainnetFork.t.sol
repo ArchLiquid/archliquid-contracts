@@ -4,10 +4,11 @@ pragma solidity 0.8.30;
 import {Test} from "forge-std/Test.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {ArchLiquidityLocker} from "@archliquid/lockers/ArchLiquidityLocker.sol";
+import {IUniswapV2Factory as LockerV2Factory} from "@archliquid/lockers/interfaces/IUniswapV2.sol";
 import {ArchStockSwapExecutor} from "@archliquid/core/ArchStockSwapExecutor.sol";
-import {IUniswapV2Factory, IUniswapV2Pair} from "@archliquid/lockers/interfaces/IUniswapV2.sol";
+import {IUniswapV2Factory, IUniswapV2Pair} from "@archliquid/launchpad/interfaces/IUniswapV2.sol";
 import {INonfungiblePositionManager, ISwapRouter, IWETH9} from "@archliquid/core/interfaces/IUniswapV3.sol";
-import {IUniswapV4PositionManager, PoolKey} from "@archliquid/lockers/interfaces/IUniswapV4.sol";
+import {IUniswapV4PositionManager, PoolKey} from "@archliquid/launchpad/interfaces/IUniswapV4.sol";
 import {MockERC20} from "./mocks/Mocks.sol";
 
 interface IRobinhoodV3PeripheryState {
@@ -60,14 +61,12 @@ contract RobinhoodMainnetForkTest is Test {
             return;
         }
         string memory rpc = vm.envOr("RH_MAINNET_RPC_URL", string(""));
-        if (bytes(rpc).length == 0) return;
+        vm.skip(bytes(rpc).length == 0, "RH_MAINNET_RPC_URL is required");
         vm.createSelectFork(rpc);
         forkEnabled = true;
     }
 
     function test_productionPeripheryWiring() public view {
-        if (!forkEnabled) return;
-
         assertEq(IRobinhoodV3PeripheryState(NFPM).factory(), V3_FACTORY);
         assertEq(IRobinhoodV3PeripheryState(NFPM).WETH9(), WETH);
         assertEq(IRobinhoodSwapRouterState(SWAP_ROUTER).factory(), V3_FACTORY);
@@ -76,8 +75,6 @@ contract RobinhoodMainnetForkTest is Test {
     }
 
     function test_v2DeploymentAndLiveWethUsdgPair() public view {
-        if (!forkEnabled) return;
-
         assertGt(V2_FACTORY.code.length, 0);
         assertGt(V2_ROUTER.code.length, 0);
         assertEq(IRobinhoodV2RouterState(V2_ROUTER).factory(), V2_FACTORY);
@@ -97,10 +94,8 @@ contract RobinhoodMainnetForkTest is Test {
     }
 
     function test_v2LockerCustodiesCanonicalLivePairToken() public {
-        if (!forkEnabled) return;
-
         ArchLiquidityLocker locker =
-            new ArchLiquidityLocker(0, payable(address(0xBEEF)), IUniswapV2Factory(V2_FACTORY), address(this));
+            new ArchLiquidityLocker(0, payable(address(0xBEEF)), LockerV2Factory(V2_FACTORY), address(this));
         deal(V2_WETH_USDG_PAIR, address(this), 1e12);
         IERC20(V2_WETH_USDG_PAIR).approve(address(locker), 1e12);
         uint256 id = locker.lock(IERC20(V2_WETH_USDG_PAIR), 1e12, uint64(block.timestamp + 30 days), address(this));
@@ -111,8 +106,6 @@ contract RobinhoodMainnetForkTest is Test {
     }
 
     function test_v4DeploymentWiringAndLivePositionState() public view {
-        if (!forkEnabled) return;
-
         assertGt(V4_POOL_MANAGER.code.length, 0);
         assertGt(V4_POSITION_MANAGER.code.length, 0);
         assertGt(V4_QUOTER.code.length, 0);
@@ -156,8 +149,6 @@ contract RobinhoodMainnetForkTest is Test {
     }
 
     function test_swapRouter02SevenFieldExactInputSingleExecutes() public {
-        if (!forkEnabled) return;
-
         vm.deal(address(this), 1 ether);
         IWETH9(WETH).deposit{value: 0.001 ether}();
         IWETH9(WETH).approve(SWAP_ROUTER, 0.001 ether);
@@ -181,8 +172,6 @@ contract RobinhoodMainnetForkTest is Test {
     }
 
     function test_constrainedExecutorExecutesAgainstLiveLiquidity() public {
-        if (!forkEnabled) return;
-
         ArchStockSwapExecutor executor = new ArchStockSwapExecutor(IERC20(WETH), SWAP_ROUTER);
         vm.deal(address(this), 1 ether);
         IWETH9(WETH).deposit{value: 0.001 ether}();
@@ -210,8 +199,6 @@ contract RobinhoodMainnetForkTest is Test {
     }
 
     function test_constrainedExecutorBuysLiveStockThroughWethUsdgRoute() public {
-        if (!forkEnabled) return;
-
         ArchStockSwapExecutor executor = new ArchStockSwapExecutor(IERC20(WETH), SWAP_ROUTER);
         vm.deal(address(this), 1 ether);
         IWETH9(WETH).deposit{value: 0.001 ether}();
@@ -235,8 +222,6 @@ contract RobinhoodMainnetForkTest is Test {
     }
 
     function test_nfpmCreatesPoolAndMintsPositionOnFork() public {
-        if (!forkEnabled) return;
-
         MockERC20 localToken = new MockERC20("Fork Token", "FORK");
         vm.deal(address(this), 1 ether);
         IWETH9(WETH).deposit{value: 0.01 ether}();

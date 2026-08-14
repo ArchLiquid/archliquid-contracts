@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "scope": "testnet-user-liquidity",
+  "chainId": 46630,
+  "release": {
+    "id": "robinhood-testnet-user-liquidity-2026-08-14-r1",
+    "environment": "testnet",
+    "releaseApprover": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
+    "transactionCount": 12,
+    "deploymentBlock": "101108998",
+    "lastAuditedBlock": "101144887"
+  },
+  "dependencies": {
+    "governance": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
+    "treasury": "0x48B49CEf2f6071405D6A62228ADC168a7baB2654",
+    "weth": "0x61293a735E35d76E8980Bf17715b37A0C4196512",
+    "stockRegistry": "0xADB4b0D5908C179C97ce5A5b2879Ba3E8497Bd64",
+    "v2Factory": "0x3d51588C41586Bc391A989156fBE6a7ceEd51446",
+    "v2Router": "0x42F1CF708A3DB2D4f3fF59FE400a8e4530662880",
+    "v2SwapRouter": "0xb8525F9F98480d0A0f54A834f0A8d407D8CED3F2",
+    "v2Locker": "0xb92D2c218bBb51C0F21fc12a6141596EafD98Def"
+  },
+  "modules": {
+    "v2": {
+      "status": "live",
+      "tokenDeployLibrary": "0xfFB8696913Cdc47aA16D630E91dE208485508Cb1",
+      "liquidityAdapter": "0x050F2cF78d3D33e73777Db3BF0A6B476DB668A66",
+      "liquidityProvisioner": "0xad16a8806EdF001c053A856bD625cbd720335CeA",
+      "tokenFactory": "0xCB5756CAC20427a3d6536A7A55CC72B44dA9C1A7",
+      "presaleDeployer": "0xA349D0a3B8b033189d3965712AB84B12580c1Df6",
+      "curveDeployer": "0x4f3379B3dc9Ff5157eA610C864c7B3946f9B8B0b",
+      "launchpad": "0x3FD6651939A2138A5ecD4E17ba741e3ee0D6dfa6"
+    }
+  },
+  "canary": {
+    "token": "0x4148ed51d081f8612CE94bc13AceE8BFB5724CED",
+    "pair": "0xEdb0F30fBD7b1FB9E65A7f83c94Be6850a49b5DD",
+    "lockIds": [
+      "3",
+      "4"
+    ],
+    "createTokenTx": "0x7b1066430cb1fc4b8cb3976f0bab1ddbf65699be96774230e320b7bf899479c1",
+    "approveTx": "0x4cca9651cf9ba53938ad2c2d5cd916e4ce7c246b6bb495c51b066d21eee07a16",
+    "createPairTx": "0xe310ad10612c5905a5dd209b28196b9a2a850c38a98966b557d7cbe87eb5daa1",
+    "addLiquidityTx": "0x3a27805e15fb4b9523a57973b361e85e88a5f8f6ad9a2ce2825dfec6320a354c"
+  },
+  "verificationContracts": [
+    {
+      "id": "v2.tokenDeployLibrary",
+      "address": "0xfFB8696913Cdc47aA16D630E91dE208485508Cb1",
+      "contractName": "ArchTokenDeployLib"
+    },
+    {
+      "id": "v2.liquidityAdapter",
+      "address": "0x050F2cF78d3D33e73777Db3BF0A6B476DB668A66",
+      "contractName": "ArchV2LaunchLiquidityAdapter"
+    },
+    {
+      "id": "v2.liquidityProvisioner",
+      "address": "0xad16a8806EdF001c053A856bD625cbd720335CeA",
+      "contractName": "ArchUserLiquidityProvisioner"
+    },
+    {
+      "id": "v2.tokenFactory",
+      "address": "0xCB5756CAC20427a3d6536A7A55CC72B44dA9C1A7",
+      "contractName": "ArchAdapterTokenFactory"
+    },
+    {
+      "id": "v2.presaleDeployer",
+      "address": "0xA349D0a3B8b033189d3965712AB84B12580c1Df6",
+      "contractName": "ArchAdapterPresaleDeployer"
+    },
+    {
+      "id": "v2.curveDeployer",
+      "address": "0x4f3379B3dc9Ff5157eA610C864c7B3946f9B8B0b",
+      "contractName": "ArchAdapterCurveDeployer"
+    },
+    {
+      "id": "v2.launchpad",
+      "address": "0x3FD6651939A2138A5ecD4E17ba741e3ee0D6dfa6",
+      "contractName": "ArchAdapterLaunchpad"
+    }
+  ],
+  "sourcePublication": {
+    "provider": "sourcify",
+    "permanent": true,
+    "exactContracts": 7,
+    "publishedAt": "2026-08-14T15:29:28.802Z",
+    "report": "docs/audit-evidence/robinhood-testnet-user-liquidity-r1-sourcify.json",
+    "bytecodeParityReport": "docs/audit-evidence/robinhood-testnet-user-liquidity-r1-bytecode.json"
+  }
+}

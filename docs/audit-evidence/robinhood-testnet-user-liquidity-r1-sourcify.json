@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "robinhood-testnet-user-liquidity-2026-08-14-r1",
+  "chainId": "46630",
+  "provider": "sourcify",
+  "providerUrl": "https://sourcify.dev/server",
+  "publishedAt": "2026-08-14T15:29:28.802Z",
+  "passed": true,
+  "summary": {
+    "total": 7,
+    "accepted": 7,
+    "rejected": 0,
+    "failed": 0,
+    "exact": 7,
+    "pending": 0
+  },
+  "results": [
+    {
+      "id": "v2.tokenDeployLibrary",
+      "address": "0xfFB8696913Cdc47aA16D630E91dE208485508Cb1",
+      "creationTransactionHash": "0xb53bdbe495064d594421374fde9b924263630a84204c9924c71fa50586c082b0",
+      "submitted": false,
+      "accepted": true,
+      "verificationId": null,
+      "before": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634524",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:45Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0xfFB8696913Cdc47aA16D630E91dE208485508Cb1"
+        }
+      },
+      "job": null,
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634524",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:45Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0xfFB8696913Cdc47aA16D630E91dE208485508Cb1"
+        }
+      }
+    },
+    {
+      "id": "v2.liquidityAdapter",
+      "address": "0x050F2cF78d3D33e73777Db3BF0A6B476DB668A66",
+      "creationTransactionHash": "0xf0b707dd97b6b210152800c80f5f0109133aadc2e955ce4a26b965ca08cae798",
+      "submitted": false,
+      "accepted": true,
+      "verificationId": null,
+      "before": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634521",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:38Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x050F2cF78d3D33e73777Db3BF0A6B476DB668A66"
+        }
+      },
+      "job": null,
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634521",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:38Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x050F2cF78d3D33e73777Db3BF0A6B476DB668A66"
+        }
+      }
+    },
+    {
+      "id": "v2.liquidityProvisioner",
+      "address": "0xad16a8806EdF001c053A856bD625cbd720335CeA",
+      "creationTransactionHash": "0x90732034c6a54375b77f4d726616c5de91c3475edf3b9affe9eef1c116d91219",
+      "submitted": false,
+      "accepted": true,
+      "verificationId": null,
+      "before": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634522",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:41Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0xad16a8806EdF001c053A856bD625cbd720335CeA"
+        }
+      },
+      "job": null,
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634522",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:41Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0xad16a8806EdF001c053A856bD625cbd720335CeA"
+        }
+      }
+    },
+    {
+      "id": "v2.tokenFactory",
+      "address": "0xCB5756CAC20427a3d6536A7A55CC72B44dA9C1A7",
+      "creationTransactionHash": "0x9f347f012ddf8728c9b9471f3ed7f0b333e30ba879c17c98b45ca04886ba4d7b",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "485f2d07-1826-4171-acb9-54bdcbd238bd",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "485f2d07-1826-4171-acb9-54bdcbd238bd",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634544",
+          "creationMatch": null,
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:51Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0xCB5756CAC20427a3d6536A7A55CC72B44dA9C1A7"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0xCB5756CAC20427a3d6536A7A55CC72B44dA9C1A7",
+          "verifiedAt": "2026-08-14T15:20:51Z",
+          "matchId": "43634544"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634544",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:51Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0xCB5756CAC20427a3d6536A7A55CC72B44dA9C1A7"
+        }
+      }
+    },
+    {
+      "id": "v2.presaleDeployer",
+      "address": "0xA349D0a3B8b033189d3965712AB84B12580c1Df6",
+      "creationTransactionHash": "0xe3a774510d092c5c7f83ef911308a73f0a6e0be55760cd8d9be938014df0aa6a",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "9bf9d8da-8d82-4f5d-8e8f-d4d531da0b66",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "9bf9d8da-8d82-4f5d-8e8f-d4d531da0b66",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634530",
+          "creationMatch": null,
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:49Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0xA349D0a3B8b033189d3965712AB84B12580c1Df6"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0xA349D0a3B8b033189d3965712AB84B12580c1Df6",
+          "verifiedAt": "2026-08-14T15:20:49Z",
+          "matchId": "43634530"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634530",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:49Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0xA349D0a3B8b033189d3965712AB84B12580c1Df6"
+        }
+      }
+    },
+    {
+      "id": "v2.curveDeployer",
+      "address": "0x4f3379B3dc9Ff5157eA610C864c7B3946f9B8B0b",
+      "creationTransactionHash": "0xd9e0b3e14fc63421d0cf059b5333988ce63a5ee0f898f89081b6352b2922ab74",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "9a662d25-b100-4d60-9e32-03ab08d3b714",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "9a662d25-b100-4d60-9e32-03ab08d3b714",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634529",
+          "creationMatch": null,
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:49Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x4f3379B3dc9Ff5157eA610C864c7B3946f9B8B0b"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0x4f3379B3dc9Ff5157eA610C864c7B3946f9B8B0b",
+          "verifiedAt": "2026-08-14T15:20:49Z",
+          "matchId": "43634529"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634529",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:49Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x4f3379B3dc9Ff5157eA610C864c7B3946f9B8B0b"
+        }
+      }
+    },
+    {
+      "id": "v2.launchpad",
+      "address": "0x3FD6651939A2138A5ecD4E17ba741e3ee0D6dfa6",
+      "creationTransactionHash": "0xa2966e92425e21687f422440852f264f370ba11971d8cfcf9f9b18ac9e5e107d",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "bae1342d-8625-410a-adea-9675220ce7d3",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "bae1342d-8625-410a-adea-9675220ce7d3",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634547",
+          "creationMatch": null,
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:53Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x3FD6651939A2138A5ecD4E17ba741e3ee0D6dfa6"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0x3FD6651939A2138A5ecD4E17ba741e3ee0D6dfa6",
+          "verifiedAt": "2026-08-14T15:20:53Z",
+          "matchId": "43634547"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43634547",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-14T15:20:53Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x3FD6651939A2138A5ecD4E17ba741e3ee0D6dfa6"
+        }
+      }
+    }
+  ]
+}
