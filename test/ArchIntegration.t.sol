@@ -145,15 +145,33 @@ contract ArchIntegrationTest is Test {
             payable(gov),
             5
         );
-        comptroller._supportMarket(cUSDC);
-        comptroller._supportMarket(cSTOCK);
-
         usdcFeed = new MockAggregator(8, 1e8);
         stockFeed = new MockAggregator(8, 100e8);
         usdcFeed.setAnswer(1e8, block.timestamp);
         stockFeed.setAnswer(100e8, block.timestamp);
-        oracle.setFeed(address(cUSDC), AggregatorV3Interface(address(usdcFeed)), 1 hours);
-        oracle.setFeed(address(cSTOCK), AggregatorV3Interface(address(stockFeed)), 1 hours);
+        oracle.setFeed(address(cUSDC), AggregatorV3Interface(address(usdcFeed)), 1 hours, 2 hours);
+        oracle.setFeed(address(cSTOCK), AggregatorV3Interface(address(stockFeed)), 1 hours, 2 hours);
+
+        usdc.mint(gov, 1_000e18);
+        stock.mint(gov, 10e18);
+        usdc.approve(address(cUSDC), type(uint256).max);
+        stock.approve(address(cSTOCK), type(uint256).max);
+        cUSDC.seedMarket(1_000e18);
+        cSTOCK.seedMarket(10e18);
+        comptroller._supportMarket(cUSDC);
+        comptroller._supportMarket(cSTOCK);
+
+        CToken[] memory capMarkets = new CToken[](2);
+        capMarkets[0] = CToken(address(cUSDC));
+        capMarkets[1] = CToken(address(cSTOCK));
+        uint256[] memory supplyCaps_ = new uint256[](2);
+        supplyCaps_[0] = 3_000_000e18;
+        supplyCaps_[1] = 10_000e18;
+        uint256[] memory borrowCaps_ = new uint256[](2);
+        borrowCaps_[0] = 1_500_000e18;
+        borrowCaps_[1] = 5_000e18;
+        comptroller._setMarketSupplyCaps(capMarkets, supplyCaps_);
+        comptroller._setMarketBorrowCaps(capMarkets, borrowCaps_);
         comptroller._setCollateralFactor(cSTOCK, 0.75e18);
         cUSDC._setReserveFactor(0.15e18);
         cSTOCK._setReserveFactor(0.15e18);

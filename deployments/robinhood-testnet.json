@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "release": {
-    "id": "robinhood-testnet-2026-08-01-r2",
+    "id": "robinhood-testnet-2026-08-14-r8",
     "environment": "testnet",
-    "lastAuditedBlock": "96240130",
+    "lastAuditedBlock": "101086295",
     "releaseApprover": "0x6a51C3672B6C4d5d556f23A18918983390a832C8"
   },
   "network": {
@@ -22,29 +22,29 @@
     "deployer": "0x6a51C3672B6C4d5d556f23A18918983390a832C8"
   },
   "contracts": {
-    "treasury": "0xfdb12B447f1cd45f249f40B18C0FEe65f36cD34D",
-    "locker": "0x29AfEE3C47DaeD068893819B14Fce4a9EBeD7Cab",
-    "vesting": "0x7fC183A29875353848CA70456200393232BB8F13",
-    "stockRegistry": "0x0784fF945ef4ce7f4e3e44E9Ea9a299368a9497f",
-    "stockExecutor": "0xf156A099D765F9453E249354664c272477AaAb96",
-    "tokenFactory": "0x9eEF65B9B4173249C908B4A6461a52e10bAB1D1c",
-    "presaleDeployer": "0xaD77f3eb704beF61d658074E67Ea669fdb886852",
-    "curveDeployer": "0x3893079cdCCd7A0191a774cc90F3bbf4214F1b9b",
-    "launchpad": "0x6D9bb846677A6EBb3f8A78cfe4D1313d5858e762",
-    "stakingFactory": "0x5af87c41b2B05786B69981df99CDfcC04D92B30F",
-    "comptroller": "0x4f9698F863854Ad943Dc6DC393765152E066FAA1",
-    "comptrollerImplementation": "0xb239DaDf1730264233C9cC28b0F5fbC22F46c200",
-    "priceOracle": "0x2f295166D13C017f62699F4de3F7B2277bF7bBaB",
-    "jumpRateModel": "0x90D288a1F78af3E85Dd3102139922c7579e494C5",
-    "arUSDG": "0xf0487666692F1f18F75f67898Ec1a2bE80b8Bf85",
-    "arNVDAx": "0x3818cCE96aFBFe21a5876A6EDF5cD158B2A2230C",
-    "weth": "0x29bCb33b264468EDba8f529058F8a5e5f0A46642",
-    "nfpm": "0xc1D80751123BA5059Dd2df237eACA51b017BD05A",
-    "swapRouter": "0x6763289AE244277CE5cE6C5050afb96D5d41a6Ae",
-    "stock": "0x5891BfA09C7A0df8375142B4Fb21269742964d6c",
-    "usdg": "0xabf3081252d7AadFF0062e217ab3DB2D25FB8D25",
-    "usdgFeed": "0xAD166BBab0e6BD175Bc1Dfee2005BB9c37e1689B",
-    "stockFeed": "0xa843870fFD4759234CAAe1c5d6Aa9Af178C28762"
+    "treasury": "0x48B49CEf2f6071405D6A62228ADC168a7baB2654",
+    "locker": "0x39EE9827730ECd96d62B081f86A18578455ae184",
+    "vesting": "0x7aB1967EDCeD491a4767bC41DC5E874054CA0dCE",
+    "stockRegistry": "0xADB4b0D5908C179C97ce5A5b2879Ba3E8497Bd64",
+    "stockExecutor": "0x977EdaD1e46E7014703D514C5E11705FA5EB72dC",
+    "tokenFactory": "0xaC44965a34E88ccbedE12c4c0b8DE806911f03Fc",
+    "presaleDeployer": "0x68E39D492b78dD4E49993c1359D46346210561a0",
+    "curveDeployer": "0xa48f91959017FA30e58B31C6BA4BEe0d4B6780c2",
+    "launchpad": "0xcBdCec3A40BE75FFBefAf5A4926F34730C21B82B",
+    "stakingFactory": "0xE0A09184D0385A69c5F1E4a1ad841F5ee532E17C",
+    "comptroller": "0x2534E25536d31730db6C8fd16060898f9B3275B6",
+    "comptrollerImplementation": "0x0bcc334C558556740BcF33b10c4DCa621b84C795",
+    "priceOracle": "0x787eD40B4c4c195C4C76558C8865A13722A99eC9",
+    "jumpRateModel": "0x6cdc22E79b0fbB5280bbC9AbCDe1Ce93bA955433",
+    "arUSDG": "0x9797bd68F8F80EAD20f679263fA4e33051F5E8Fa",
+    "arNVDAx": "0x943132B8Bf830b7Fbf89E7eB23B2075140663dd4",
+    "weth": "0x61293a735E35d76E8980Bf17715b37A0C4196512",
+    "nfpm": "0xe99f57922C22856845d282E319DB2B758F93f942",
+    "swapRouter": "0xa4077D7D9924e6eA879b1FB149d4eD13115068B6",
+    "stock": "0x1c80aC86447c8EEa5D0D70DCa78c632b7A249bEE",
+    "usdg": "0xaC34b754CDcc8649050dFe5625211bBb75FF521B",
+    "usdgFeed": "0xE6f82D308f6e801ca093C47B0F8cd3acaa9E569A",
+    "stockFeed": "0xDA41739F33E6927aC81a596f7e40eA96a71bF7D7"
   },
   "core": {
     "feesWei": {
@@ -59,21 +59,28 @@
     "minimumLockerDurationSeconds": "2592000",
     "minimumFactoryLockSeconds": "15552000",
     "minimumFactoryLpPct": "10",
-    "allowlistedStocks": ["stock"],
-    "lockerFeeExempt": ["tokenFactory"],
-    "lockerFactories": ["launchpad"],
-    "testnetMockRouterNfpm": "nfpm"
+    "allowlistedStocks": [
+      "stock"
+    ],
+    "lockerFeeExempt": [
+      "tokenFactory"
+    ],
+    "lockerFactories": [
+      "launchpad"
+    ],
+    "testnetRouterManager": "nfpm",
+    "testnetRouterManagerGetter": "positionManager"
   },
   "lending": {
     "closeFactorMantissa": "500000000000000000",
     "liquidationIncentiveMantissa": "1080000000000000000",
-    "pauseGuardian": "0x0000000000000000000000000000000000000000",
-    "borrowCapGuardian": "0x0000000000000000000000000000000000000000",
+    "pauseGuardian": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
+    "borrowCapGuardian": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
     "interestRateModel": {
-      "blocksPerYear": "2102400",
-      "baseRatePerBlock": "9512937595",
-      "multiplierPerBlock": "59455859969",
-      "jumpMultiplierPerBlock": "475646879756",
+      "secondsPerYear": "31536000",
+      "baseRatePerSecond": "634195839",
+      "multiplierPerSecond": "3963723997",
+      "jumpMultiplierPerSecond": "31709791983",
       "kink": "800000000000000000"
     },
     "markets": [
@@ -94,11 +101,14 @@
         "collateralFactorMantissa": "0",
         "reserveFactorMantissa": "200000000000000000",
         "flashFeeBps": "5",
-        "supplyCap": "0",
-        "borrowCap": "0",
-        "allowUncapped": true,
-        "requireFreshFeed": false,
-        "riskAcceptance": "Uncapped permissionlessly mintable mock asset and permissionless mock feed; valueless testnet only."
+        "supplyCap": "2000000000000000000000000",
+        "borrowCap": "1000000000000000000000000",
+        "allowUncapped": false,
+        "requireFreshFeed": true,
+        "initialExchangeRateMantissa": "200000000000000000000000000",
+        "seedUnderlyingAmount": "1000000000000000000000",
+        "minimumSeedValueMantissa": "1000000000000000000000",
+        "maxLiquidationStalenessSeconds": "7200"
       },
       {
         "key": "arNVDAx",
@@ -117,12 +127,16 @@
         "collateralFactorMantissa": "750000000000000000",
         "reserveFactorMantissa": "200000000000000000",
         "flashFeeBps": "5",
-        "supplyCap": "0",
-        "borrowCap": "0",
-        "allowUncapped": true,
-        "requireFreshFeed": false,
-        "riskAcceptance": "Uncapped permissionlessly mintable mock asset and permissionless mock feed; valueless testnet only."
+        "supplyCap": "10000000000000000000000",
+        "borrowCap": "5000000000000000000000",
+        "allowUncapped": false,
+        "requireFreshFeed": true,
+        "initialExchangeRateMantissa": "200000000000000000000000000",
+        "seedUnderlyingAmount": "10000000000000000000",
+        "minimumSeedValueMantissa": "1000000000000000000000",
+        "maxLiquidationStalenessSeconds": "7200"
       }
-    ]
+    ],
+    "securityVersion": 2
   }
 }

@@ -30,6 +30,7 @@ import {ArchCErc20} from "@archliquid/lending/ArchCErc20.sol";
 import {ComptrollerInterface} from "compound/ComptrollerInterface.sol";
 import {InterestRateModel} from "compound/InterestRateModel.sol";
 import {PriceOracle} from "compound/PriceOracle.sol";
+import {CToken} from "compound/CToken.sol";
 
 // mock infra: Robinhood Chain testnet has no Uniswap V3 / WETH / stock tokens /
 // Chainlink feeds at the mainnet addresses, so a self-contained testnet stands
@@ -147,22 +148,37 @@ contract DeployTestnet is Script {
             payable(gov),
             5
         );
-        comptroller._supportMarket(arUSDG);
-        comptroller._supportMarket(arNVDAx);
-
         MockAggregator usdcFeed = new MockAggregator(8, 1e8);
         MockAggregator stockFeed = new MockAggregator(8, 100e8);
         usdcFeed.setAnswer(1e8, block.timestamp);
         stockFeed.setAnswer(100e8, block.timestamp);
-        oracle.setFeed(address(arUSDG), AggregatorV3Interface(address(usdcFeed)), 1 hours);
-        oracle.setFeed(address(arNVDAx), AggregatorV3Interface(address(stockFeed)), 1 hours);
+        oracle.setFeed(address(arUSDG), AggregatorV3Interface(address(usdcFeed)), 1 hours, 2 hours);
+        oracle.setFeed(address(arNVDAx), AggregatorV3Interface(address(stockFeed)), 1 hours, 2 hours);
+
+        // Fund and permanently burn the activation seed before listing.
+        usdc.mint(gov, 1_000_000e18);
+        stock.mint(gov, 10_000e18);
+        usdc.approve(address(arUSDG), 1_000e18);
+        stock.approve(address(arNVDAx), 10e18);
+        arUSDG.seedMarket(1_000e18);
+        arNVDAx.seedMarket(10e18);
+        comptroller._supportMarket(arUSDG);
+        comptroller._supportMarket(arNVDAx);
+
+        CToken[] memory capMarkets = new CToken[](2);
+        capMarkets[0] = arUSDG;
+        capMarkets[1] = arNVDAx;
+        uint256[] memory supplyCaps = new uint256[](2);
+        supplyCaps[0] = 2_000_000e18;
+        supplyCaps[1] = 10_000e18;
+        uint256[] memory borrowCaps = new uint256[](2);
+        borrowCaps[0] = 1_000_000e18;
+        borrowCaps[1] = 5_000e18;
+        comptroller._setMarketSupplyCaps(capMarkets, supplyCaps);
+        comptroller._setMarketBorrowCaps(capMarkets, borrowCaps);
         comptroller._setCollateralFactor(arNVDAx, 0.75e18);
         arUSDG._setReserveFactor(0.2e18);
         arNVDAx._setReserveFactor(0.2e18);
-
-        // seed the deployer with mock assets for smoke testing
-        usdc.mint(gov, 1_000_000e18);
-        stock.mint(gov, 10_000e18);
 
         // Discoverable V2 and V4 fixture positions for the deployment wallet.
         // The V2 pair carries actual token balances and reserve state even
@@ -198,7 +214,7 @@ contract DeployTestnet is Script {
         console2.log("StakingFactory  ", address(stakingFactory));
         console2.log("Comptroller     ", address(comptroller));
         console2.log("PriceOracle     ", address(oracle));
-        console2.log("JumpRateModelV2 ", address(irm));
+        console2.log("Per-second rate model", address(irm));
         console2.log("arUSDG           ", address(arUSDG));
         console2.log("arNVDAx          ", address(arNVDAx));
         console2.log("-- mock infra --");

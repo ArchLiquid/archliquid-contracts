@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "robinhood-testnet-2026-08-14-r8",
+  "contracts": [
+    {
+      "id": "tokenDeployLibrary",
+      "address": "0x9b4778f8ba7C2A8FF930645dD08F47621A8c9d12"
+    },
+    {
+      "id": "legacyR7ComptrollerImplementation",
+      "address": "0x6924Fca570eC5Af85E0C679604ad6c69E3dfEf02"
+    }
+  ]
+}

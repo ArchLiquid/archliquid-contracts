@@ -19,7 +19,7 @@ configuration used by this workspace.
 | [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | V2/V3/V4 fixed-price presales, bonding curves, AMM adapters, and launch deployers | [`013c41b`](https://github.com/ArchLiquid/archliquid-launchpad/commit/013c41b2bd726225fe995430ebd427e950f6f553) |
 | [Vesting](https://github.com/ArchLiquid/archliquid-vesting) | Immutable cliff and linear-release schedules | [`88c3f26`](https://github.com/ArchLiquid/archliquid-vesting/commit/88c3f26a0a58faa40010e7b6c320322078658194) |
 | [Staking](https://github.com/ArchLiquid/archliquid-staking) | Factory-created staking pools with funded rewards | [`8933871`](https://github.com/ArchLiquid/archliquid-staking/commit/8933871b5c4b9b8bf6fa742e8d3494645b3842ab) |
-| [Lending](https://github.com/ArchLiquid/archliquid-lending) | Collateralized ERC-20 markets, Chainlink pricing, and flash loans | [`53cfa0a`](https://github.com/ArchLiquid/archliquid-lending/commit/53cfa0a1340984c6e4eee4cdd462dc140ba66410) |
+| [Lending](https://github.com/ArchLiquid/archliquid-lending) | Timestamp-native collateralized ERC-20 markets, burn-before-list activation, bounded Chainlink liquidation pricing, and flash loans | [`5e3272d`](https://github.com/ArchLiquid/archliquid-lending/commit/5e3272d0bdf0299199cf288a24dcb5d39fa9f9ab) |
 
 This repository contains deployment composition, cross-module tests, common
 test doubles, and network manifests. It does not maintain a second copy of the
@@ -182,6 +182,9 @@ transfers and approve each supported stock token.
 
 Lending deployment is provided by
 [`archliquid-lending/script/DeployLending.s.sol`](https://github.com/ArchLiquid/archliquid-lending/blob/main/script/DeployLending.s.sol).
+Markets must configure both oracle freshness windows, permanently burn the
+minimum activation seed, and set finite supply and borrow caps before enabling
+collateral. The lending module guide documents the required ordering.
 
 Never commit a private key or API key. Use a secure signer and secret manager
 for any live deployment.
@@ -235,6 +238,24 @@ as a mainnet address list.
 contains the release identifier, canonical manifest digest, signer, and EIP-191
 signature for that exact manifest. Changing the manifest invalidates the
 approval and requires a new signature from the declared release approver.
+
+[`deployments/robinhood-testnet.source-inventory.json`](deployments/robinhood-testnet.source-inventory.json)
+lists the additional exact-address contracts that belong to the same source
+publication gate, including superseded implementations retained for historical
+inspection.
+
+Release `robinhood-testnet-2026-08-14-r8` keeps the r7 lending proxy, oracle,
+rate model, and cToken market addresses while upgrading only the Comptroller
+implementation:
+
+| Lending component | Address |
+|---|---|
+| Comptroller proxy | `0x2534E25536d31730db6C8fd16060898f9B3275B6` |
+| Comptroller implementation | `0x0bcc334C558556740BcF33b10c4DCa621b84C795` |
+| Price oracle | `0x787eD40B4c4c195C4C76558C8865A13722A99eC9` |
+| Per-second rate model | `0x6cdc22E79b0fbB5280bbC9AbCDe1Ce93bA955433` |
+| arUSDG | `0x9797bd68F8F80EAD20f679263fA4e33051F5E8Fa` |
+| arNVDAx | `0x943132B8Bf830b7Fbf89E7eB23B2075140663dd4` |
 
 [`deployments/robinhood-testnet-locker-modules.json`](deployments/robinhood-testnet-locker-modules.json)
 records active V2, V3, and V4 modules for release
