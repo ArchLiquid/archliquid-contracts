@@ -50,7 +50,7 @@
       "name": "lending",
       "repository": "https://github.com/ArchLiquid/archliquid-lending.git",
       "path": "lib/lending",
-      "commit": "53cfa0a1340984c6e4eee4cdd462dc140ba66410"
+      "commit": "5e3272d0bdf0299199cf288a24dcb5d39fa9f9ab"
     }
   ],
   "dependencies": [

@@ -1,0 +1,38 @@
+name: Composed contracts
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  foundry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Initialize pinned modules
+        run: |
+          git submodule update --init \
+            lib/core lib/lockers lib/token lib/launchpad \
+            lib/vesting lib/staking lib/lending \
+            lib/forge-std lib/openzeppelin-contracts
+          git -C lib/lending submodule update --init lib/compound-protocol
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+
+      - name: Check formatting
+        run: forge fmt --check
+
+      - name: Run composed tests
+        run: forge test -vv
+
+      - name: Enforce deployable sizes
+        run: forge build --sizes

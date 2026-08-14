@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "releaseId": "robinhood-testnet-2026-08-01-r2",
-  "manifestSha256": "d1dbeb2e42f0c49d8d2ff865eecf28dd4298365802fcf63b84be14c43192babb",
+  "releaseId": "robinhood-testnet-2026-08-14-r8",
+  "manifestSha256": "a69e1014d885bdd452d3b9014dc435d28e7d670cd9b5c60f6126c6d81f9b6a90",
   "signer": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
-  "signature": "0x7a9b9a19595f0c51758280c32fc4afe9e7a460c7b55ae34f7c06f171941a7ddb602692ee69f4912e534ede60e39810b01dada32265a737bf9167c318409fed271b"
+  "signature": "0xf4bacd23af1402b82eab496847973455d29a7bf46c2da4d8eea22d5318af37fe4fdc30e48f63009557d7dbda3cc739085596e7a376f99dc54fd3a76680e931e41b"
 }
