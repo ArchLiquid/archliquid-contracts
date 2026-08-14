@@ -305,8 +305,9 @@ contract RobinhoodMainnetForkTest is Test {
             })
         );
 
-        (uint128 addedLiquidity, uint256 amount0, uint256 amount1) = IRobinhoodNFPMIncrease(NFPM).increaseLiquidity(
-            IRobinhoodNFPMIncrease.IncreaseLiquidityParams({
+        (uint128 addedLiquidity, uint256 amount0, uint256 amount1) = IRobinhoodNFPMIncrease(NFPM)
+            .increaseLiquidity(
+                IRobinhoodNFPMIncrease.IncreaseLiquidityParams({
                 tokenId: tokenId,
                 amount0Desired: 0.01 ether,
                 amount1Desired: 0.01 ether,
@@ -314,7 +315,7 @@ contract RobinhoodMainnetForkTest is Test {
                 amount1Min: 0.0099 ether,
                 deadline: block.timestamp
             })
-        );
+            );
 
         (,,,,,,, uint128 finalLiquidity,,,,) = manager.positions(tokenId);
         assertGt(addedLiquidity, 0);
@@ -353,8 +354,9 @@ contract RobinhoodMainnetForkTest is Test {
         );
 
         vm.expectRevert();
-        IRobinhoodNFPMIncrease(NFPM).increaseLiquidity(
-            IRobinhoodNFPMIncrease.IncreaseLiquidityParams({
+        IRobinhoodNFPMIncrease(NFPM)
+            .increaseLiquidity(
+                IRobinhoodNFPMIncrease.IncreaseLiquidityParams({
                 tokenId: tokenId,
                 amount0Desired: 0.001 ether,
                 amount1Desired: 0.001 ether,
@@ -362,6 +364,6 @@ contract RobinhoodMainnetForkTest is Test {
                 amount1Min: 0.002 ether,
                 deadline: block.timestamp
             })
-        );
+            );
     }
 }
