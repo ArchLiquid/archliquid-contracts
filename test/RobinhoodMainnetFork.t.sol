@@ -74,7 +74,9 @@ contract RobinhoodMainnetForkTest is Test {
         assertEq(IRobinhoodSwapRouterState(SWAP_ROUTER).WETH9(), WETH);
     }
 
-    function test_v2DeploymentAndLiveWethUsdgPair() public view {
+    /// @dev This is a live V2-compatible deployment observed on Robinhood. It
+    ///      is not included in Uniswap's official Robinhood address registry.
+    function test_observedThirdPartyV2DeploymentAndLiveWethUsdgPair() public view {
         assertGt(V2_FACTORY.code.length, 0);
         assertGt(V2_ROUTER.code.length, 0);
         assertEq(IRobinhoodV2RouterState(V2_ROUTER).factory(), V2_FACTORY);
@@ -93,7 +95,7 @@ contract RobinhoodMainnetForkTest is Test {
         assertGt(IUniswapV2Pair(pair).totalSupply(), 0);
     }
 
-    function test_v2LockerCustodiesCanonicalLivePairToken() public {
+    function test_v2LockerCustodiesObservedLivePairToken() public {
         ArchLiquidityLocker locker =
             new ArchLiquidityLocker(0, payable(address(0xBEEF)), LockerV2Factory(V2_FACTORY), address(this));
         deal(V2_WETH_USDG_PAIR, address(this), 1e12);
@@ -256,5 +258,94 @@ contract RobinhoodMainnetForkTest is Test {
         assertGt(amount0, 0);
         assertGt(amount1, 0);
         assertEq(INonfungiblePositionManager(NFPM).ownerOf(tokenId), address(this));
+    }
+
+    function test_nfpmAddsLiquidityToExistingPositionOnFork() public {
+        MockERC20 localToken = new MockERC20("Fork Increase Token", "FINC");
+        vm.deal(address(this), 1 ether);
+        IWETH9(WETH).deposit{value: 0.03 ether}();
+        localToken.mint(address(this), 0.03 ether);
+
+        (address token0, address token1) =
+            address(localToken) < WETH ? (address(localToken), WETH) : (WETH, address(localToken));
+        INonfungiblePositionManager manager = INonfungiblePositionManager(NFPM);
+        manager.createAndInitializePoolIfNecessary(token0, token1, 3000, uint160(1 << 96));
+        IERC20(token0).approve(NFPM, type(uint256).max);
+        IERC20(token1).approve(NFPM, type(uint256).max);
+
+        (uint256 tokenId, uint128 initialLiquidity,,) = manager.mint(
+            INonfungiblePositionManager.MintParams({
+                token0: token0,
+                token1: token1,
+                fee: 3000,
+                tickLower: -887220,
+                tickUpper: 887220,
+                amount0Desired: 0.01 ether,
+                amount1Desired: 0.01 ether,
+                amount0Min: 0.0099 ether,
+                amount1Min: 0.0099 ether,
+                recipient: address(this),
+                deadline: block.timestamp
+            })
+        );
+
+        (uint128 addedLiquidity, uint256 amount0, uint256 amount1) = manager.increaseLiquidity(
+            INonfungiblePositionManager.IncreaseLiquidityParams({
+                tokenId: tokenId,
+                amount0Desired: 0.01 ether,
+                amount1Desired: 0.01 ether,
+                amount0Min: 0.0099 ether,
+                amount1Min: 0.0099 ether,
+                deadline: block.timestamp
+            })
+        );
+
+        (,,,,,,, uint128 finalLiquidity,,,,) = manager.positions(tokenId);
+        assertGt(addedLiquidity, 0);
+        assertGt(amount0, 0);
+        assertGt(amount1, 0);
+        assertEq(finalLiquidity, initialLiquidity + addedLiquidity);
+        assertEq(manager.ownerOf(tokenId), address(this));
+    }
+
+    function test_nfpmIncreaseLiquidityHonorsMinimumsOnFork() public {
+        MockERC20 localToken = new MockERC20("Fork Slippage Token", "FSLP");
+        vm.deal(address(this), 1 ether);
+        IWETH9(WETH).deposit{value: 0.02 ether}();
+        localToken.mint(address(this), 0.02 ether);
+
+        (address token0, address token1) =
+            address(localToken) < WETH ? (address(localToken), WETH) : (WETH, address(localToken));
+        INonfungiblePositionManager manager = INonfungiblePositionManager(NFPM);
+        manager.createAndInitializePoolIfNecessary(token0, token1, 3000, uint160(1 << 96));
+        IERC20(token0).approve(NFPM, type(uint256).max);
+        IERC20(token1).approve(NFPM, type(uint256).max);
+        (uint256 tokenId,,,) = manager.mint(
+            INonfungiblePositionManager.MintParams({
+                token0: token0,
+                token1: token1,
+                fee: 3000,
+                tickLower: -887220,
+                tickUpper: 887220,
+                amount0Desired: 0.01 ether,
+                amount1Desired: 0.01 ether,
+                amount0Min: 1,
+                amount1Min: 1,
+                recipient: address(this),
+                deadline: block.timestamp
+            })
+        );
+
+        vm.expectRevert();
+        manager.increaseLiquidity(
+            INonfungiblePositionManager.IncreaseLiquidityParams({
+                tokenId: tokenId,
+                amount0Desired: 0.001 ether,
+                amount1Desired: 0.001 ether,
+                amount0Min: 0.002 ether,
+                amount1Min: 0.002 ether,
+                deadline: block.timestamp
+            })
+        );
     }
 }
