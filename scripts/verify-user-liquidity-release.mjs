@@ -5,14 +5,6 @@ import { join } from "node:path";
 
 const releases = [
   {
-    id: "robinhood-testnet-user-liquidity-2026-08-14-r1",
-    manifest: "deployments/robinhood-testnet-user-liquidity.json",
-    approval: "deployments/robinhood-testnet-user-liquidity.approval.json",
-    parity: "docs/audit-evidence/robinhood-testnet-user-liquidity-r1-bytecode.json",
-    sourcify: "docs/audit-evidence/robinhood-testnet-user-liquidity-r1-sourcify.json",
-    module: "v2",
-  },
-  {
     id: "robinhood-testnet-v4-user-liquidity-2026-08-15-r1",
     manifest: "deployments/robinhood-testnet-v4-user-liquidity.json",
     approval: "deployments/robinhood-testnet-v4-user-liquidity.approval.json",
@@ -60,10 +52,10 @@ function canonicalSourcePath(source) {
   return join("lib/launchpad/src", relative);
 }
 
-// The original V2 monorepo build used relative imports while the canonical
-// modules use remappings for the same dependencies. Imports affect metadata,
-// so immutable standard inputs remain the exact publication evidence and this
-// comparison proves the executable first-party source text is identical.
+// Published standard inputs may use relative imports while canonical modules
+// use remappings for the same dependencies. Imports affect metadata, so the
+// immutable inputs remain the exact publication evidence and this comparison
+// proves the executable first-party source text is identical.
 function withoutImports(source) {
   return source.split("\n").filter((line) => !line.trim().startsWith("import ")).join("\n");
 }
@@ -107,16 +99,7 @@ function verifyRelease(release) {
   assert(manifest.sourcePublication?.provider === "sourcify", `${release.id}: source provider mismatch`);
   assert(manifest.sourcePublication?.permanent === true, `${release.id}: source publication is not permanent`);
   assert(manifest.sourcePublication?.exactContracts === 7, `${release.id}: source publication is not exact 7/7`);
-  if (release.module === "v4") {
-    assert(manifest.canary?.residueChecksPassed === true, `${release.id}: canary residue checks did not pass`);
-  } else {
-    assert(/^0x[0-9a-f]{40}$/i.test(manifest.canary?.token ?? ""), `${release.id}: canary token is missing`);
-    assert(/^0x[0-9a-f]{40}$/i.test(manifest.canary?.pair ?? ""), `${release.id}: canary pair is missing`);
-    assert(manifest.canary?.lockIds?.length === 2, `${release.id}: canary lock evidence is incomplete`);
-    for (const field of ["createTokenTx", "approveTx", "createPairTx", "addLiquidityTx"]) {
-      assert(/^0x[0-9a-f]{64}$/i.test(manifest.canary?.[field] ?? ""), `${release.id}: ${field} is missing`);
-    }
-  }
+  assert(manifest.canary?.residueChecksPassed === true, `${release.id}: canary residue checks did not pass`);
   assert(manifest.verificationContracts.length === 7, `${release.id}: manifest must contain seven contracts`);
   assert(
     new Set(manifest.verificationContracts.map(({ id }) => id)).size === 7,
