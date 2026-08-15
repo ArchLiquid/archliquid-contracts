@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "robinhood-testnet-v4-user-liquidity-2026-08-15-r1",
+  "manifestSha256": "d59f2753be3ae5eb662554701cf43f50735fc77a9800ea2c3d2a8693be502566",
+  "signer": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
+  "signature": "0x959a24d37a2ad8afe989b054347bef3e33ffd02dd49449e07f3ec09a7ff9c4fe49157aa4ac09843bf03553d8cef7f78ecad36943355c73f7b6aa3c07de9350141c"
+}

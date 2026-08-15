@@ -305,9 +305,11 @@ stored in
 
 [`deployments/robinhood-testnet-v4-user-liquidity.json`](deployments/robinhood-testnet-v4-user-liquidity.json)
 records the additive V4 user-liquidity release and its atomic two-position
-canary. The release is mined and canaried, but remains excluded from public
-wallet writes until its seven exact sources are permanently published and the
-manifest receives a detached release signature.
+canary. All seven creation and runtime bytecodes are exact-verified on
+Sourcify, and the live manifest is bound to the authorized release signer by
+[`deployments/robinhood-testnet-v4-user-liquidity.approval.json`](deployments/robinhood-testnet-v4-user-liquidity.approval.json).
+The exact publication evidence is retained in
+[`docs/audit-evidence/robinhood-testnet-v4-user-liquidity-r1-sourcify.json`](docs/audit-evidence/robinhood-testnet-v4-user-liquidity-r1-sourcify.json).
 
 | V4 user-liquidity component | Address |
 |---|---|

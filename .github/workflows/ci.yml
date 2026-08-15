@@ -15,21 +15,33 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Initialize pinned modules
+      - name: Resolve pinned private launchpad revision
+        id: launchpad
+        run: echo "sha=$(git rev-parse HEAD:lib/launchpad)" >> "$GITHUB_OUTPUT"
+
+      - name: Initialize pinned public modules
         run: |
           git submodule update --init \
-            lib/core lib/lockers lib/token lib/launchpad \
+            lib/core lib/lockers lib/token \
             lib/vesting lib/staking lib/lending \
             lib/forge-std lib/openzeppelin-contracts
           git -C lib/lending submodule update --init lib/compound-protocol
 
-      - name: Verify user-liquidity release provenance
-        run: node scripts/verify-user-liquidity-release.mjs
+      - name: Check out pinned private launchpad module
+        uses: actions/checkout@v4
+        with:
+          repository: ArchLiquid/archliquid-launchpad
+          ref: ${{ steps.launchpad.outputs.sha }}
+          path: lib/launchpad
+          token: ${{ secrets.ARCHLIQUID_MODULES_TOKEN }}
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: stable
+
+      - name: Verify user-liquidity release provenance
+        run: node scripts/verify-user-liquidity-release.mjs
 
       - name: Check formatting
         run: forge fmt --check

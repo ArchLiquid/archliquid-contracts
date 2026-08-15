@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "robinhood-testnet-v4-user-liquidity-2026-08-15-r1",
+  "chainId": "46630",
+  "provider": "sourcify",
+  "providerUrl": "https://sourcify.dev/server",
+  "publishedAt": "2026-08-15T01:13:10.264Z",
+  "passed": true,
+  "summary": {
+    "total": 7,
+    "accepted": 7,
+    "rejected": 0,
+    "failed": 0,
+    "exact": 7,
+    "pending": 0
+  },
+  "results": [
+    {
+      "id": "v4.tokenDeployLibrary",
+      "address": "0xaeea5fFc86f98E9023D1e1C9a0EFFc9ce973CEC4",
+      "creationTransactionHash": "0xa0e561702b11b6f8656076dad8277dc39b936725e879447ce739471034b07c38",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "10a2777e-08bf-4596-bda1-a8fc195f6d09",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "10a2777e-08bf-4596-bda1-a8fc195f6d09",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 404,
+        "contract": {
+          "match": null,
+          "creationMatch": null,
+          "runtimeMatch": null,
+          "chainId": "46630",
+          "address": "0xaeea5fFc86f98E9023D1e1C9a0EFFc9ce973CEC4"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0xaeea5fFc86f98E9023D1e1C9a0EFFc9ce973CEC4",
+          "verifiedAt": "2026-08-15T01:12:47Z",
+          "matchId": "43645930"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43645930",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-15T01:12:47Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0xaeea5fFc86f98E9023D1e1C9a0EFFc9ce973CEC4"
+        }
+      }
+    },
+    {
+      "id": "v4.liquidityAdapter",
+      "address": "0x7694D631107fea145d872A6003f40a2021F99343",
+      "creationTransactionHash": "0xdb13b92233b735c2f2c109d3004bcdbd904ebe5f03910d5c25db8c2623f118e3",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "105a16e0-e56e-4c42-90db-fa5a9e6662fa",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "105a16e0-e56e-4c42-90db-fa5a9e6662fa",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 404,
+        "contract": {
+          "match": null,
+          "creationMatch": null,
+          "runtimeMatch": null,
+          "chainId": "46630",
+          "address": "0x7694D631107fea145d872A6003f40a2021F99343"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0x7694D631107fea145d872A6003f40a2021F99343",
+          "verifiedAt": "2026-08-15T01:12:47Z",
+          "matchId": "43645932"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43645932",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-15T01:12:47Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x7694D631107fea145d872A6003f40a2021F99343"
+        }
+      }
+    },
+    {
+      "id": "v4.liquidityProvisioner",
+      "address": "0xba8cB9EE1Ea1126535C22d13805ec5cC22613775",
+      "creationTransactionHash": "0xa0fd3685c061edf3677ab0a77613f34325ca525ef18b7a7a2ee4cc9319207307",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "6aff09ec-fcbe-4fdd-ad86-7011fd047ce9",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "6aff09ec-fcbe-4fdd-ad86-7011fd047ce9",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 404,
+        "contract": {
+          "match": null,
+          "creationMatch": null,
+          "runtimeMatch": null,
+          "chainId": "46630",
+          "address": "0xba8cB9EE1Ea1126535C22d13805ec5cC22613775"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0xba8cB9EE1Ea1126535C22d13805ec5cC22613775",
+          "verifiedAt": "2026-08-15T01:12:54Z",
+          "matchId": "43645936"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43645936",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-15T01:12:54Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0xba8cB9EE1Ea1126535C22d13805ec5cC22613775"
+        }
+      }
+    },
+    {
+      "id": "v4.tokenFactory",
+      "address": "0x897cd8ac993184d6dd3B549A5FbEc04f697C107c",
+      "creationTransactionHash": "0x2bf16e7b17f01f30e0efaba6125fccef53500037b50de54a90715bec8d34f16e",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "fae70606-1961-4dd3-86ba-b78a2373d44d",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "fae70606-1961-4dd3-86ba-b78a2373d44d",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 404,
+        "contract": {
+          "match": null,
+          "creationMatch": null,
+          "runtimeMatch": null,
+          "chainId": "46630",
+          "address": "0x897cd8ac993184d6dd3B549A5FbEc04f697C107c"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0x897cd8ac993184d6dd3B549A5FbEc04f697C107c",
+          "verifiedAt": "2026-08-15T01:12:46Z",
+          "matchId": "43645929"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43645929",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-15T01:12:46Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x897cd8ac993184d6dd3B549A5FbEc04f697C107c"
+        }
+      }
+    },
+    {
+      "id": "v4.presaleDeployer",
+      "address": "0x873d07CD525F447BaC22607c6f535347e354f333",
+      "creationTransactionHash": "0x04fbbdfec2991715e297674120963e0b0d52aa7878d9a4d676ac0e868ffbe4ac",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "a5b89bac-ef5d-4825-8553-123bfcd3878d",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "a5b89bac-ef5d-4825-8553-123bfcd3878d",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 404,
+        "contract": {
+          "match": null,
+          "creationMatch": null,
+          "runtimeMatch": null,
+          "chainId": "46630",
+          "address": "0x873d07CD525F447BaC22607c6f535347e354f333"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0x873d07CD525F447BaC22607c6f535347e354f333",
+          "verifiedAt": "2026-08-15T01:13:09Z",
+          "matchId": "43645941"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43645941",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-15T01:13:09Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x873d07CD525F447BaC22607c6f535347e354f333"
+        }
+      }
+    },
+    {
+      "id": "v4.curveDeployer",
+      "address": "0x62FF5dB0062c39B6bc555CD745b1B4E1729f361F",
+      "creationTransactionHash": "0xa58d8263dbfe60fb170afbb233d4550a3f04134a93c5de1d855db7945b0dbc37",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "bf2c054d-93e2-44b5-89e8-6b8efcf7cf76",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "bf2c054d-93e2-44b5-89e8-6b8efcf7cf76",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 404,
+        "contract": {
+          "match": null,
+          "creationMatch": null,
+          "runtimeMatch": null,
+          "chainId": "46630",
+          "address": "0x62FF5dB0062c39B6bc555CD745b1B4E1729f361F"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0x62FF5dB0062c39B6bc555CD745b1B4E1729f361F",
+          "verifiedAt": "2026-08-15T01:13:00Z",
+          "matchId": "43645939"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43645939",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-15T01:13:00Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x62FF5dB0062c39B6bc555CD745b1B4E1729f361F"
+        }
+      }
+    },
+    {
+      "id": "v4.launchpad",
+      "address": "0x45f7497ff12De39924905d9820A2E1CC60707302",
+      "creationTransactionHash": "0x3118452b1297ed15fbd43c12f2bf0985b368a2cf367c0766d88aad7eb12fe78d",
+      "submitted": true,
+      "accepted": true,
+      "verificationId": "fef9e131-8b27-4d62-bdff-1e5e87ba7bd1",
+      "submission": {
+        "accepted": true,
+        "alreadyVerified": false,
+        "httpStatus": 202,
+        "verificationId": "fef9e131-8b27-4d62-bdff-1e5e87ba7bd1",
+        "error": null
+      },
+      "before": {
+        "exact": false,
+        "httpStatus": 404,
+        "contract": {
+          "match": null,
+          "creationMatch": null,
+          "runtimeMatch": null,
+          "chainId": "46630",
+          "address": "0x45f7497ff12De39924905d9820A2E1CC60707302"
+        }
+      },
+      "job": {
+        "completed": true,
+        "exact": true,
+        "contract": {
+          "match": "exact_match",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "chainId": "46630",
+          "address": "0x45f7497ff12De39924905d9820A2E1CC60707302",
+          "verifiedAt": "2026-08-15T01:12:53Z",
+          "matchId": "43645933"
+        },
+        "error": null
+      },
+      "after": {
+        "exact": true,
+        "httpStatus": 200,
+        "contract": {
+          "matchId": "43645933",
+          "creationMatch": "exact_match",
+          "runtimeMatch": "exact_match",
+          "verifiedAt": "2026-08-15T01:12:53Z",
+          "match": "exact_match",
+          "chainId": "46630",
+          "address": "0x45f7497ff12De39924905d9820A2E1CC60707302"
+        }
+      }
+    }
+  ]
+}

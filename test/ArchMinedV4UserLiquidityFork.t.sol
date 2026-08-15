@@ -34,19 +34,14 @@ contract ArchMinedV4UserLiquidityForkTest is Test {
         ArchV4UserLiquidityProvisioner(payable(0xba8cB9EE1Ea1126535C22d13805ec5cC22613775));
     ArchAdapterTokenFactory private constant TOKEN_FACTORY =
         ArchAdapterTokenFactory(payable(0x897cd8ac993184d6dd3B549A5FbEc04f697C107c));
-    ArchAdapterLaunchpad private constant LAUNCHPAD =
-        ArchAdapterLaunchpad(0x45f7497ff12De39924905d9820A2E1CC60707302);
-    ArchV4PositionLocker private constant LOCKER =
-        ArchV4PositionLocker(0x8A1bC51e25b8799a5da57ff55f0262A405Ed2b98);
+    ArchAdapterLaunchpad private constant LAUNCHPAD = ArchAdapterLaunchpad(0x45f7497ff12De39924905d9820A2E1CC60707302);
+    ArchV4PositionLocker private constant LOCKER = ArchV4PositionLocker(0x8A1bC51e25b8799a5da57ff55f0262A405Ed2b98);
     IUniswapV4PositionManager private constant POSITION_MANAGER =
         IUniswapV4PositionManager(0x58daec3116aae6D93017bAAea7749052E8a04fA7);
-    IUniswapV4StateView private constant STATE_VIEW =
-        IUniswapV4StateView(0xF3334192D15450CdD385c8B70e03f9A6bD9E673b);
-    IV4UserLiquidityCanary private constant CANARY =
-        IV4UserLiquidityCanary(0x0B5a48E52D8F0f529115A3bbE5737EF84B083312);
+    IUniswapV4StateView private constant STATE_VIEW = IUniswapV4StateView(0xF3334192D15450CdD385c8B70e03f9A6bD9E673b);
+    IV4UserLiquidityCanary private constant CANARY = IV4UserLiquidityCanary(0x0B5a48E52D8F0f529115A3bbE5737EF84B083312);
 
-    bytes32 private constant CANARY_POOL_ID =
-        0x8eef3c93c9a68ec64e3b3769e215496f6c07e40088487ca2748c30171a912e92;
+    bytes32 private constant CANARY_POOL_ID = 0x8eef3c93c9a68ec64e3b3769e215496f6c07e40088487ca2748c30171a912e92;
     address private constant CANARY_TOKEN = 0xc85e410547Be1E4a98A2b2915ed014b305D10f0A;
 
     function setUp() public {

@@ -1,0 +1,483 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "robinhood-testnet-v4-user-liquidity-2026-08-15-r1",
+  "checkedAt": "2026-08-14T23:42:54.729Z",
+  "rpc": "redacted-read-only-endpoint",
+  "passed": true,
+  "summary": {
+    "total": 7,
+    "passed": 7,
+    "blocked": 0
+  },
+  "checks": [
+    {
+      "id": "v4.tokenDeployLibrary",
+      "address": "0xaeea5fFc86f98E9023D1e1C9a0EFFc9ce973CEC4",
+      "contractName": "ArchTokenDeployLib",
+      "artifactPath": "out/ArchTokenDeployLib.sol/ArchTokenDeployLib.json",
+      "source": {
+        "compilerVersion": "0.8.30+commit.73712a01",
+        "sourcePath": "src/lib/ArchTokenDeployLib.sol",
+        "license": "LicenseRef-ArchLiquid-Proprietary",
+        "settings": {
+          "evmVersion": "cancun",
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true
+        }
+      },
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 16197,
+          "bodyHash": "0xc28e441970be70aca1bd5666043d17cc764a4a627eb4d2b7819b7927f76bb96e",
+          "bodyWithEmbeddedMetadataHash": "0xf8a5f12b364a765924c91cf6d3dd0b9c3799831a45d7e34fd8e7e6a01ff318a9",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x10f34ebfed8db0b6c0b18bea075a007959fe20122da856532a791e929252772f"
+        },
+        "live": {
+          "bodyBytes": 16197,
+          "bodyHash": "0xc28e441970be70aca1bd5666043d17cc764a4a627eb4d2b7819b7927f76bb96e",
+          "bodyWithEmbeddedMetadataHash": "0xf8a5f12b364a765924c91cf6d3dd0b9c3799831a45d7e34fd8e7e6a01ff318a9",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x10f34ebfed8db0b6c0b18bea075a007959fe20122da856532a791e929252772f"
+        }
+      },
+      "creation": {
+        "status": "explorer-raw-trace",
+        "transactionHash": "0xa0e561702b11b6f8656076dad8277dc39b936725e879447ce739471034b07c38",
+        "encodedConstructorArguments": "0x",
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 16229,
+          "bodyHash": "0x8c1004c567dc2adddad1d2956066fc6de28151a8625b44a6c6995d0d52d7f87b",
+          "bodyWithEmbeddedMetadataHash": "0x7d63fa200ddde585122317f6b71d96f5fb87159f6e837ae23844b3f10727a3a7",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x10f34ebfed8db0b6c0b18bea075a007959fe20122da856532a791e929252772f"
+        },
+        "live": {
+          "bodyBytes": 16229,
+          "bodyHash": "0x8c1004c567dc2adddad1d2956066fc6de28151a8625b44a6c6995d0d52d7f87b",
+          "bodyWithEmbeddedMetadataHash": "0x7d63fa200ddde585122317f6b71d96f5fb87159f6e837ae23844b3f10727a3a7",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x10f34ebfed8db0b6c0b18bea075a007959fe20122da856532a791e929252772f"
+        }
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "v4.liquidityAdapter",
+      "address": "0x7694D631107fea145d872A6003f40a2021F99343",
+      "contractName": "ArchV4LaunchLiquidityAdapter",
+      "artifactPath": "out/ArchV4LaunchLiquidityAdapter.sol/ArchV4LaunchLiquidityAdapter.json",
+      "source": {
+        "compilerVersion": "0.8.30+commit.73712a01",
+        "sourcePath": "src/ArchV4LaunchLiquidityAdapter.sol",
+        "license": "LicenseRef-ArchLiquid-Proprietary",
+        "settings": {
+          "evmVersion": "cancun",
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true
+        }
+      },
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 15855,
+          "bodyHash": "0xb919994694eb66abca98be86cbaf5a6961ec8f6f40f167504d948e485947c6ba",
+          "bodyWithEmbeddedMetadataHash": "0xb919994694eb66abca98be86cbaf5a6961ec8f6f40f167504d948e485947c6ba",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0x245db2f62d0cdaed006d2a600c5ff468a3e5742046d88b2dc1f4408c10d73009"
+        },
+        "live": {
+          "bodyBytes": 15855,
+          "bodyHash": "0xb919994694eb66abca98be86cbaf5a6961ec8f6f40f167504d948e485947c6ba",
+          "bodyWithEmbeddedMetadataHash": "0xb919994694eb66abca98be86cbaf5a6961ec8f6f40f167504d948e485947c6ba",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0x245db2f62d0cdaed006d2a600c5ff468a3e5742046d88b2dc1f4408c10d73009"
+        }
+      },
+      "creation": {
+        "status": "explorer-raw-trace",
+        "transactionHash": "0xdb13b92233b735c2f2c109d3004bcdbd904ebe5f03910d5c25db8c2623f118e3",
+        "encodedConstructorArguments": "0x00000000000000000000000058daec3116aae6d93017baaea7749052e8a04fa7000000000000000000000000f3334192d15450cdd385c8b70e03f9a6bd9e673b000000000000000000000000000000000022d473030f116ddee9f6b43ac78ba300000000000000000000000061293a735e35d76e8980bf17715b37a0c41965120000000000000000000000008a1bc51e25b8799a5da57ff55f0262a405ed2b980000000000000000000000006a51c3672b6c4d5d556f23a18918983390a832c8",
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 17694,
+          "bodyHash": "0xfb1e167b876dbc3b14dd1ecf9772c890f36ee996baf35b9c094002cbba93d50c",
+          "bodyWithEmbeddedMetadataHash": "0xfb1e167b876dbc3b14dd1ecf9772c890f36ee996baf35b9c094002cbba93d50c",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0x245db2f62d0cdaed006d2a600c5ff468a3e5742046d88b2dc1f4408c10d73009"
+        },
+        "live": {
+          "bodyBytes": 17694,
+          "bodyHash": "0xfb1e167b876dbc3b14dd1ecf9772c890f36ee996baf35b9c094002cbba93d50c",
+          "bodyWithEmbeddedMetadataHash": "0xfb1e167b876dbc3b14dd1ecf9772c890f36ee996baf35b9c094002cbba93d50c",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0x245db2f62d0cdaed006d2a600c5ff468a3e5742046d88b2dc1f4408c10d73009"
+        }
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "v4.liquidityProvisioner",
+      "address": "0xba8cB9EE1Ea1126535C22d13805ec5cC22613775",
+      "contractName": "ArchV4UserLiquidityProvisioner",
+      "artifactPath": "out/ArchV4UserLiquidityProvisioner.sol/ArchV4UserLiquidityProvisioner.json",
+      "source": {
+        "compilerVersion": "0.8.30+commit.73712a01",
+        "sourcePath": "src/ArchV4UserLiquidityProvisioner.sol",
+        "license": "LicenseRef-ArchLiquid-Proprietary",
+        "settings": {
+          "evmVersion": "cancun",
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true
+        }
+      },
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 6920,
+          "bodyHash": "0xe0c1ab0f7aaf35ae2efd7c3010130be05ec69c2bf50568882403d528e6f2d5fe",
+          "bodyWithEmbeddedMetadataHash": "0xe0c1ab0f7aaf35ae2efd7c3010130be05ec69c2bf50568882403d528e6f2d5fe",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0xaabd6dbaf33b8bdbba552b53fd53900ef6ff5a6d8263b7fadc3de44359e7a6f2"
+        },
+        "live": {
+          "bodyBytes": 6920,
+          "bodyHash": "0xe0c1ab0f7aaf35ae2efd7c3010130be05ec69c2bf50568882403d528e6f2d5fe",
+          "bodyWithEmbeddedMetadataHash": "0xe0c1ab0f7aaf35ae2efd7c3010130be05ec69c2bf50568882403d528e6f2d5fe",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0xaabd6dbaf33b8bdbba552b53fd53900ef6ff5a6d8263b7fadc3de44359e7a6f2"
+        }
+      },
+      "creation": {
+        "status": "explorer-raw-trace",
+        "transactionHash": "0xa0fd3685c061edf3677ab0a77613f34325ca525ef18b7a7a2ee4cc9319207307",
+        "encodedConstructorArguments": "0x0000000000000000000000007694d631107fea145d872a6003f40a2021f99343",
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 7525,
+          "bodyHash": "0x0e65c289e8e970b3e4668cf626bfa827cc4d6358ac5263baf1b21a57baf2f9dd",
+          "bodyWithEmbeddedMetadataHash": "0x0e65c289e8e970b3e4668cf626bfa827cc4d6358ac5263baf1b21a57baf2f9dd",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0xaabd6dbaf33b8bdbba552b53fd53900ef6ff5a6d8263b7fadc3de44359e7a6f2"
+        },
+        "live": {
+          "bodyBytes": 7525,
+          "bodyHash": "0x0e65c289e8e970b3e4668cf626bfa827cc4d6358ac5263baf1b21a57baf2f9dd",
+          "bodyWithEmbeddedMetadataHash": "0x0e65c289e8e970b3e4668cf626bfa827cc4d6358ac5263baf1b21a57baf2f9dd",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0xaabd6dbaf33b8bdbba552b53fd53900ef6ff5a6d8263b7fadc3de44359e7a6f2"
+        }
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "v4.tokenFactory",
+      "address": "0x897cd8ac993184d6dd3B549A5FbEc04f697C107c",
+      "contractName": "ArchAdapterTokenFactory",
+      "artifactPath": "out/ArchAdapterTokenFactory.sol/ArchAdapterTokenFactory.json",
+      "source": {
+        "compilerVersion": "0.8.30+commit.73712a01",
+        "sourcePath": "src/ArchAdapterTokenFactory.sol",
+        "license": "LicenseRef-ArchLiquid-Proprietary",
+        "settings": {
+          "evmVersion": "cancun",
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true
+        }
+      },
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 22010,
+          "bodyHash": "0x1bad1a024d8322ad7a58cbed176ac9d98dfa2636e50c420d401358b9eb50c2a9",
+          "bodyWithEmbeddedMetadataHash": "0x3c0bd2ab0e53e06c9b525d4dd40ea8390f991d66bccbde695e1d67af892da570",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x479ef83c9df237b052a65c82bbbf3634e2a95c3b48a4d9b4eace87bc4916a2bf"
+        },
+        "live": {
+          "bodyBytes": 22010,
+          "bodyHash": "0x1bad1a024d8322ad7a58cbed176ac9d98dfa2636e50c420d401358b9eb50c2a9",
+          "bodyWithEmbeddedMetadataHash": "0x3c0bd2ab0e53e06c9b525d4dd40ea8390f991d66bccbde695e1d67af892da570",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x479ef83c9df237b052a65c82bbbf3634e2a95c3b48a4d9b4eace87bc4916a2bf"
+        }
+      },
+      "creation": {
+        "status": "explorer-raw-trace",
+        "transactionHash": "0x2bf16e7b17f01f30e0efaba6125fccef53500037b50de54a90715bec8d34f16e",
+        "encodedConstructorArguments": "0x0000000000000000000000000000000000000000000000000000886c98b7600000000000000000000000000048b49cef2f6071405d6a62228adc168a7bab26540000000000000000000000006a51c3672b6c4d5d556f23a18918983390a832c80000000000000000000000007694d631107fea145d872a6003f40a2021f99343000000000000000000000000a4c298f17d051634f59dd37fee05d4892a8153ea00000000000000000000000061293a735e35d76e8980bf17715b37a0c41965120000000000000000000000000000000000000000000000000000000000000bb80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000adb4b0d5908c179c97ce5a5b2879ba3e8497bd64",
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 23223,
+          "bodyHash": "0x200700f6ace5558e62fb00b0d0c0deeed348c4da62398374d1914313e18e58f7",
+          "bodyWithEmbeddedMetadataHash": "0xd6d9045286a77b6844dbf404ccb4c7a9d9dc6968f96adb81f672ab8014c1e2b7",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x479ef83c9df237b052a65c82bbbf3634e2a95c3b48a4d9b4eace87bc4916a2bf"
+        },
+        "live": {
+          "bodyBytes": 23223,
+          "bodyHash": "0x200700f6ace5558e62fb00b0d0c0deeed348c4da62398374d1914313e18e58f7",
+          "bodyWithEmbeddedMetadataHash": "0xd6d9045286a77b6844dbf404ccb4c7a9d9dc6968f96adb81f672ab8014c1e2b7",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x479ef83c9df237b052a65c82bbbf3634e2a95c3b48a4d9b4eace87bc4916a2bf"
+        }
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "v4.presaleDeployer",
+      "address": "0x873d07CD525F447BaC22607c6f535347e354f333",
+      "contractName": "ArchAdapterPresaleDeployer",
+      "artifactPath": "out/ArchAdapterPresaleDeployer.sol/ArchAdapterPresaleDeployer.json",
+      "source": {
+        "compilerVersion": "0.8.30+commit.73712a01",
+        "sourcePath": "src/ArchAdapterPresaleDeployer.sol",
+        "license": "LicenseRef-ArchLiquid-Proprietary",
+        "settings": {
+          "evmVersion": "cancun",
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true
+        }
+      },
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 17762,
+          "bodyHash": "0x86fb6753deff03df7b676b79559d0dd2d9d4b0ae2e708fc2bcd15740137f1c89",
+          "bodyWithEmbeddedMetadataHash": "0xd5c561acb2e7eee0d97ee8fc41142b087b255a44c2af0a6b436e04b6d3073b5c",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x4d0274e3a7ea30c67d7b43f273774d19fadf4ed6827f0fd89b4763a4543f9a15"
+        },
+        "live": {
+          "bodyBytes": 17762,
+          "bodyHash": "0x86fb6753deff03df7b676b79559d0dd2d9d4b0ae2e708fc2bcd15740137f1c89",
+          "bodyWithEmbeddedMetadataHash": "0xd5c561acb2e7eee0d97ee8fc41142b087b255a44c2af0a6b436e04b6d3073b5c",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x4d0274e3a7ea30c67d7b43f273774d19fadf4ed6827f0fd89b4763a4543f9a15"
+        }
+      },
+      "creation": {
+        "status": "explorer-raw-trace",
+        "transactionHash": "0x04fbbdfec2991715e297674120963e0b0d52aa7878d9a4d676ac0e868ffbe4ac",
+        "encodedConstructorArguments": "0x",
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 17808,
+          "bodyHash": "0x453d7af5c3c31b79e21f87c73074fef648dc6a6f07a2bf7c248e4fa3b7ffa596",
+          "bodyWithEmbeddedMetadataHash": "0x6a2fe7611697f7cfc9784d48b8c52ae5fc93b4de5c266f1b0e87e5cc6b27ed14",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x4d0274e3a7ea30c67d7b43f273774d19fadf4ed6827f0fd89b4763a4543f9a15"
+        },
+        "live": {
+          "bodyBytes": 17808,
+          "bodyHash": "0x453d7af5c3c31b79e21f87c73074fef648dc6a6f07a2bf7c248e4fa3b7ffa596",
+          "bodyWithEmbeddedMetadataHash": "0x6a2fe7611697f7cfc9784d48b8c52ae5fc93b4de5c266f1b0e87e5cc6b27ed14",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x4d0274e3a7ea30c67d7b43f273774d19fadf4ed6827f0fd89b4763a4543f9a15"
+        }
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "v4.curveDeployer",
+      "address": "0x62FF5dB0062c39B6bc555CD745b1B4E1729f361F",
+      "contractName": "ArchAdapterCurveDeployer",
+      "artifactPath": "out/ArchAdapterCurveDeployer.sol/ArchAdapterCurveDeployer.json",
+      "source": {
+        "compilerVersion": "0.8.30+commit.73712a01",
+        "sourcePath": "src/ArchAdapterCurveDeployer.sol",
+        "license": "LicenseRef-ArchLiquid-Proprietary",
+        "settings": {
+          "evmVersion": "cancun",
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true
+        }
+      },
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 13289,
+          "bodyHash": "0xa49cb611c7b0914546365ce35049e27b68e6dad57049d912b0aee4d6db320a50",
+          "bodyWithEmbeddedMetadataHash": "0xb1005320d71941a1c54605030102f6d829c8f1254f0bac8beace0b6de7249215",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x8e0306ebe118df20f3e80513228cf08f25ddd9e2ea55d85516326c8fe0dd2ad4"
+        },
+        "live": {
+          "bodyBytes": 13289,
+          "bodyHash": "0xa49cb611c7b0914546365ce35049e27b68e6dad57049d912b0aee4d6db320a50",
+          "bodyWithEmbeddedMetadataHash": "0xb1005320d71941a1c54605030102f6d829c8f1254f0bac8beace0b6de7249215",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x8e0306ebe118df20f3e80513228cf08f25ddd9e2ea55d85516326c8fe0dd2ad4"
+        }
+      },
+      "creation": {
+        "status": "explorer-raw-trace",
+        "transactionHash": "0xa58d8263dbfe60fb170afbb233d4550a3f04134a93c5de1d855db7945b0dbc37",
+        "encodedConstructorArguments": "0x",
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 13335,
+          "bodyHash": "0x783e9a59dce2a5d1f5d8ed415c91fec19c213554660c342048ae781797fb6f20",
+          "bodyWithEmbeddedMetadataHash": "0x934cbcbe02905e7612d8aec89fd3815551f37c8df81dcf9a1f80f54bd57a4c40",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x8e0306ebe118df20f3e80513228cf08f25ddd9e2ea55d85516326c8fe0dd2ad4"
+        },
+        "live": {
+          "bodyBytes": 13335,
+          "bodyHash": "0x783e9a59dce2a5d1f5d8ed415c91fec19c213554660c342048ae781797fb6f20",
+          "bodyWithEmbeddedMetadataHash": "0x934cbcbe02905e7612d8aec89fd3815551f37c8df81dcf9a1f80f54bd57a4c40",
+          "embeddedMetadataBlocks": 1,
+          "metadataBytes": 53,
+          "metadataHash": "0x8e0306ebe118df20f3e80513228cf08f25ddd9e2ea55d85516326c8fe0dd2ad4"
+        }
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "v4.launchpad",
+      "address": "0x45f7497ff12De39924905d9820A2E1CC60707302",
+      "contractName": "ArchAdapterLaunchpad",
+      "artifactPath": "out/ArchAdapterLaunchpad.sol/ArchAdapterLaunchpad.json",
+      "source": {
+        "compilerVersion": "0.8.30+commit.73712a01",
+        "sourcePath": "src/ArchAdapterLaunchpad.sol",
+        "license": "LicenseRef-ArchLiquid-Proprietary",
+        "settings": {
+          "evmVersion": "cancun",
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true
+        }
+      },
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 4638,
+          "bodyHash": "0xba658e99256ec74e2d06ca00b51c1ac1803e242355357820fd2ed108c0cf05b4",
+          "bodyWithEmbeddedMetadataHash": "0xba658e99256ec74e2d06ca00b51c1ac1803e242355357820fd2ed108c0cf05b4",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0xff7f2e2123e2666ecaf15d730b89293b25c4620207aca1653450cbafbc8ee82f"
+        },
+        "live": {
+          "bodyBytes": 4638,
+          "bodyHash": "0xba658e99256ec74e2d06ca00b51c1ac1803e242355357820fd2ed108c0cf05b4",
+          "bodyWithEmbeddedMetadataHash": "0xba658e99256ec74e2d06ca00b51c1ac1803e242355357820fd2ed108c0cf05b4",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0xff7f2e2123e2666ecaf15d730b89293b25c4620207aca1653450cbafbc8ee82f"
+        }
+      },
+      "creation": {
+        "status": "explorer-raw-trace",
+        "transactionHash": "0x3118452b1297ed15fbd43c12f2bf0985b368a2cf367c0766d88aad7eb12fe78d",
+        "encodedConstructorArguments": "0x00000000000000000000000000000000000000000000000000038d7ea4c6800000000000000000000000000048b49cef2f6071405d6a62228adc168a7bab26540000000000000000000000007694d631107fea145d872a6003f40a2021f99343000000000000000000000000a4c298f17d051634f59dd37fee05d4892a8153ea00000000000000000000000061293a735e35d76e8980bf17715b37a0c41965120000000000000000000000000000000000000000000000000000000000000bb800000000000000000000000000000000000000000000000000000000000000000000000000000000000000006a51c3672b6c4d5d556f23a18918983390a832c8000000000000000000000000adb4b0d5908c179c97ce5a5b2879ba3e8497bd64000000000000000000000000873d07cd525f447bac22607c6f535347e354f33300000000000000000000000062ff5db0062c39b6bc555cd745b1b4e1729f361f",
+        "match": true,
+        "metadataMatch": true,
+        "topLevelMetadataMatch": true,
+        "embeddedMetadataMatch": true,
+        "compiled": {
+          "bodyBytes": 6154,
+          "bodyHash": "0x60adc6d95b2ab8e0b918d1e69e695748073d4d93bd5c38e95e721f7723a0c498",
+          "bodyWithEmbeddedMetadataHash": "0x60adc6d95b2ab8e0b918d1e69e695748073d4d93bd5c38e95e721f7723a0c498",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0xff7f2e2123e2666ecaf15d730b89293b25c4620207aca1653450cbafbc8ee82f"
+        },
+        "live": {
+          "bodyBytes": 6154,
+          "bodyHash": "0x60adc6d95b2ab8e0b918d1e69e695748073d4d93bd5c38e95e721f7723a0c498",
+          "bodyWithEmbeddedMetadataHash": "0x60adc6d95b2ab8e0b918d1e69e695748073d4d93bd5c38e95e721f7723a0c498",
+          "embeddedMetadataBlocks": 0,
+          "metadataBytes": 53,
+          "metadataHash": "0xff7f2e2123e2666ecaf15d730b89293b25c4620207aca1653450cbafbc8ee82f"
+        }
+      },
+      "parityPassed": true
+    }
+  ]
+}

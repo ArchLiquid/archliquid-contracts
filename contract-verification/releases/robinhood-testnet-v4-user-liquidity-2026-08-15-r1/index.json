@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "robinhood-testnet-v4-user-liquidity-2026-08-15-r1",
+  "generatedAt": "2026-08-15T01:06:23.477Z",
+  "submissionAuthorized": true,
+  "payloadCount": 7,
+  "payloads": [
+    {
+      "id": "v4.tokenDeployLibrary",
+      "address": "0xaeea5fFc86f98E9023D1e1C9a0EFFc9ce973CEC4",
+      "contractName": "ArchTokenDeployLib",
+      "artifactPath": "out/ArchTokenDeployLib.sol/ArchTokenDeployLib.json",
+      "sourcePath": "src/lib/ArchTokenDeployLib.sol",
+      "compilerVersion": "0.8.30+commit.73712a01",
+      "encodedConstructorArguments": "0x",
+      "libraries": {},
+      "compilerLibraries": {},
+      "sourceCount": 17,
+      "standardInput": "v4.tokenDeployLibrary.standard-input.json",
+      "standardInputSha256": "f44eafaea8d8b2a6d1e2b95f22e997818e82b809f72046bc708735e62f2b1f0d"
+    },
+    {
+      "id": "v4.liquidityAdapter",
+      "address": "0x7694D631107fea145d872A6003f40a2021F99343",
+      "contractName": "ArchV4LaunchLiquidityAdapter",
+      "artifactPath": "out/ArchV4LaunchLiquidityAdapter.sol/ArchV4LaunchLiquidityAdapter.json",
+      "sourcePath": "src/ArchV4LaunchLiquidityAdapter.sol",
+      "compilerVersion": "0.8.30+commit.73712a01",
+      "encodedConstructorArguments": "0x00000000000000000000000058daec3116aae6d93017baaea7749052e8a04fa7000000000000000000000000f3334192d15450cdd385c8b70e03f9a6bd9e673b000000000000000000000000000000000022d473030f116ddee9f6b43ac78ba300000000000000000000000061293a735e35d76e8980bf17715b37a0c41965120000000000000000000000008a1bc51e25b8799a5da57ff55f0262a405ed2b980000000000000000000000006a51c3672b6c4d5d556f23a18918983390a832c8",
+      "libraries": {},
+      "compilerLibraries": {},
+      "sourceCount": 21,
+      "standardInput": "v4.liquidityAdapter.standard-input.json",
+      "standardInputSha256": "fcad8cc6149119c0379d385231a9dd25a370c2606d9052ae048e53440e54004a"
+    },
+    {
+      "id": "v4.liquidityProvisioner",
+      "address": "0xba8cB9EE1Ea1126535C22d13805ec5cC22613775",
+      "contractName": "ArchV4UserLiquidityProvisioner",
+      "artifactPath": "out/ArchV4UserLiquidityProvisioner.sol/ArchV4UserLiquidityProvisioner.json",
+      "sourcePath": "src/ArchV4UserLiquidityProvisioner.sol",
+      "compilerVersion": "0.8.30+commit.73712a01",
+      "encodedConstructorArguments": "0x0000000000000000000000007694d631107fea145d872a6003f40a2021f99343",
+      "libraries": {},
+      "compilerLibraries": {},
+      "sourceCount": 28,
+      "standardInput": "v4.liquidityProvisioner.standard-input.json",
+      "standardInputSha256": "2f493abfedef7963ff98e9b99b5f6ca3bf17eef864998c7aacdcf6c87c56482e"
+    },
+    {
+      "id": "v4.tokenFactory",
+      "address": "0x897cd8ac993184d6dd3B549A5FbEc04f697C107c",
+      "contractName": "ArchAdapterTokenFactory",
+      "artifactPath": "out/ArchAdapterTokenFactory.sol/ArchAdapterTokenFactory.json",
+      "sourcePath": "src/ArchAdapterTokenFactory.sol",
+      "compilerVersion": "0.8.30+commit.73712a01",
+      "encodedConstructorArguments": "0x0000000000000000000000000000000000000000000000000000886c98b7600000000000000000000000000048b49cef2f6071405d6a62228adc168a7bab26540000000000000000000000006a51c3672b6c4d5d556f23a18918983390a832c80000000000000000000000007694d631107fea145d872a6003f40a2021f99343000000000000000000000000a4c298f17d051634f59dd37fee05d4892a8153ea00000000000000000000000061293a735e35d76e8980bf17715b37a0c41965120000000000000000000000000000000000000000000000000000000000000bb80000000000000000000000000000000000000000000000000000000000000000000000000000000000000000adb4b0d5908c179c97ce5a5b2879ba3e8497bd64",
+      "libraries": {},
+      "compilerLibraries": {},
+      "sourceCount": 21,
+      "standardInput": "v4.tokenFactory.standard-input.json",
+      "standardInputSha256": "d51bd6f90681c54c40b4f4f1a4de67c61358a632927c4c1f291232ef93e4a2c7"
+    },
+    {
+      "id": "v4.presaleDeployer",
+      "address": "0x873d07CD525F447BaC22607c6f535347e354f333",
+      "contractName": "ArchAdapterPresaleDeployer",
+      "artifactPath": "out/ArchAdapterPresaleDeployer.sol/ArchAdapterPresaleDeployer.json",
+      "sourcePath": "src/ArchAdapterPresaleDeployer.sol",
+      "compilerVersion": "0.8.30+commit.73712a01",
+      "encodedConstructorArguments": "0x",
+      "libraries": {
+        "src/lib/ArchTokenDeployLib.sol": {
+          "ArchTokenDeployLib": "0xaeea5fFc86f98E9023D1e1C9a0EFFc9ce973CEC4"
+        }
+      },
+      "compilerLibraries": {},
+      "sourceCount": 20,
+      "standardInput": "v4.presaleDeployer.standard-input.json",
+      "standardInputSha256": "176103682ed456a83c0ef963d8314e7a3bc83ca98ca66a33261373cced4ac08d"
+    },
+    {
+      "id": "v4.curveDeployer",
+      "address": "0x62FF5dB0062c39B6bc555CD745b1B4E1729f361F",
+      "contractName": "ArchAdapterCurveDeployer",
+      "artifactPath": "out/ArchAdapterCurveDeployer.sol/ArchAdapterCurveDeployer.json",
+      "sourcePath": "src/ArchAdapterCurveDeployer.sol",
+      "compilerVersion": "0.8.30+commit.73712a01",
+      "encodedConstructorArguments": "0x",
+      "libraries": {
+        "src/lib/ArchTokenDeployLib.sol": {
+          "ArchTokenDeployLib": "0xaeea5fFc86f98E9023D1e1C9a0EFFc9ce973CEC4"
+        }
+      },
+      "compilerLibraries": {},
+      "sourceCount": 22,
+      "standardInput": "v4.curveDeployer.standard-input.json",
+      "standardInputSha256": "c05735d2c7d1747a0338f1ca8a611900a606fb6478da8a7bad09f43129858fa5"
+    },
+    {
+      "id": "v4.launchpad",
+      "address": "0x45f7497ff12De39924905d9820A2E1CC60707302",
+      "contractName": "ArchAdapterLaunchpad",
+      "artifactPath": "out/ArchAdapterLaunchpad.sol/ArchAdapterLaunchpad.json",
+      "sourcePath": "src/ArchAdapterLaunchpad.sol",
+      "compilerVersion": "0.8.30+commit.73712a01",
+      "encodedConstructorArguments": "0x00000000000000000000000000000000000000000000000000038d7ea4c6800000000000000000000000000048b49cef2f6071405d6a62228adc168a7bab26540000000000000000000000007694d631107fea145d872a6003f40a2021f99343000000000000000000000000a4c298f17d051634f59dd37fee05d4892a8153ea00000000000000000000000061293a735e35d76e8980bf17715b37a0c41965120000000000000000000000000000000000000000000000000000000000000bb800000000000000000000000000000000000000000000000000000000000000000000000000000000000000006a51c3672b6c4d5d556f23a18918983390a832c8000000000000000000000000adb4b0d5908c179c97ce5a5b2879ba3e8497bd64000000000000000000000000873d07cd525f447bac22607c6f535347e354f33300000000000000000000000062ff5db0062c39b6bc555cd745b1b4e1729f361f",
+      "libraries": {},
+      "compilerLibraries": {},
+      "sourceCount": 28,
+      "standardInput": "v4.launchpad.standard-input.json",
+      "standardInputSha256": "ac10f11718eb4daeb310ecab5563525ddf567b603203e65f7a87b5bebac8fabc"
+    }
+  ]
+}
