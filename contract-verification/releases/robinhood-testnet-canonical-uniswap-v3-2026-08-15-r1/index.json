@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "robinhood-testnet-canonical-uniswap-v3-2026-08-15-r1",
+  "generatedAt": "2026-08-15T19:23:01.246Z",
+  "submissionAuthorized": true,
+  "authorizationBasis": "Owner approved permanent public Sourcify publication in the release conversation on 2026-08-15.",
+  "payloadCount": 12,
+  "payloads": [
+    {
+      "id": "factory",
+      "address": "0xe138C58a8f5FB97A52bf17966Ad1c68bD4B52979",
+      "contractName": "UniswapV3Factory",
+      "sourcePath": "contracts/UniswapV3Factory.sol",
+      "compilerVersion": "0.7.6+commit.7338295f",
+      "encodedConstructorArguments": "0x",
+      "standardInput": "factory.standard-input.json",
+      "standardInputSha256": "12762a87f5975e6d01be080f6c1e2a4318273a1a6b66f2caaea8118748b26683",
+      "sourceCount": 33
+    },
+    {
+      "id": "multicall2",
+      "address": "0x8B283aBa2BDF13d54629904FBE02A3AD36fC45AF",
+      "contractName": "UniswapInterfaceMulticall",
+      "sourcePath": "contracts/lens/UniswapInterfaceMulticall.sol",
+      "compilerVersion": "0.7.6+commit.7338295f",
+      "encodedConstructorArguments": "0x",
+      "standardInput": "multicall2.standard-input.json",
+      "standardInputSha256": "2e8e10c2e62865ef2c10ac9e16766395ea4a5fb8dff02e427dce389cb1800023",
+      "sourceCount": 20
+    },
+    {
+      "id": "proxyAdmin",
+      "address": "0xC0a1404002c1A16D45895692597e78d8654bd36E",
+      "contractName": "ProxyAdmin",
+      "sourcePath": "contracts/proxy/ProxyAdmin.sol",
+      "compilerVersion": "0.7.4+commit.3f05b770",
+      "encodedConstructorArguments": "0x",
+      "standardInput": "proxyAdmin.standard-input.json",
+      "standardInputSha256": "7bce7bd6e9b416e0f14a9556407102c102dece0d47ae4cee676444ebaba00b67",
+      "sourceCount": 7
+    },
+    {
+      "id": "tickLens",
+      "address": "0xcF125F109c8d533D9B2cF6726620499538c07c4C",
+      "contractName": "TickLens",
+      "sourcePath": "contracts/lens/TickLens.sol",
+      "compilerVersion": "0.7.6+commit.7338295f",
+      "encodedConstructorArguments": "0x",
+      "standardInput": "tickLens.standard-input.json",
+      "standardInputSha256": "66a594dbd3b687f1898a538a29de392c5d45730182780dd6bb9d33d6d4acc56e",
+      "sourceCount": 250
+    },
+    {
+      "id": "nftDescriptorLibrary",
+      "address": "0x348BBb997D7a00E3F17ae4f651Bd79F953252BA8",
+      "contractName": "NFTDescriptor",
+      "sourcePath": "contracts/libraries/NFTDescriptor.sol",
+      "compilerVersion": "0.7.6+commit.7338295f",
+      "encodedConstructorArguments": "0x",
+      "standardInput": "nftDescriptorLibrary.standard-input.json",
+      "standardInputSha256": "c58f721e3abc289aa39fc11d99141dc1b8ab19a0de8b5b12634433723aba3f6a",
+      "sourceCount": 200
+    },
+    {
+      "id": "positionDescriptorImplementation",
+      "address": "0x5E8F95427473E70B325AA3d402794DAaA7834730",
+      "contractName": "NonfungibleTokenPositionDescriptor",
+      "sourcePath": "contracts/NonfungibleTokenPositionDescriptor.sol",
+      "compilerVersion": "0.7.6+commit.7338295f",
+      "encodedConstructorArguments": "0x00000000000000000000000061293a735e35d76e8980bf17715b37a0c41965124554480000000000000000000000000000000000000000000000000000000000",
+      "standardInput": "positionDescriptorImplementation.standard-input.json",
+      "standardInputSha256": "cee77c75b3154badbcf5742da895b8b3bfe991eaeefabaed4c3fc73fd24c8c7b",
+      "sourceCount": 81
+    },
+    {
+      "id": "positionDescriptorProxy",
+      "address": "0x7c3CD3330628691350f024169e62541fC207D6B8",
+      "contractName": "TransparentUpgradeableProxy",
+      "sourcePath": "contracts/proxy/TransparentUpgradeableProxy.sol",
+      "compilerVersion": "0.7.4+commit.3f05b770",
+      "encodedConstructorArguments": "0x0000000000000000000000005e8f95427473e70b325aa3d402794daaa7834730000000000000000000000000c0a1404002c1a16d45895692597e78d8654bd36e00000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000",
+      "standardInput": "positionDescriptorProxy.standard-input.json",
+      "standardInputSha256": "c4f67664679ae6925cffc32d2c949f923acda5812bde955b2eb82cfae515097c",
+      "sourceCount": 7
+    },
+    {
+      "id": "positionManager",
+      "address": "0xD1e800aD30B2249977921ce5aFb8d69f773590Ec",
+      "contractName": "NonfungiblePositionManager",
+      "sourcePath": "contracts/NonfungiblePositionManager.sol",
+      "compilerVersion": "0.7.6+commit.7338295f",
+      "encodedConstructorArguments": "0x000000000000000000000000e138c58a8f5fb97a52bf17966ad1c68bd4b5297900000000000000000000000061293a735e35d76e8980bf17715b37a0c41965120000000000000000000000007c3cd3330628691350f024169e62541fc207d6b8",
+      "standardInput": "positionManager.standard-input.json",
+      "standardInputSha256": "2c6fe10f47496c36797509449da94140bbf98d5d4d389f93874c52210849321d",
+      "sourceCount": 301
+    },
+    {
+      "id": "v3Migrator",
+      "address": "0x0eB648fAc3376A54cc5d0d165fc0ea03dD5cE418",
+      "contractName": "V3Migrator",
+      "sourcePath": "contracts/V3Migrator.sol",
+      "compilerVersion": "0.7.6+commit.7338295f",
+      "encodedConstructorArguments": "0x000000000000000000000000e138c58a8f5fb97a52bf17966ad1c68bd4b5297900000000000000000000000061293a735e35d76e8980bf17715b37a0c4196512000000000000000000000000d1e800ad30b2249977921ce5afb8d69f773590ec",
+      "standardInput": "v3Migrator.standard-input.json",
+      "standardInputSha256": "add9397b17de3b9d0cb67bb53562d7f1ac10272423b00de72538963d9250238c",
+      "sourceCount": 232
+    },
+    {
+      "id": "v3Staker",
+      "address": "0x99FF667E5e78463e0e2ff6Ac7581234AEdd86905",
+      "contractName": "UniswapV3Staker",
+      "sourcePath": "contracts/UniswapV3Staker.sol",
+      "compilerVersion": "0.7.6+commit.7338295f",
+      "encodedConstructorArguments": "0x000000000000000000000000e138c58a8f5fb97a52bf17966ad1c68bd4b52979000000000000000000000000d1e800ad30b2249977921ce5afb8d69f773590ec0000000000000000000000000000000000000000000000000000000000278d000000000000000000000000000000000000000000000000000000000003c26700",
+      "standardInput": "v3Staker.standard-input.json",
+      "standardInputSha256": "7ae6ee663fce2b22b878efa982c12a430b043f2741bc44d5b1c21269fb22fcb8",
+      "sourceCount": 114
+    },
+    {
+      "id": "quoterV2",
+      "address": "0xF209bBacF31420D668d092614168318AF65A657b",
+      "contractName": "QuoterV2",
+      "sourcePath": "contracts/lens/QuoterV2.sol",
+      "compilerVersion": "0.7.6+commit.7338295f",
+      "encodedConstructorArguments": "0x000000000000000000000000e138c58a8f5fb97a52bf17966ad1c68bd4b5297900000000000000000000000061293a735e35d76e8980bf17715b37a0c4196512",
+      "standardInput": "quoterV2.standard-input.json",
+      "standardInputSha256": "887b62821fa1d5e6fbd86cf1138007809998852363390197825c3a9730e5a5fa",
+      "sourceCount": 163
+    },
+    {
+      "id": "swapRouter02",
+      "address": "0xF3545700dbc70B8b3962FAf08039BdA2664b71C9",
+      "contractName": "SwapRouter02",
+      "sourcePath": "contracts/SwapRouter02.sol",
+      "compilerVersion": "0.7.6+commit.7338295f",
+      "encodedConstructorArguments": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e138c58a8f5fb97a52bf17966ad1c68bd4b52979000000000000000000000000d1e800ad30b2249977921ce5afb8d69f773590ec00000000000000000000000061293a735e35d76e8980bf17715b37a0c4196512",
+      "standardInput": "swapRouter02.standard-input.json",
+      "standardInputSha256": "c13a3189338c49e5f9b0ce7bc5f206821440a7d870a33ea20f6d65dd92f16e13",
+      "sourceCount": 236
+    }
+  ]
+}

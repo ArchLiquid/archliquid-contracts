@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "robinhood-testnet-canonical-uniswap-v3-2026-08-15-r1",
+  "checkedAt": "2026-08-15T19:23:01.247Z",
+  "rpc": "redacted-read-only-endpoint",
+  "passed": true,
+  "summary": {
+    "total": 12,
+    "passed": 12,
+    "blocked": 0
+  },
+  "checks": [
+    {
+      "id": "factory",
+      "address": "0xe138C58a8f5FB97A52bf17966Ad1c68bD4B52979",
+      "contractName": "UniswapV3Factory",
+      "artifactPath": "node_modules/@uniswap/v3-core/artifacts/contracts/UniswapV3Factory.sol/UniswapV3Factory.json",
+      "source": {
+        "compilerVersion": "0.7.6+commit.7338295f",
+        "sourcePath": "contracts/UniswapV3Factory.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 1,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "e554e33fafa365c82734549344a063b3ab7d282e996e1831c7be2a26f61c35e2"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0xd31e72b2ac180f958e78401433d28650695a5f37aad7ae637158fec258c4a305",
+        "encodedConstructorArguments": "0x",
+        "transactionInputSha256": "56a5c814569c7c598c7c9f70bf173a875a70f21c533bb74295b92ff7725a4529"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "multicall2",
+      "address": "0x8B283aBa2BDF13d54629904FBE02A3AD36fC45AF",
+      "contractName": "UniswapInterfaceMulticall",
+      "artifactPath": "node_modules/@uniswap/v3-periphery/artifacts/contracts/lens/UniswapInterfaceMulticall.sol/UniswapInterfaceMulticall.json",
+      "source": {
+        "compilerVersion": "0.7.6+commit.7338295f",
+        "sourcePath": "contracts/lens/UniswapInterfaceMulticall.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 0,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "9f13ab3bbd1b0e27b9c94bf71599ca1414a984d91e20fbb92700df8930124e5f"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0xfd0ce361bade5f3240814714a3f6926cab5f7442ab1e9312d47466722c4bb183",
+        "encodedConstructorArguments": "0x",
+        "transactionInputSha256": "b1ebedf41c40a44f59dd153c8427866ec2ed4cc2ece6e1946a08f63cc2fbf000"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "proxyAdmin",
+      "address": "0xC0a1404002c1A16D45895692597e78d8654bd36E",
+      "contractName": "ProxyAdmin",
+      "artifactPath": "node_modules/@openzeppelin/contracts/build/contracts/ProxyAdmin.json",
+      "source": {
+        "compilerVersion": "0.7.4+commit.3f05b770",
+        "sourcePath": "contracts/proxy/ProxyAdmin.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 0,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "466c58a0dc1f1b8fcf2d259086b69dd4209992aabaa1b356dd56543fbec48c5c"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0x1886d926c8c9b8cf7574c8ed0a527c2cf79b5549170fcdd0399b7ed22d734ae0",
+        "encodedConstructorArguments": "0x",
+        "transactionInputSha256": "74f4b019b3f0c6e964259e78747f5d26e03821e8950fce009bb8bbb23eaa322a"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "tickLens",
+      "address": "0xcF125F109c8d533D9B2cF6726620499538c07c4C",
+      "contractName": "TickLens",
+      "artifactPath": "node_modules/@uniswap/v3-periphery/artifacts/contracts/lens/TickLens.sol/TickLens.json",
+      "source": {
+        "compilerVersion": "0.7.6+commit.7338295f",
+        "sourcePath": "contracts/lens/TickLens.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 0,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "bab3b6ce7fbe6c02019e90cd419426bb8419c58f82ae938ea9eb09d2e5a11213"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0x4bdfd2f9321b4f1ad80ef66df2b31c4404f8301f7139017cd583b152dc36d2b4",
+        "encodedConstructorArguments": "0x",
+        "transactionInputSha256": "99584add186b4c96691ee881e5657b3028563096f4b6418eb2752e24efd9942b"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "nftDescriptorLibrary",
+      "address": "0x348BBb997D7a00E3F17ae4f651Bd79F953252BA8",
+      "contractName": "NFTDescriptor",
+      "artifactPath": "node_modules/v3-periphery-1_3_0/artifacts/contracts/libraries/NFTDescriptor.sol/NFTDescriptor.json",
+      "source": {
+        "compilerVersion": "0.7.6+commit.7338295f",
+        "sourcePath": "contracts/libraries/NFTDescriptor.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 0,
+        "librarySelfAddressGuard": true,
+        "liveSha256": "6385aeb32fb3c4497ba4d2dc3165f8cb85307ec4602b86056f1d416d6a20f6d0"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0xec2d48b2ac6013f308ca5425dd857aa3e1daf40d35bcb53099658b56f7399aa8",
+        "encodedConstructorArguments": "0x",
+        "transactionInputSha256": "5749dd2f3b63358eb434dfea68ec4203f0ddadcf36a45eb05dd502bcdd8c0b95"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "positionDescriptorImplementation",
+      "address": "0x5E8F95427473E70B325AA3d402794DAaA7834730",
+      "contractName": "NonfungibleTokenPositionDescriptor",
+      "artifactPath": "node_modules/v3-periphery-1_3_0/artifacts/contracts/NonfungibleTokenPositionDescriptor.sol/NonfungibleTokenPositionDescriptor.json",
+      "source": {
+        "compilerVersion": "0.7.6+commit.7338295f",
+        "sourcePath": "contracts/NonfungibleTokenPositionDescriptor.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 7,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "b8171c67d3a9165edd1017db2054134c20d945bf925ac8b7e2e98912261a73c6"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0x964ba98bf800a4573477d1db6bc64c08ba042d07f66f461419acd9e2cc5387a3",
+        "encodedConstructorArguments": "0x00000000000000000000000061293a735e35d76e8980bf17715b37a0c41965124554480000000000000000000000000000000000000000000000000000000000",
+        "transactionInputSha256": "757623e6476098ca862220682fd24909c9166dc46f954804a0feb0b2baea4507"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "positionDescriptorProxy",
+      "address": "0x7c3CD3330628691350f024169e62541fC207D6B8",
+      "contractName": "TransparentUpgradeableProxy",
+      "artifactPath": "node_modules/@openzeppelin/contracts/build/contracts/TransparentUpgradeableProxy.json",
+      "source": {
+        "compilerVersion": "0.7.4+commit.3f05b770",
+        "sourcePath": "contracts/proxy/TransparentUpgradeableProxy.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 0,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "303105b126000430d1e7a8d7fef426af1d3ab271eddb4955984e1c9de70221f7"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0xdbd384dbebd3256b0ffa821f98c0e77acd4d73cee15db3540b477056e4a5eab6",
+        "encodedConstructorArguments": "0x0000000000000000000000005e8f95427473e70b325aa3d402794daaa7834730000000000000000000000000c0a1404002c1a16d45895692597e78d8654bd36e00000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000",
+        "transactionInputSha256": "389d168814689d3e0f14f72a83dc493bd6fc6c0e4d2f460988fa8a7923f1e426"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "positionManager",
+      "address": "0xD1e800aD30B2249977921ce5aFb8d69f773590Ec",
+      "contractName": "NonfungiblePositionManager",
+      "artifactPath": "node_modules/v3-periphery-1_3_0/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json",
+      "source": {
+        "compilerVersion": "0.7.6+commit.7338295f",
+        "sourcePath": "contracts/NonfungiblePositionManager.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 17,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "1a70b0a7b7f4a1825b910445012c70be9674c97c8ae9857a1d287e8b01b217ea"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0x791125a12cad575bbd3b9153b0f8b030d3f4c8abdc7473d5fe38c3fbe5dced5d",
+        "encodedConstructorArguments": "0x000000000000000000000000e138c58a8f5fb97a52bf17966ad1c68bd4b5297900000000000000000000000061293a735e35d76e8980bf17715b37a0c41965120000000000000000000000007c3cd3330628691350f024169e62541fc207d6b8",
+        "transactionInputSha256": "68f723eb4d1d3ca41b96b2370b7e1628e88304f43781d7de22b7327f61ba5245"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "v3Migrator",
+      "address": "0x0eB648fAc3376A54cc5d0d165fc0ea03dD5cE418",
+      "contractName": "V3Migrator",
+      "artifactPath": "node_modules/v3-periphery-1_3_0/artifacts/contracts/V3Migrator.sol/V3Migrator.json",
+      "source": {
+        "compilerVersion": "0.7.6+commit.7338295f",
+        "sourcePath": "contracts/V3Migrator.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 14,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "f1b316f74a51019c0a49cf89ad582464d7491ad4fa2710057598394f4b1197a3"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0x72ba0457741ebdb4713953895e1e97e30c2a28d1f2d4f3130cfececc6f408e43",
+        "encodedConstructorArguments": "0x000000000000000000000000e138c58a8f5fb97a52bf17966ad1c68bd4b5297900000000000000000000000061293a735e35d76e8980bf17715b37a0c4196512000000000000000000000000d1e800ad30b2249977921ce5afb8d69f773590ec",
+        "transactionInputSha256": "6057c6857fe242478068bf71915cef529476ecbabbc38ba02d81bd2095cf7297"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "v3Staker",
+      "address": "0x99FF667E5e78463e0e2ff6Ac7581234AEdd86905",
+      "contractName": "UniswapV3Staker",
+      "artifactPath": "node_modules/@uniswap/v3-staker/artifacts/contracts/UniswapV3Staker.sol/UniswapV3Staker.json",
+      "source": {
+        "compilerVersion": "0.7.6+commit.7338295f",
+        "sourcePath": "contracts/UniswapV3Staker.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 11,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "8a365c6d65a78c1d12072bdf6213c9ddb42974124c7e25fa233c009365cf4264"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0x518b85da11a631d4fdf3349ddbcd6554ec7342b2d3bb24a7051186fe0dd1418d",
+        "encodedConstructorArguments": "0x000000000000000000000000e138c58a8f5fb97a52bf17966ad1c68bd4b52979000000000000000000000000d1e800ad30b2249977921ce5afb8d69f773590ec0000000000000000000000000000000000000000000000000000000000278d000000000000000000000000000000000000000000000000000000000003c26700",
+        "transactionInputSha256": "5ce11013b43a26d24fb07648a8a2e9eab3cb0cfd8e97d7398a93f19c263fe1e8"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "quoterV2",
+      "address": "0xF209bBacF31420D668d092614168318AF65A657b",
+      "contractName": "QuoterV2",
+      "artifactPath": "node_modules/@uniswap/swap-router-contracts/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json",
+      "source": {
+        "compilerVersion": "0.7.6+commit.7338295f",
+        "sourcePath": "contracts/lens/QuoterV2.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 4,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "8dfe3e0c9d6c0736f2bf0cb565c545b7f3dda30786c135e2ace0a6b62f8528f0"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0x306b0a6c657067a189d7dc4af305e842a0086fdb93e10ea958afdf5c1db2627f",
+        "encodedConstructorArguments": "0x000000000000000000000000e138c58a8f5fb97a52bf17966ad1c68bd4b5297900000000000000000000000061293a735e35d76e8980bf17715b37a0c4196512",
+        "transactionInputSha256": "cb4ae8f29590a383e7dbf817e98d636f244dac8cd78e1d9bbe0d99f901c032a5"
+      },
+      "parityPassed": true
+    },
+    {
+      "id": "swapRouter02",
+      "address": "0xF3545700dbc70B8b3962FAf08039BdA2664b71C9",
+      "contractName": "SwapRouter02",
+      "artifactPath": "node_modules/@uniswap/swap-router-contracts/artifacts/contracts/SwapRouter02.sol/SwapRouter02.json",
+      "source": {
+        "compilerVersion": "0.7.6+commit.7338295f",
+        "sourcePath": "contracts/SwapRouter02.sol",
+        "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+        "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+        "upstreamPackageVersion": "1.0.4"
+      },
+      "packageCompilationParity": true,
+      "runtime": {
+        "match": true,
+        "metadataMatch": true,
+        "immutableReferenceCount": 23,
+        "librarySelfAddressGuard": false,
+        "liveSha256": "61c8d20a95d8684f7b384728291bd1bc87c8cc1afd83e7a643c2cf8afa397cd6"
+      },
+      "creation": {
+        "match": true,
+        "metadataMatch": true,
+        "transactionHash": "0x9d8d24824ac8f7ceefc389fd9aeaa613297c6da2a99f626a9bf4689a2989d0c7",
+        "encodedConstructorArguments": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e138c58a8f5fb97a52bf17966ad1c68bd4b52979000000000000000000000000d1e800ad30b2249977921ce5afb8d69f773590ec00000000000000000000000061293a735e35d76e8980bf17715b37a0c4196512",
+        "transactionInputSha256": "cf4108668cb2a1666d86bb78b60876c59dfe17228ce1fb3ce3b6c7bf6cdc8d93"
+      },
+      "parityPassed": true
+    }
+  ]
+}

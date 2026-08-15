@@ -273,6 +273,25 @@ forge test --match-contract ArchMinedV4UserLiquidityForkTest \
   --fork-url https://rpc.testnet.chain.robinhood.com -vv
 ```
 
+[`deployments/robinhood-testnet-uniswap-v3-release.json`](deployments/robinhood-testnet-uniswap-v3-release.json)
+records the canonical-bytecode Uniswap V3 testnet stack and six funded
+stock/WETH pools. All 12 stack contracts are publicly source-verified on
+Sourcify and visible in Robinhood Blockscout. Independent release evidence
+proves exact pinned-package creation and runtime bytecode parity for every
+address. Sourcify classifies two contracts as `exact_match` and ten as
+`match`; both classifications are verified, while `exact_match` additionally
+reproduces compiler auxdata byte-for-byte.
+
+| Canonical V3 component | Address |
+|---|---|
+| Factory | `0xe138C58a8f5FB97A52bf17966Ad1c68bD4B52979` |
+| Position manager | `0xD1e800aD30B2249977921ce5aFb8d69f773590Ec` |
+| Quoter V2 | `0xF209bBacF31420D668d092614168318AF65A657b` |
+| SwapRouter02 | `0xF3545700dbc70B8b3962FAf08039BdA2664b71C9` |
+
+The source-publication evidence is retained in
+[`docs/audit-evidence/robinhood-testnet-canonical-uniswap-v3-r1-source-publication.json`](docs/audit-evidence/robinhood-testnet-canonical-uniswap-v3-r1-source-publication.json).
+
 ## Updating a module
 
 When a module changes, update all three references together:

@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "robinhood-testnet-canonical-uniswap-v3-2026-08-15-r1",
+  "checkedAt": "2026-08-15T19:27:42.534Z",
+  "passed": true,
+  "summary": {
+    "total": 12,
+    "verified": 12,
+    "sourcifyExactMatch": 2,
+    "sourcifyMatch": 10,
+    "blocked": 0
+  },
+  "interpretation": {
+    "exactBytecodeParity": "Independent release evidence proves the live creation and runtime bytecode match the pinned deployment artifacts for every address.",
+    "sourcifyExactMatch": "Sourcify reproduced executable bytecode and compiler auxdata exactly.",
+    "sourcifyMatch": "Sourcify verified the source and executable bytecode after permitted compiler-auxdata transformations."
+  },
+  "checks": [
+    {
+      "id": "factory",
+      "address": "0xe138C58a8f5FB97A52bf17966Ad1c68bD4B52979",
+      "contractName": "UniswapV3Factory",
+      "sourcePath": "contracts/UniswapV3Factory.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "match",
+        "matchId": "43668767",
+        "verifiedAt": "2026-08-15T19:23:30Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": false,
+        "partiallyVerified": true,
+        "displayedName": "UniswapV3Factory",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "multicall2",
+      "address": "0x8B283aBa2BDF13d54629904FBE02A3AD36fC45AF",
+      "contractName": "UniswapInterfaceMulticall",
+      "sourcePath": "contracts/lens/UniswapInterfaceMulticall.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "match",
+        "matchId": "43668617",
+        "verifiedAt": "2026-08-15T19:15:29Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": false,
+        "partiallyVerified": true,
+        "displayedName": "ElkDexInterfaceMulticall",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "proxyAdmin",
+      "address": "0xC0a1404002c1A16D45895692597e78d8654bd36E",
+      "contractName": "ProxyAdmin",
+      "sourcePath": "contracts/proxy/ProxyAdmin.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "exact_match",
+        "matchId": "43668615",
+        "verifiedAt": "2026-08-15T19:15:28Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": true,
+        "partiallyVerified": false,
+        "displayedName": "ProxyAdmin",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "tickLens",
+      "address": "0xcF125F109c8d533D9B2cF6726620499538c07c4C",
+      "contractName": "TickLens",
+      "sourcePath": "contracts/lens/TickLens.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "match",
+        "matchId": "43668630",
+        "verifiedAt": "2026-08-15T19:15:48Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": false,
+        "partiallyVerified": true,
+        "displayedName": "TickLens",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "nftDescriptorLibrary",
+      "address": "0x348BBb997D7a00E3F17ae4f651Bd79F953252BA8",
+      "contractName": "NFTDescriptor",
+      "sourcePath": "contracts/libraries/NFTDescriptor.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "match",
+        "matchId": "43668625",
+        "verifiedAt": "2026-08-15T19:15:41Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": false,
+        "partiallyVerified": true,
+        "displayedName": "NFTDescriptor",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "positionDescriptorImplementation",
+      "address": "0x5E8F95427473E70B325AA3d402794DAaA7834730",
+      "contractName": "NonfungibleTokenPositionDescriptor",
+      "sourcePath": "contracts/NonfungibleTokenPositionDescriptor.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "match",
+        "matchId": "43668619",
+        "verifiedAt": "2026-08-15T19:15:31Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": false,
+        "partiallyVerified": true,
+        "displayedName": "NonfungibleTokenPositionDescriptor",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "positionDescriptorProxy",
+      "address": "0x7c3CD3330628691350f024169e62541fC207D6B8",
+      "contractName": "TransparentUpgradeableProxy",
+      "sourcePath": "contracts/proxy/TransparentUpgradeableProxy.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "exact_match",
+        "matchId": "43668616",
+        "verifiedAt": "2026-08-15T19:15:29Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": true,
+        "partiallyVerified": false,
+        "displayedName": "TransparentUpgradeableProxy",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "positionManager",
+      "address": "0xD1e800aD30B2249977921ce5aFb8d69f773590Ec",
+      "contractName": "NonfungiblePositionManager",
+      "sourcePath": "contracts/NonfungiblePositionManager.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "match",
+        "matchId": "43668622",
+        "verifiedAt": "2026-08-15T19:15:34Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": false,
+        "partiallyVerified": true,
+        "displayedName": "NonfungiblePositionManager",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "v3Migrator",
+      "address": "0x0eB648fAc3376A54cc5d0d165fc0ea03dD5cE418",
+      "contractName": "V3Migrator",
+      "sourcePath": "contracts/V3Migrator.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "match",
+        "matchId": "43668624",
+        "verifiedAt": "2026-08-15T19:15:39Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": false,
+        "partiallyVerified": true,
+        "displayedName": "V3Migrator",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "v3Staker",
+      "address": "0x99FF667E5e78463e0e2ff6Ac7581234AEdd86905",
+      "contractName": "UniswapV3Staker",
+      "sourcePath": "contracts/UniswapV3Staker.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "match",
+        "matchId": "43668620",
+        "verifiedAt": "2026-08-15T19:15:33Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": false,
+        "partiallyVerified": true,
+        "displayedName": "UniswapV3Staker",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "quoterV2",
+      "address": "0xF209bBacF31420D668d092614168318AF65A657b",
+      "contractName": "QuoterV2",
+      "sourcePath": "contracts/lens/QuoterV2.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "match",
+        "matchId": "43668621",
+        "verifiedAt": "2026-08-15T19:15:33Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": false,
+        "partiallyVerified": true,
+        "displayedName": "QuoterV2",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    },
+    {
+      "id": "swapRouter02",
+      "address": "0xF3545700dbc70B8b3962FAf08039BdA2664b71C9",
+      "contractName": "SwapRouter02",
+      "sourcePath": "contracts/SwapRouter02.sol",
+      "exactBytecodeParity": true,
+      "sourcify": {
+        "verified": true,
+        "classification": "match",
+        "matchId": "43668623",
+        "verifiedAt": "2026-08-15T19:15:37Z"
+      },
+      "blockscout": {
+        "verified": true,
+        "fullyVerified": false,
+        "partiallyVerified": true,
+        "displayedName": "SwapRouter02",
+        "sourcePathPresent": true,
+        "changedBytecode": false
+      },
+      "passed": true
+    }
+  ]
+}
