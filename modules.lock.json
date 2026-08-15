@@ -32,7 +32,7 @@
       "name": "launchpad",
       "repository": "https://github.com/ArchLiquid/archliquid-launchpad.git",
       "path": "lib/launchpad",
-      "commit": "29eb86233916b83a329f8ac019da741e68bbfcd7"
+      "commit": "061b01bac5b997a490a2e71a28c3b213c9074b9d"
     },
     {
       "name": "vesting",

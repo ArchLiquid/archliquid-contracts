@@ -16,7 +16,7 @@ configuration used by this workspace.
 | [Core](https://github.com/ArchLiquid/archliquid-core) | Treasury, stock registry, constrained stock execution, exchange interfaces, and shared math | [`b1f0bec`](https://github.com/ArchLiquid/archliquid-core/commit/b1f0bec05bdee32cdcb3dfa74310f2f5476760be) |
 | [Lockers](https://github.com/ArchLiquid/archliquid-lockers) | Canonical Uniswap V2 LP locks and dedicated Uniswap V3/V4 position locks | [`f47efd0`](https://github.com/ArchLiquid/archliquid-lockers/commit/f47efd092c263d1d185a777079413119b546b4ac) |
 | [Token](https://github.com/ArchLiquid/archliquid-token) | Fixed-supply distribution token, one-time deferred market wiring, and token factory | [`e2413e9`](https://github.com/ArchLiquid/archliquid-token/commit/e2413e9e1fdc86d93cf4544b2e7fa6adcd9976f1) |
-| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | V2/V3/V4 launches, AMM adapters, and immutable user-liquidity provisioning | [`29eb862`](https://github.com/ArchLiquid/archliquid-launchpad/commit/29eb86233916b83a329f8ac019da741e68bbfcd7) |
+| [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | V3/V4 launches, AMM adapters, and immutable V4 user-liquidity provisioning | [`061b01b`](https://github.com/ArchLiquid/archliquid-launchpad/commit/061b01bac5b997a490a2e71a28c3b213c9074b9d) |
 | [Vesting](https://github.com/ArchLiquid/archliquid-vesting) | Immutable cliff and linear-release schedules | [`88c3f26`](https://github.com/ArchLiquid/archliquid-vesting/commit/88c3f26a0a58faa40010e7b6c320322078658194) |
 | [Staking](https://github.com/ArchLiquid/archliquid-staking) | Factory-created staking pools with funded rewards | [`8933871`](https://github.com/ArchLiquid/archliquid-staking/commit/8933871b5c4b9b8bf6fa742e8d3494645b3842ab) |
 | [Lending](https://github.com/ArchLiquid/archliquid-lending) | Timestamp-native collateralized ERC-20 markets, burn-before-list activation, bounded Chainlink liquidation pricing, and flash loans | [`5e3272d`](https://github.com/ArchLiquid/archliquid-lending/commit/5e3272d0bdf0299199cf288a24dcb5d39fa9f9ab) |
@@ -302,6 +302,29 @@ stored in
 | Bonding-curve deployer | `0x4f3379B3dc9Ff5157eA610C864c7B3946f9B8B0b` |
 | Launchpad | `0x3FD6651939A2138A5ecD4E17ba741e3ee0D6dfa6` |
 | Token deployment library | `0xfFB8696913Cdc47aA16D630E91dE208485508Cb1` |
+
+[`deployments/robinhood-testnet-v4-user-liquidity.json`](deployments/robinhood-testnet-v4-user-liquidity.json)
+records the additive V4 user-liquidity release and its atomic two-position
+canary. The release is mined and canaried, but remains excluded from public
+wallet writes until its seven exact sources are permanently published and the
+manifest receives a detached release signature.
+
+| V4 user-liquidity component | Address |
+|---|---|
+| V4 liquidity adapter | `0x7694D631107fea145d872A6003f40a2021F99343` |
+| V4 user-liquidity provisioner | `0xba8cB9EE1Ea1126535C22d13805ec5cC22613775` |
+| Token factory | `0x897cd8ac993184d6dd3B549A5FbEc04f697C107c` |
+| Presale deployer | `0x873d07CD525F447BaC22607c6f535347e354f333` |
+| Bonding-curve deployer | `0x62FF5dB0062c39B6bc555CD745b1B4E1729f361F` |
+| Launchpad | `0x45f7497ff12De39924905d9820A2E1CC60707302` |
+| Token deployment library | `0xaeea5fFc86f98E9023D1e1C9a0EFFc9ce973CEC4` |
+
+The live-fork reconciliation suite is:
+
+```bash
+forge test --match-contract ArchMinedV4UserLiquidityForkTest \
+  --fork-url https://rpc.testnet.chain.robinhood.com -vv
+```
 
 ## Updating a module
 
