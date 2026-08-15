@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "release": {
+    "id": "robinhood-testnet-canonical-uniswap-v3-2026-08-15-r1",
+    "chainId": 46630,
+    "releaseApprover": "0x6a51C3672B6C4d5d556f23A18918983390a832C8",
+    "upstreamRepository": "https://github.com/Uniswap/deploy-v3",
+    "upstreamCommit": "f40845bea80c83475dd1be2e95d9c7a37dc3d42b",
+    "upstreamPackageVersion": "1.0.4",
+    "weth": "0x61293a735E35d76E8980Bf17715b37A0C4196512"
+  },
+  "contracts": {
+    "factory": "0xe138C58a8f5FB97A52bf17966Ad1c68bD4B52979",
+    "multicall2": "0x8B283aBa2BDF13d54629904FBE02A3AD36fC45AF",
+    "proxyAdmin": "0xC0a1404002c1A16D45895692597e78d8654bd36E",
+    "tickLens": "0xcF125F109c8d533D9B2cF6726620499538c07c4C",
+    "nftDescriptorLibrary": "0x348BBb997D7a00E3F17ae4f651Bd79F953252BA8",
+    "positionDescriptorImplementation": "0x5E8F95427473E70B325AA3d402794DAaA7834730",
+    "positionDescriptorProxy": "0x7c3CD3330628691350f024169e62541fC207D6B8",
+    "positionManager": "0xD1e800aD30B2249977921ce5aFb8d69f773590Ec",
+    "v3Migrator": "0x0eB648fAc3376A54cc5d0d165fc0ea03dD5cE418",
+    "v3Staker": "0x99FF667E5e78463e0e2ff6Ac7581234AEdd86905",
+    "quoterV2": "0xF209bBacF31420D668d092614168318AF65A657b",
+    "swapRouter02": "0xF3545700dbc70B8b3962FAf08039BdA2664b71C9"
+  },
+  "deploymentTransactions": {
+    "factory": "0xd31e72b2ac180f958e78401433d28650695a5f37aad7ae637158fec258c4a305",
+    "oneBasisPointFee": "0x742bac05fa6f86aab0a73b5615a60b1d7225e2618d2c55f066b65312946cbe61",
+    "multicall2": "0xfd0ce361bade5f3240814714a3f6926cab5f7442ab1e9312d47466722c4bb183",
+    "proxyAdmin": "0x1886d926c8c9b8cf7574c8ed0a527c2cf79b5549170fcdd0399b7ed22d734ae0",
+    "tickLens": "0x4bdfd2f9321b4f1ad80ef66df2b31c4404f8301f7139017cd583b152dc36d2b4",
+    "nftDescriptorLibrary": "0xec2d48b2ac6013f308ca5425dd857aa3e1daf40d35bcb53099658b56f7399aa8",
+    "positionDescriptorImplementation": "0x964ba98bf800a4573477d1db6bc64c08ba042d07f66f461419acd9e2cc5387a3",
+    "positionDescriptorProxy": "0xdbd384dbebd3256b0ffa821f98c0e77acd4d73cee15db3540b477056e4a5eab6",
+    "positionManager": "0x791125a12cad575bbd3b9153b0f8b030d3f4c8abdc7473d5fe38c3fbe5dced5d",
+    "v3Migrator": "0x72ba0457741ebdb4713953895e1e97e30c2a28d1f2d4f3130cfececc6f408e43",
+    "v3Staker": "0x518b85da11a631d4fdf3349ddbcd6554ec7342b2d3bb24a7051186fe0dd1418d",
+    "quoterV2": "0x306b0a6c657067a189d7dc4af305e842a0086fdb93e10ea958afdf5c1db2627f",
+    "swapRouter02": "0x9d8d24824ac8f7ceefc389fd9aeaa613297c6da2a99f626a9bf4689a2989d0c7"
+  },
+  "poolRelease": {
+    "blockStart": 101712067,
+    "blockEnd": 101713702,
+    "fee": 3000,
+    "stockSeed": "20000000000000000000",
+    "wethSeed": "5000000000000000",
+    "positionRecipient": "0x000000000000000000000000000000000000dEaD",
+    "wrapTransaction": "0x1fc9d227c1fdcd5b144992ff8add067b10c52f75fa1efd2ebcbb2d7edc5c8016"
+  },
+  "pools": [
+    {"symbol":"mNVDAx","token":"0x1c80aC86447c8EEa5D0D70DCa78c632b7A249bEE","pool":"0xc95c8e0E0cBD835249150F6343EA0AC0e1a560A6","positionId":"1","createTransaction":"0x80fa361065c4701030b6ce97207a83b9cf0275a47111d5357b98006bf6694223","mintTransaction":"0xfbab71a2ac71800cd33a268a0519fbe2e2f9be62f3d532ab5184741eca89c451"},
+    {"symbol":"TSLA","token":"0xC9f9c86933092BbbfFF3CCb4b105A4A94bf3Bd4E","pool":"0x832e1C94Dbe41437Fbe1FF0B209e0431202487ae","positionId":"2","createTransaction":"0x5c1b606ec53ed169b2b4d079c604ffc8e496c1a63c5d3cdd053756ace9990bcd","mintTransaction":"0xd28f2536a011a64557c317271631bc7880347d1acb424113434d4a6350c532c4"},
+    {"symbol":"AMD","token":"0x71178BAc73cBeb415514eB542a8995b82669778d","pool":"0xB9414a1F27Dfc88505B5c4736977F91Aa415a918","positionId":"3","createTransaction":"0x930ee16b93a82915bc5546497f168e3154caf770aad26fdee37bff5525e6a1f2","mintTransaction":"0x433212bcb0d2ae66ca2aedde1c6afd5b80a31a346564628ea5b15b81ca856d80"},
+    {"symbol":"AMZN","token":"0x5884aD2f920c162CFBbACc88C9C51AA75eC09E02","pool":"0x1Fab809Adf6E39A6e8fDEFfE46dbcb9200064180","positionId":"4","createTransaction":"0xadf7915f4e26be0f790aadd7750a2b281289bdc40e52524ec98cdf1d8e99a292","mintTransaction":"0x14c9ab7aebeadb68be2b90fc05dc46c717c82792f6acf4d70e867435c433579e"},
+    {"symbol":"NFLX","token":"0x3b8262A63d25f0477c4DDE23F83cfe22Cb768C93","pool":"0x1B8C7c7D52DD538fe4BE08F4EF4A88a92e917c5D","positionId":"5","createTransaction":"0xbb2ae56b4897ea79b6761818151e0ce94e766e505901c744a2427a1f8777c140","mintTransaction":"0xb513c3f6a19263b6376430fcb82f92c818943a0dedbbedfdc5a7800223c719b9"},
+    {"symbol":"PLTR","token":"0x1FBE1a0e43594b3455993B5dE5Fd0A7A266298d0","pool":"0x89D5C8fD8F70925A54a39e757217C9E320e59159","positionId":"6","createTransaction":"0xfc1125f5c217607e4727f7c1b9630e17d1cb6709882ced3be48b945897114abd","mintTransaction":"0x254311a0bd74881f783c1fe6ed9c547ff91341ccf2e7cee8aa09c219e5b68d03"}
+  ]
+}
