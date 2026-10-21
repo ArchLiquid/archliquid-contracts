@@ -23,6 +23,12 @@ jobs:
             lib/forge-std lib/openzeppelin-contracts
           git -C lib/lending submodule update --init lib/compound-protocol
 
+      - name: Test module-lock validation
+        run: node --test scripts/verify-module-lock.test.mjs
+
+      - name: Verify every pinned module and dependency
+        run: node scripts/verify-module-lock.mjs
+
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:

@@ -18,7 +18,7 @@ configuration used by this workspace.
 | [Token](https://github.com/ArchLiquid/archliquid-token) | Fixed-supply distribution token, one-time deferred market wiring, and token factory | [`e2413e9`](https://github.com/ArchLiquid/archliquid-token/commit/e2413e9e1fdc86d93cf4544b2e7fa6adcd9976f1) |
 | [Launchpad](https://github.com/ArchLiquid/archliquid-launchpad) | V3/V4 launches, AMM adapters, and immutable V4 user-liquidity provisioning | [`9941b1c`](https://github.com/ArchLiquid/archliquid-launchpad/commit/9941b1ceae0ee33700dec01fe5abc2817a772c5a) |
 | [Vesting](https://github.com/ArchLiquid/archliquid-vesting) | Immutable cliff and linear-release schedules | [`88c3f26`](https://github.com/ArchLiquid/archliquid-vesting/commit/88c3f26a0a58faa40010e7b6c320322078658194) |
-| [Staking](https://github.com/ArchLiquid/archliquid-staking) | Factory-created staking pools with funded rewards | [`8933871`](https://github.com/ArchLiquid/archliquid-staking/commit/8933871b5c4b9b8bf6fa742e8d3494645b3842ab) |
+| [Staking](https://github.com/ArchLiquid/archliquid-staking) | Factory-created staking pools with funded rewards | [`02801d5`](https://github.com/ArchLiquid/archliquid-staking/commit/02801d5d1cb76d34bd5ce1a045e9b63ea9ccb41c) |
 | [Lending](https://github.com/ArchLiquid/archliquid-lending) | Timestamp-native collateralized ERC-20 markets, burn-before-list activation, bounded Chainlink liquidation pricing, and flash loans | [`5e3272d`](https://github.com/ArchLiquid/archliquid-lending/commit/5e3272d0bdf0299199cf288a24dcb5d39fa9f9ab) |
 
 This repository contains deployment composition, cross-module tests, common
@@ -59,6 +59,7 @@ git submodule update --init \
 
 git -C lib/lending submodule update --init lib/compound-protocol
 
+node scripts/verify-module-lock.mjs
 forge build
 forge test
 forge build --sizes
@@ -66,6 +67,14 @@ forge build --sizes
 
 The composed workspace does not require each module's standalone development
 submodules, so a recursive checkout is unnecessary.
+
+The module-lock check requires Node.js and Git. It verifies all seven modules
+and all three shared dependencies against their Git index entries and initialized
+checkouts, including Compound inside Lending. CI also runs its regression tests:
+
+```bash
+node --test scripts/verify-module-lock.test.mjs
+```
 
 The default build uses Solidity 0.8.30, Cancun EVM, optimizer enabled with 200
 runs, and IR compilation. The exact settings are recorded in

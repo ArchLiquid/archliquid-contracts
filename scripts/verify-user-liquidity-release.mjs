@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { verifyModuleLock } from "./verify-module-lock.mjs";
 
 const releases = [
   {
@@ -72,17 +73,6 @@ function verifyApprovalSignature(manifest, approval) {
     ["wallet", "verify", "--address", approval.signer, message, approval.signature],
     { stdio: "pipe" },
   );
-}
-
-function verifyPinnedModules() {
-  const moduleLock = readJson("modules.lock.json");
-  for (const moduleName of ["core", "lockers", "token", "launchpad"]) {
-    const locked = moduleLock.modules.find(({ name }) => name === moduleName)?.commit;
-    const checkedOut = execFileSync("git", ["-C", `lib/${moduleName}`, "rev-parse", "HEAD"], {
-      encoding: "utf8",
-    }).trim();
-    assert(locked === checkedOut, `${moduleName} gitlink does not match modules.lock.json`);
-  }
 }
 
 function verifyRelease(release) {
@@ -161,5 +151,5 @@ function verifyRelease(release) {
   );
 }
 
-verifyPinnedModules();
+verifyModuleLock();
 for (const release of releases) verifyRelease(release);
