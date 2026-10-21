@@ -44,7 +44,7 @@
       "name": "staking",
       "repository": "https://github.com/ArchLiquid/archliquid-staking.git",
       "path": "lib/staking",
-      "commit": "8933871b5c4b9b8bf6fa742e8d3494645b3842ab"
+      "commit": "02801d5d1cb76d34bd5ce1a045e9b63ea9ccb41c"
     },
     {
       "name": "lending",
