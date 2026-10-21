@@ -270,14 +270,14 @@ contract RobinhoodMainnetForkTest is Test {
         uint256 amountOut = ISwapRouter(SWAP_ROUTER)
             .exactInputSingle(
                 ISwapRouter.ExactInputSingleParams({
-                tokenIn: WETH,
-                tokenOut: USDG,
-                fee: 100,
-                recipient: address(this),
-                amountIn: 0.001 ether,
-                amountOutMinimum: 1,
-                sqrtPriceLimitX96: 0
-            })
+                    tokenIn: WETH,
+                    tokenOut: USDG,
+                    fee: 100,
+                    recipient: address(this),
+                    amountIn: 0.001 ether,
+                    amountOutMinimum: 1,
+                    sqrtPriceLimitX96: 0
+                })
             );
 
         assertGt(amountOut, 0);
@@ -350,18 +350,18 @@ contract RobinhoodMainnetForkTest is Test {
         (uint256 tokenId, uint128 liquidity, uint256 amount0, uint256 amount1) = INonfungiblePositionManager(NFPM)
             .mint(
                 INonfungiblePositionManager.MintParams({
-                token0: token0,
-                token1: token1,
-                fee: 3000,
-                tickLower: -887220,
-                tickUpper: 887220,
-                amount0Desired: 0.01 ether,
-                amount1Desired: 0.01 ether,
-                amount0Min: 1,
-                amount1Min: 1,
-                recipient: address(this),
-                deadline: block.timestamp
-            })
+                    token0: token0,
+                    token1: token1,
+                    fee: 3000,
+                    tickLower: -887220,
+                    tickUpper: 887220,
+                    amount0Desired: 0.01 ether,
+                    amount1Desired: 0.01 ether,
+                    amount0Min: 1,
+                    amount1Min: 1,
+                    recipient: address(this),
+                    deadline: block.timestamp
+                })
             );
 
         assertGt(pool.code.length, 0);
@@ -403,13 +403,13 @@ contract RobinhoodMainnetForkTest is Test {
         (uint128 addedLiquidity, uint256 amount0, uint256 amount1) = IRobinhoodNFPMIncrease(NFPM)
             .increaseLiquidity(
                 IRobinhoodNFPMIncrease.IncreaseLiquidityParams({
-                tokenId: tokenId,
-                amount0Desired: 0.01 ether,
-                amount1Desired: 0.01 ether,
-                amount0Min: 0.0099 ether,
-                amount1Min: 0.0099 ether,
-                deadline: block.timestamp
-            })
+                    tokenId: tokenId,
+                    amount0Desired: 0.01 ether,
+                    amount1Desired: 0.01 ether,
+                    amount0Min: 0.0099 ether,
+                    amount1Min: 0.0099 ether,
+                    deadline: block.timestamp
+                })
             );
 
         (,,,,,,, uint128 finalLiquidity,,,,) = manager.positions(tokenId);
@@ -452,13 +452,13 @@ contract RobinhoodMainnetForkTest is Test {
         IRobinhoodNFPMIncrease(NFPM)
             .increaseLiquidity(
                 IRobinhoodNFPMIncrease.IncreaseLiquidityParams({
-                tokenId: tokenId,
-                amount0Desired: 0.001 ether,
-                amount1Desired: 0.001 ether,
-                amount0Min: 0.002 ether,
-                amount1Min: 0.002 ether,
-                deadline: block.timestamp
-            })
+                    tokenId: tokenId,
+                    amount0Desired: 0.001 ether,
+                    amount1Desired: 0.001 ether,
+                    amount0Min: 0.002 ether,
+                    amount1Min: 0.002 ether,
+                    deadline: block.timestamp
+                })
             );
     }
 }
